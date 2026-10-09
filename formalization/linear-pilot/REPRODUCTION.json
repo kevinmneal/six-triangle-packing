@@ -1,6 +1,81 @@
 {
   "all_features_per_pair": 6,
   "axioms": {
+    "SixTrianglePilot.Boundary.actual_boundary_contact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Boundary.contact_feature_equality": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Boundary.correct_endpoint_contact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Boundary.enlarged_interval_vertex_outside": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Boundary.facet_witness_valid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.cartesianTriangleTerminalInfeasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.certificate00": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.certificate02": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.coreTerminalInfeasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.feature0_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.feature1_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.feature2_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.fullSeparation_of_core_nonoverlap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.unitTriangleTerminalInfeasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.CoreSeparation.weak_separation_of_interior_disjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "SixTrianglePilot.Geometry.baseRows_from_hulls": [
       "Classical.choice",
       "Quot.sound",
@@ -36,6 +111,11 @@
       "Quot.sound",
       "propext"
     ],
+    "SixTrianglePilot.HalfSpace.interiors_disjoint_of_weak_separator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "SixTrianglePilot.Polygon.linear_ge_of_mem_convexHull": [
       "Classical.choice",
       "Quot.sound",
@@ -61,6 +141,61 @@
       "Quot.sound",
       "propext"
     ],
+    "SixTrianglePilot.Triangle.cartesianHomeomorph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.cartesian_interior_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.cartesian_rotate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.cartesian_rotation_determinant_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.core0_subset_rotated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.core2_subset_rotated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.interior_translated_core_subset": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.translated_core_subset_unitTriangle": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.unitTriangle_edges_squared": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.zero_mem_interior_core0": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Triangle.zero_mem_interior_core2": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "SixTrianglePilot.linear_le_boxSupport": [
       "Classical.choice",
       "Quot.sound",
@@ -74,14 +209,36 @@
   },
   "base_rows_proved": 34,
   "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+  "core_pair_certificates": 2,
   "farkas_leaves": 6,
   "feature_splits": 5,
+  "geometric_positive_witnesses": [
+    "actual_boundary_contact",
+    "correct_endpoint_contact",
+    "enlarged_interval_vertex_outside",
+    "facet_witness_valid"
+  ],
   "lean_version": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "negative_mutations": 6,
   "notes": "Timings exclude toolchain/dependency downloads. Build timing can include cached local modules. Mutation files and raw logs are kept only in the run directory.",
   "omitted_features_proved": 12,
+  "orientation_intervals": [
+    [
+      "-1/3",
+      "-31/96"
+    ],
+    [
+      "-1/3",
+      "-31/96"
+    ],
+    [
+      "-31/96",
+      "-5/16"
+    ]
+  ],
   "outer_path": "0000000001",
-  "pilot_version": "0.2.0",
+  "pilot_version": "0.3.0",
   "platform": {
     "machine": "arm64",
     "system": "Darwin"
@@ -91,84 +248,7 @@
     8,
     6
   ],
-  "preserved_linear_pilot_sha256": {
-    "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
-    "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
-    "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
-    "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3"
-  },
-  "reproduction_context": {
-    "dependencies": "Reused the existing pinned Lean and Mathlib dependency cache.",
-    "pilot_modules": "Fresh source copy, with no pre-existing compiled pilot modules."
-  },
-  "runs": [
-    {
-      "elapsed_seconds": 0.125,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "263db0e9753fac39c2c4136d741701c548d749b5243d64d16b399eb6c8944eb4",
-      "step": "extraction"
-    },
-    {
-      "elapsed_seconds": 0.056,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "f50f977d61499786f8113ba75514dd8911e2044548372c5af52451007429cec3",
-      "step": "geometry-generation"
-    },
-    {
-      "elapsed_seconds": 5.253,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
-      "step": "lean-version"
-    },
-    {
-      "elapsed_seconds": 17.459,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "498b0105e236ac0776155cdb3bfe7a90c661e4516751076de3d4c82ca94a1b09",
-      "step": "build"
-    },
-    {
-      "elapsed_seconds": 2.622,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "6ca5d3679d6a49a090ed08b5593bca40dcf0249800d72c3659eed75b7e9227da",
-      "step": "axioms"
-    },
-    {
-      "elapsed_seconds": 4.234,
-      "exit_code": 1,
-      "expected_success": false,
-      "log_sha256": "d55a9db481a74d2099d9178571fcc2afa95c43eee6459134656895353370f153",
-      "step": "negative-weight"
-    },
-    {
-      "elapsed_seconds": 4.162,
-      "exit_code": 1,
-      "expected_success": false,
-      "log_sha256": "e17cb654d4f8c336d03690360eba5991731790da0d0c213f697c2d75bf35898a",
-      "step": "missing-alternative"
-    },
-    {
-      "elapsed_seconds": 3.229,
-      "exit_code": 0,
-      "expected_success": true,
-      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "step": "equality-witness"
-    },
-    {
-      "elapsed_seconds": 5.624,
-      "exit_code": 1,
-      "expected_success": false,
-      "log_sha256": "3da01a6d1c7264fa3c923000ba38443782dddfd6514b52930c10ce318619b613",
-      "step": "invalid-omitted-feature"
-    }
-  ],
-  "scope": "Actual Mathlib convex-hull membership and all six listed weak features per pair imply contradiction for one fixed cell. Coordinate bounds, all 34 base rows, and all 12 discarded alternatives are proved. Triangle-to-domain/features, global coverage, and local rigidity are not formalized.",
-  "source_sha256": {
-    "Pilot.lean": "fac62e814f6baa61f40e2ed0e6a9dcdaa2a02b7a8c6f5a1c5de1a2e28ea8f320",
+  "preserved_prior_pilot_sha256": {
     "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
     "Pilot/Polygon.lean": "074599d6a5d3c8ebaeead05f45afd6abff55db35485f47a1884d695b83ec8e9c",
     "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
@@ -176,11 +256,138 @@
     "data/polygon-bridge.json": "027ec4b4bde90400e6fd44475b7cf883aa7b587f6f9623e21ed8500a188dabcb",
     "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
     "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3",
+    "generate_geometry.py": "05bce0eff58c6a0cbe744de6ad506fa7eec8d0a30c86e315ffa9b8da524617b2"
+  },
+  "reproduction_context": {
+    "dependencies": "Reused the existing pinned Lean and Mathlib dependency cache.",
+    "pilot_modules": "Fresh source copy, with no pre-existing compiled pilot modules."
+  },
+  "runs": [
+    {
+      "elapsed_seconds": 0.121,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "263db0e9753fac39c2c4136d741701c548d749b5243d64d16b399eb6c8944eb4",
+      "step": "extraction"
+    },
+    {
+      "elapsed_seconds": 0.05,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "f50f977d61499786f8113ba75514dd8911e2044548372c5af52451007429cec3",
+      "step": "geometry-generation"
+    },
+    {
+      "elapsed_seconds": 0.045,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "c415aa9b590b3ac09ac699257a972c6f6398f601cca03d8463f4529e086af85a",
+      "step": "core-generation"
+    },
+    {
+      "elapsed_seconds": 0.04,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "3f0e9bcbce0af0927f797fb06f1de69462736ca15b12c012825e45b8cda00e4e",
+      "step": "facet-generation"
+    },
+    {
+      "elapsed_seconds": 2.147,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
+      "step": "lean-version"
+    },
+    {
+      "elapsed_seconds": 32.405,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "f29d9f6511b9890998724872685a299b031eece2751432a415222db09405d8b1",
+      "step": "build"
+    },
+    {
+      "elapsed_seconds": 2.879,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "bfb7ca3a57a32ab4a10ff47e7bde175cc704f4e53d64aafe5d763251076f22fa",
+      "step": "axioms"
+    },
+    {
+      "elapsed_seconds": 3.954,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "534ecacb3aef76c4565cff80164658641418c3f259b6a8b103163cc69c20f646",
+      "step": "negative-weight"
+    },
+    {
+      "elapsed_seconds": 4.054,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "d0f1f156d59a7d4d69c083ba8fcd0b32a5a7ffed0533a1d66304d40d1b67ad01",
+      "step": "missing-alternative"
+    },
+    {
+      "elapsed_seconds": 2.322,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "equality-witness"
+    },
+    {
+      "elapsed_seconds": 5.189,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "ea0b2bcb888f0f3081a78f2f639677717c7ccf8de6002eafa6619aaad5868001",
+      "step": "invalid-omitted-feature"
+    },
+    {
+      "elapsed_seconds": 3.843,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "eef8fc50b989b4ae562646eabb5291ca5980e61ec581147f0b83d39f36f7e8ab",
+      "step": "enlarged-interval"
+    },
+    {
+      "elapsed_seconds": 2.678,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "30be1d7a89b42293efd24864a667f4449a324dfe42752b72a817d0f538fe04cd",
+      "step": "strict-contact"
+    },
+    {
+      "elapsed_seconds": 11.602,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "2953f7c3ded3ca7808557aec92669879f25b62af0fe159d35b8818bef2e1fb14",
+      "step": "invalid-facet"
+    }
+  ],
+  "scope": "Three actual unit equilateral triangles with pairwise disjoint Cartesian interiors cannot have centers in the three recorded Mathlib hulls and independent orientation parameters in the recorded closed intervals. Core containment, three six-feature disjunctions, all 34 base rows and all 12 discarded alternatives are proved. Domain contractor preservation, global coverage, corner replacement, local rigidity and the final optimum remain unformalized.",
+  "source_sha256": {
+    "Pilot.lean": "11c567ac0bcfa68f42605a76892a1b930a335edbd5d93971a3bda7f030cc67c9",
+    "Pilot/Boundary.lean": "c887ca9f3fac49d56ab8e0c2d66025c9a5c67c9848064c029480ffaa496d4e9e",
+    "Pilot/CoreData.lean": "2b4d8826bd29762abf063cb59b9684a1655f54bfccb72a3706ef75a13eae7215",
+    "Pilot/CoreFacets.lean": "42d160a7e752dff8aebdcd36004811d3c83a0639ed5740e6362d2c24dfe97f60",
+    "Pilot/CoreSeparation.lean": "15c8df853f8edb531dae4068d3b877c8cbe6cb2ebae7a1d3147d37a8713ee55a",
+    "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
+    "Pilot/HalfSpace.lean": "38c148da8fa3ebca6bbd72b3504047ed52eca43aa19157c29944097199ba079e",
+    "Pilot/Polygon.lean": "074599d6a5d3c8ebaeead05f45afd6abff55db35485f47a1884d695b83ec8e9c",
+    "Pilot/Radial.lean": "f3503e08d126bb7a0ccee523fed85db86f5ac4e43c1d024aa1000a2635bb4e94",
+    "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
+    "Pilot/SelectedGeometry.lean": "9fbf197ee0d9882dbddcb0b91c89e81aed87ff9a4718749d6aa4fc19c8070947",
+    "Pilot/Triangle.lean": "21636b43f8bb260b36b0f6cd84b12e49f9b92393d2625606a70a75fc89255443",
+    "data/core-facets.json": "ebe42d0cbc75c36c173121c67642a33e9904a81df9425a12b06057a97685b578",
+    "data/core-geometry.json": "bb2a4200c820155f4ace6d5da76ba620e89cbe15dce7c5181551709b77665cf8",
+    "data/polygon-bridge.json": "027ec4b4bde90400e6fd44475b7cf883aa7b587f6f9623e21ed8500a188dabcb",
+    "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
+    "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3",
+    "generate_core_data.py": "6de3afc460dca1fdad8b29862a9a87b7e80e6e259f89017c435fedc4a8603270",
+    "generate_core_facets.py": "10c60559cce32608425b22f308bd9bde9c418645417a94c2eb061f9efad4bd26",
     "generate_geometry.py": "05bce0eff58c6a0cbe744de6ad506fa7eec8d0a30c86e315ffa9b8da524617b2",
     "lake-manifest.json": "5c0e2d275028937c5f1c4d2d92c98eb77ce226366f979b352206955b9acfe0ff",
-    "lakefile.toml": "3985a7eedcb14bab883174b8ee5bfe22d1ae116da17c3f184a51e210349b9cdd",
+    "lakefile.toml": "c2cbd84a1f24f2e6d71717c4f1eb4e470f63ff5f144615182bacdcfcb91aa649",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
-    "verify.py": "f59d46cf087e830c4dccaeb12b9c5a068571b966bada2076aea79c8424e219ad"
+    "verify.py": "0ab718ebcb7ae1c6a3a1a9c23c2719336fc874889b62fddbca5db60af8f0354a"
   },
-  "status": "POLYGON_TO_LINEAR_BRIDGE_VERIFIED"
+  "status": "SELECTED_TRIANGLE_EXCLUSION_VERIFIED"
 }

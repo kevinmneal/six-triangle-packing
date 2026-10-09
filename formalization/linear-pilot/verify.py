@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce the polygon bridge, linear pilot, and three failure mutations."""
+"""Reproduce the selected triangle exclusion and six meaningful failure mutations."""
 from __future__ import annotations
 
 import argparse
@@ -32,13 +32,44 @@ KEY_THEOREMS = (
     "SixTrianglePilot.Geometry.retained_1_of_full",
     "SixTrianglePilot.Geometry.retained_2_of_full",
     "SixTrianglePilot.Geometry.polygonTerminalInfeasible",
+    "SixTrianglePilot.Triangle.zero_mem_interior_core0",
+    "SixTrianglePilot.Triangle.zero_mem_interior_core2",
+    "SixTrianglePilot.Triangle.core0_subset_rotated",
+    "SixTrianglePilot.Triangle.core2_subset_rotated",
+    "SixTrianglePilot.Triangle.translated_core_subset_unitTriangle",
+    "SixTrianglePilot.Triangle.interior_translated_core_subset",
+    "SixTrianglePilot.Triangle.unitTriangle_edges_squared",
+    "SixTrianglePilot.Triangle.cartesianHomeomorph",
+    "SixTrianglePilot.Triangle.cartesian_interior_image",
+    "SixTrianglePilot.Triangle.cartesian_rotate",
+    "SixTrianglePilot.Triangle.cartesian_rotation_determinant_pos",
+    "SixTrianglePilot.CoreSeparation.weak_separation_of_interior_disjoint",
+    "SixTrianglePilot.CoreSeparation.certificate00",
+    "SixTrianglePilot.CoreSeparation.certificate02",
+    "SixTrianglePilot.CoreSeparation.feature0_iff",
+    "SixTrianglePilot.CoreSeparation.feature1_iff",
+    "SixTrianglePilot.CoreSeparation.feature2_iff",
+    "SixTrianglePilot.CoreSeparation.fullSeparation_of_core_nonoverlap",
+    "SixTrianglePilot.CoreSeparation.coreTerminalInfeasible",
+    "SixTrianglePilot.CoreSeparation.unitTriangleTerminalInfeasible",
+    "SixTrianglePilot.CoreSeparation.cartesianTriangleTerminalInfeasible",
+    "SixTrianglePilot.HalfSpace.interiors_disjoint_of_weak_separator",
+    "SixTrianglePilot.Boundary.actual_boundary_contact",
+    "SixTrianglePilot.Boundary.contact_feature_equality",
+    "SixTrianglePilot.Boundary.correct_endpoint_contact",
+    "SixTrianglePilot.Boundary.enlarged_interval_vertex_outside",
+    "SixTrianglePilot.Boundary.facet_witness_valid",
 )
 STANDARD_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
-PRESERVED_LINEAR_SOURCES = {
+PRESERVED_PRIOR_SOURCES = {
     "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
     "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
     "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3",
     "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
+    "Pilot/Polygon.lean": "074599d6a5d3c8ebaeead05f45afd6abff55db35485f47a1884d695b83ec8e9c",
+    "Pilot/SelectedGeometry.lean": "9fbf197ee0d9882dbddcb0b91c89e81aed87ff9a4718749d6aa4fc19c8070947",
+    "generate_geometry.py": "05bce0eff58c6a0cbe744de6ad506fa7eec8d0a30c86e315ffa9b8da524617b2",
+    "data/polygon-bridge.json": "027ec4b4bde90400e6fd44475b7cf883aa7b587f6f9623e21ed8500a188dabcb",
 }
 
 
@@ -75,14 +106,16 @@ def main():
                      "expected_success": expected_success, "log_sha256": digest(log)})
         require((result.returncode == 0) == expected_success,
                 f"Unexpected result for {label}; inspect {log}")
+        require(not re.search(r"PANIC|internal (?:exception|error)", result.stdout, re.I),
+                f"Internal failure in step {label}; inspect {log}")
         if expected_success:
-            require(not re.search(r"PANIC|internal (?:exception|error)|sorryAx", result.stdout, re.I),
-                    f"Internal failure or incomplete proof in positive step {label}; inspect {log}")
+            require("sorryAx" not in result.stdout,
+                    f"Incomplete proof in positive step {label}; inspect {log}")
         print(json.dumps(runs[-1]), flush=True)
         return result.stdout
 
-    for name, expected in PRESERVED_LINEAR_SOURCES.items():
-        require(digest(ROOT / name) == expected, f"original linear-pilot source changed: {name}")
+    for name, expected in PRESERVED_PRIOR_SOURCES.items():
+        require(digest(ROOT / name) == expected, f"preserved prior pilot source changed: {name}")
     sources = [ROOT / "Pilot.lean", *sorted((ROOT / "Pilot").glob("*.lean"))]
     for source in sources:
         text = source.read_text()
@@ -91,6 +124,9 @@ def main():
     run("extraction", [sys.executable, "-B", "-S", "-O", str(ROOT / "extract.py"),
                        "--public-root", str(args.public_root.resolve()), "--check"])
     run("geometry-generation", [sys.executable, "-B", "-S", "-O", str(ROOT / "generate_geometry.py"), "--check"])
+    run("core-generation", [sys.executable, "-B", "-S", "-O", str(ROOT / "generate_core_data.py"),
+                            "--public-root", str(args.public_root.resolve()), "--check"])
+    run("facet-generation", [sys.executable, "-B", "-S", "-O", str(ROOT / "generate_core_facets.py"), "--check"])
     version = run("lean-version", ["lake", "env", "lean", "--version"]).strip()
     require(re.search(r"\bversion 4\.34\.1(?:[, )]|$)", version), "unexpected Lean version")
     run("build", ["lake", "build", "Pilot"])
@@ -146,23 +182,66 @@ def main():
     rejected = run("invalid-omitted-feature", ["lake", "env", "lean", str(invalid_feature)], expected_success=False)
     require("unsolved goals" in rejected, "omitted-feature mutation failed for an unexpected reason")
 
+    # Positive geometric witnesses are built and axiom-audited in Pilot.Boundary:
+    # legal closed core contact, the valid interval endpoint, a vertex outside the
+    # enlarged interval, and the facet endpoint where the correct parameter is 1.
+    triangle = (ROOT / "Pilot/Triangle.lean").read_text()
+    before, sep, rest = triangle.partition("theorem core0_vertices_mem")
+    require(sep and rest.count("theorem core2_vertices_mem") == 1, "interval mutation anchor mismatch")
+    selected_proof = rest.split("theorem core2_vertices_mem")[0]
+    require(selected_proof.count("31 / 96") == 2, "interval endpoint anchor mismatch")
+    interval_mutant = before + sep + selected_proof.replace("31 / 96", "5 / 16")
+    interval_mutant += "\nend\nend SixTrianglePilot.Triangle\n"
+    interval_file = output / "enlarged_interval.lean"
+    interval_file.write_text(interval_mutant)
+    rejected = run("enlarged-interval", ["lake", "env", "lean", str(interval_file)], expected_success=False)
+    require("unsolved goals" in rejected, "interval mutation failed for an unexpected reason")
+
+    strict_file = output / "strict_contact.lean"
+    strict_file.write_text("\n".join([
+        "import Pilot.Boundary",
+        "open SixTrianglePilot SixTrianglePilot.Polygon SixTrianglePilot.Boundary",
+        "example : Geometry.omitted_0_0.b <",
+        "    linear Geometry.omitted_0_0.a (join3 0 contactShift 0) := by",
+        "  have h := contact_feature_equality",
+        "  linarith", "",
+    ]))
+    rejected = run("strict-contact", ["lake", "env", "lean", str(strict_file)], expected_success=False)
+    require("linarith failed" in rejected, "strict-contact mutation failed for an unexpected reason")
+
+    facets = (ROOT / "Pilot/CoreFacets.lean").read_text()
+    parameter = "let t : ℝ := (-22370987 / 22024213 : ℝ) * d 1 + (5376 / 5461 : ℝ)"
+    require(facets.count(parameter) == 1, "facet mutation anchor mismatch")
+    facet_file = output / "invalid_facet.lean"
+    facet_file.write_text(facets.replace(parameter, parameter + " + 1"))
+    rejected = run("invalid-facet", ["lake", "env", "lean", str(facet_file)], expected_success=False)
+    require("linarith failed" in rejected, "facet mutation failed for an unexpected reason")
+
     tracked = ["Pilot.lean", "Pilot/Farkas.lean", "Pilot/Selected.lean", "Pilot/Polygon.lean",
                "Pilot/SelectedGeometry.lean", "extract.py", "generate_geometry.py", "verify.py",
                "data/selected-terminal.json", "data/polygon-bridge.json",
                "lean-toolchain", "lakefile.toml", "lake-manifest.json"]
+    tracked += ["Pilot/CoreData.lean", "Pilot/Triangle.lean", "Pilot/Radial.lean",
+                "Pilot/CoreFacets.lean", "Pilot/CoreSeparation.lean", "Pilot/HalfSpace.lean",
+                "Pilot/Boundary.lean", "generate_core_data.py", "generate_core_facets.py",
+                "data/core-geometry.json", "data/core-facets.json"]
     report = {
-        "status": "POLYGON_TO_LINEAR_BRIDGE_VERIFIED",
-        "pilot_version": "0.2.0",
-        "scope": "Actual Mathlib convex-hull membership and all six listed weak features per pair imply contradiction for one fixed cell. Coordinate bounds, all 34 base rows, and all 12 discarded alternatives are proved. Triangle-to-domain/features, global coverage, and local rigidity are not formalized.",
+        "status": "SELECTED_TRIANGLE_EXCLUSION_VERIFIED",
+        "pilot_version": "0.3.0",
+        "scope": "Three actual unit equilateral triangles with pairwise disjoint Cartesian interiors cannot have centers in the three recorded Mathlib hulls and independent orientation parameters in the recorded closed intervals. Core containment, three six-feature disjunctions, all 34 base rows and all 12 discarded alternatives are proved. Domain contractor preservation, global coverage, corner replacement, local rigidity and the final optimum remain unformalized.",
         "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
         "outer_path": "0000000001", "feature_splits": 5, "farkas_leaves": 6,
         "polygon_vertex_counts": [8, 8, 6], "base_rows_proved": 34, "omitted_features_proved": 12,
         "all_features_per_pair": 6,
+        "orientation_intervals": [["-1/3", "-31/96"], ["-1/3", "-31/96"], ["-31/96", "-5/16"]],
+        "core_pair_certificates": 2, "negative_mutations": 6,
+        "geometric_positive_witnesses": ["actual_boundary_contact", "correct_endpoint_contact",
+                                          "enlarged_interval_vertex_outside", "facet_witness_valid"],
         "lean_version": version, "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
         "platform": {"system": platform.system(), "machine": platform.machine()},
         "axioms": axioms, "runs": runs,
         "source_sha256": {name: digest(ROOT / name) for name in tracked},
-        "preserved_linear_pilot_sha256": PRESERVED_LINEAR_SOURCES,
+        "preserved_prior_pilot_sha256": PRESERVED_PRIOR_SOURCES,
         "notes": "Timings exclude toolchain/dependency downloads. Build timing can include cached local modules. Mutation files and raw logs are kept only in the run directory.",
     }
     (output / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")

@@ -1,27 +1,35 @@
 # Lean formalization status
 
-The complete packing theorem is **not formalized in Lean**. The v1.0.0 preprint presents an exact computer-assisted proof with explicit analytic arguments and separately implemented exact consumers. An optional, bounded Lean pilot has since been added without changing that manuscript, its certificate, or either exact checking route.
+The complete packing theorem is **not formalized in Lean**. The v1.0.0 preprint presents an exact computer-assisted proof with analytic arguments and separately implemented exact consumers. The optional Lean development now proves a geometric exclusion for one selected certificate domain. It does not change the manuscript, certificate, or either exact Python checking route.
 
-## Completed pilot
+## Completed development
 
-The source and reproduction instructions are in [`formalization/linear-pilot/`](../formalization/linear-pilot/). The original linear theorem checks a general residual-aware Farkas argument over arbitrary real vectors, then all five feature splits and six rational contradictions in one selected terminal of the frozen certificate. That theorem assumes an explicit coordinate box, 34 base inequalities, and three retained linear disjunctions. Its source and input data are preserved unchanged.
+Source and reproduction instructions are in [`formalization/linear-pilot/`](../formalization/linear-pilot/).
 
-Pilot v0.2 adds a stronger theorem. Its inputs are three points in the actual Mathlib convex hulls of the recorded 8, 8, and 6 vertices, together with the full six-feature weak separation disjunction for each pair. Lean derives the coordinate bounds and all 34 base inequalities, proves that all 12 omitted alternatives are impossible, and applies the original six-leaf theorem. The bounds and filtering decisions are now conclusions rather than assumptions. Generic lemmas lift linear bounds from every vertex to every point in each hull, including boundary points.
+| Version | Starting hypotheses | Conclusions proved in Lean |
+|---|---|---|
+| v0.1 | A coordinate box, 34 linear inequalities, and retained feature disjunctions | General residual-aware Farkas contradiction; all five splits and six leaves of one terminal |
+| v0.2 | Three points in the recorded Mathlib hulls and full six-feature disjunctions | Coordinate box, 34 rows, 12 discarded alternatives, and the preserved terminal contradiction |
+| v0.3 | Three actual unit triangles with disjoint Cartesian interiors, centers in those hulls, and independent parameters in the selected closed intervals | Contained cores, all three six-feature disjunctions, and the entire previous proof chain |
 
-This proves exclusion of one explicit polygon-and-feature model. The implication from actual triangle packability to these polygons and six-feature disjunctions remains unformalized. That includes the validity of the contracted domains, containment of the oriented cores, and completeness of the separating features. The other outer domains, local rigidity, corner replacement, symmetry normalization, and final composition also remain outside the pilot. Python generates candidate constants and proof scripts; Lean proves their explicit inequalities without accepting a Python result as an axiom.
+The strongest theorem is `SixTrianglePilot.CoreSeparation.cartesianTriangleTerminalInfeasible`. Its remaining geometric hypotheses are center membership in the three explicit hulls and parameters `t0,t1` in `[-1/3,-31/96]`, `t2` in `[-31/96,-5/16]`. The triangles are actual closed convex hulls; the proof uses ordinary planar interiors, not a definition of nonoverlap in terms of the desired inequalities. Lean proves the Cartesian coordinate homeomorphism, unit squared edge lengths, and orientation-preserving rotation identities. Legal boundary contact remains allowed.
 
-The project pins Lean 4.34.1 and the same Mathlib revision as v0.1. Its audited theorem dependencies contain only `propext`, `Classical.choice`, and `Quot.sound`. Reproduction requires exact regeneration, compilation, an axiom audit, and rejection of three deliberately invalid variants: a negative weight, a missing alternative, and a false omitted-feature exclusion. The last mutation admits an explicit equality witness, testing a false exclusion at the boundary of a weak linear inequality. See the pilot's `REPRODUCTION.json` for the recorded run and hashes. The public Python-only replay remains available without installing Lean.
+The core-containment proof covers every real parameter in each interval. A generic radial argument derives weak separation from interior disjointness; exact certificates prove its required geometric premises for the two distinct fixed core pairs. All 18 feature identities connect those inequalities to the original linear rows. Thus the full feature disjunctions are now conclusions, not hypotheses.
+
+This still does not prove that the certificate's domain contraction preserves every eligible container packing. Membership in the recorded hulls is an explicit input. Global chart coverage, the remaining outer tree, corner replacement, local rigidity, and the final optimum remain unformalized. The exact generator outputs concern fixed constants; no general correctness theorem for the generators or full consumer is claimed.
+
+The pinned Lean 4.34.1 development has 41 audited declarations whose dependencies are exactly `propext`, `Classical.choice`, and `Quot.sound`. It uses no incomplete proofs, custom mathematical axioms, or native-computation acceptance shortcuts. Reproduction checks four deterministic generators, compilation, positive boundary/counterexample witnesses, and rejection of six invalid variants. See `REPRODUCTION.json` in the pilot for the actual run and source hashes. The Python-only replay remains available without Lean.
 
 ## Remaining work
 
-A Lean development would need to connect a formally stated geometric packing problem to sound finite checking. Merely translating the JSON checker or proving the displayed algebraic identity would not formalize the entire theorem.
+The next useful step is a sound connection from a container configuration to the recorded center domains. Extending the current fixed-data bridge alone does not establish that connection.
 
-1. Define closed unit equilateral triangles, disjoint open interiors, containment, and independent rotations. Formalize the corner-capacity theorem, simultaneous replacement, and the unchanged-survivor reduction.
-2. Formalize the half-angle chart and the closed, target-side dihedral normalization, including chart seams, equal angles, and boundary contact.
-3. Prove soundness of rational/radical arithmetic, polygon clipping and hulls, contained cores, all weak separating alternatives, preserving projection, and outward rounding.
-4. Define the finite cover and nested linear certificates. Prove their acceptance implies exclusion or capture, including nonzero residual bounds and empty exhaustive disjunctions.
-5. Formalize the local derivative bounds, Taylor estimate, signed dual contraction, and corresponding-anchor capture. Compose them with the inverse target-side wall contradiction and exact upper witness.
+1. State the full six-triangle packing predicate and prove the corner-capacity theorem, simultaneous replacement, and unchanged-survivor reduction. The pilot already defines genuine closed unit triangles and physical interior disjointness for its local chart.
+2. Prove complete coverage and target-side dihedral normalization for the orientation chart, including seams, equal angles, and boundary contact. The current rotation identities do not establish global chart coverage.
+3. Prove preservation by the general domain operations: container halfplanes, rational/radical arithmetic, clipping, hulls, preserving projection, and outward rounding. Generalize the fixed core and facet checks where necessary.
+4. Prove that the finite cover and nested certificates exclude or capture every configuration. Extend beyond the one selected terminal, including empty exhaustive disjunctions and capture validity. The generic residual-aware Farkas theorem is already available.
+5. Prove the local derivative bounds, Taylor estimate, signed dual contraction, and corresponding-anchor capture. Compose these with the inverse target-side wall contradiction and exact upper witness.
 
-The existing 305,914-byte certificate is a candidate input to verified checking. The small pilot does not establish the performance or feasibility of checking the entire packet in Lean. Kernel reduction and accelerated native evaluation have different execution assumptions. Any formal release should list its actual axioms, unresolved admissions, and native-computation boundary rather than merely report a successful build.
+The existing 305,914-byte certificate is candidate input to verified checking. This development does not establish the performance or feasibility of checking the whole packet in Lean. Any formal release should list its actual axiom dependencies, unresolved obligations, and native-computation boundary.
 
 As an adjacent reference, [11SquaresFormalized at revision cdc746ed](https://github.com/Queuingtheorydotcom/11SquaresFormalized/tree/cdc746ed907d258057c283aeb6d077cb2c27e349) reports complete Lean verification using its kernel and native compiler for selected numerical certificates. That reported result was not independently replayed here, and it does not formalize this triangle theorem.

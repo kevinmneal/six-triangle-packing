@@ -1,0 +1,261 @@
+{
+  "format": "six-triangle-radial-certificates-v1",
+  "selected_terminal_sha256": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
+  "core_geometry_sha256": "bb2a4200c820155f4ace6d5da76ba620e89cbe15dce7c5181551709b77665cf8",
+  "pairs": [
+    {
+      "name": "00",
+      "core_indices": [
+        0,
+        0
+      ],
+      "normals": [
+        [
+          "-5461",
+          "-85"
+        ],
+        [
+          "-5376",
+          "-5461"
+        ],
+        [
+          "85",
+          "-5376"
+        ],
+        [
+          "5461",
+          "85"
+        ],
+        [
+          "5376",
+          "5461"
+        ],
+        [
+          "-85",
+          "5376"
+        ]
+      ],
+      "thresholds": [
+        "118431307513/22370987",
+        "118431307513/22370987",
+        "118431307513/22370987",
+        "118431307513/22370987",
+        "118431307513/22370987",
+        "118431307513/22370987"
+      ],
+      "edges": [
+        {
+          "facet": 0,
+          "start_indices": [
+            0,
+            1
+          ],
+          "end_indices": [
+            0,
+            2
+          ],
+          "axis": 1,
+          "lambda_coefficient": "-22370987/22024213",
+          "lambda_constant": "5376/5461"
+        },
+        {
+          "facet": 1,
+          "start_indices": [
+            0,
+            2
+          ],
+          "end_indices": [
+            1,
+            2
+          ],
+          "axis": 0,
+          "lambda_coefficient": "22370987/22024213",
+          "lambda_constant": "5376/5461"
+        },
+        {
+          "facet": 2,
+          "start_indices": [
+            1,
+            2
+          ],
+          "end_indices": [
+            1,
+            0
+          ],
+          "axis": 0,
+          "lambda_coefficient": "22370987/21681408",
+          "lambda_constant": "-85/5376"
+        },
+        {
+          "facet": 3,
+          "start_indices": [
+            1,
+            0
+          ],
+          "end_indices": [
+            2,
+            0
+          ],
+          "axis": 1,
+          "lambda_coefficient": "22370987/22024213",
+          "lambda_constant": "5376/5461"
+        },
+        {
+          "facet": 4,
+          "start_indices": [
+            2,
+            0
+          ],
+          "end_indices": [
+            2,
+            1
+          ],
+          "axis": 0,
+          "lambda_coefficient": "-22370987/22024213",
+          "lambda_constant": "5376/5461"
+        },
+        {
+          "facet": 5,
+          "start_indices": [
+            2,
+            1
+          ],
+          "end_indices": [
+            0,
+            1
+          ],
+          "axis": 0,
+          "lambda_coefficient": "-22370987/21681408",
+          "lambda_constant": "-85/5376"
+        }
+      ]
+    },
+    {
+      "name": "02",
+      "core_indices": [
+        0,
+        2
+      ],
+      "normals": [
+        [
+          "-16375",
+          "-759"
+        ],
+        [
+          "-5376",
+          "-5461"
+        ],
+        [
+          "759",
+          "-15616"
+        ],
+        [
+          "5461",
+          "85"
+        ],
+        [
+          "15616",
+          "16375"
+        ],
+        [
+          "-85",
+          "5376"
+        ]
+      ],
+      "thresholds": [
+        "5693194520148370555/364158349147011",
+        "1926902298118681345/364158349147011",
+        "5693194520148370555/364158349147011",
+        "1926902298118681345/364158349147011",
+        "5693194520148370555/364158349147011",
+        "1926902298118681345/364158349147011"
+      ],
+      "edges": [
+        {
+          "facet": 0,
+          "start_indices": [
+            0,
+            1
+          ],
+          "end_indices": [
+            0,
+            2
+          ],
+          "axis": 1,
+          "lambda_coefficient": "-5426051/5420125",
+          "lambda_constant": "70534239856096/72752127548025"
+        },
+        {
+          "facet": 1,
+          "start_indices": [
+            0,
+            2
+          ],
+          "end_indices": [
+            1,
+            2
+          ],
+          "axis": 0,
+          "lambda_coefficient": "22370987/22024213",
+          "lambda_constant": "347161993060000/358513508918589"
+        },
+        {
+          "facet": 2,
+          "start_indices": [
+            1,
+            2
+          ],
+          "end_indices": [
+            1,
+            0
+          ],
+          "axis": 0,
+          "lambda_coefficient": "5426051/5168896",
+          "lambda_constant": "-11351515858589/346899915661056"
+        },
+        {
+          "facet": 3,
+          "start_indices": [
+            1,
+            0
+          ],
+          "end_indices": [
+            2,
+            0
+          ],
+          "axis": 1,
+          "lambda_coefficient": "22370987/22024213",
+          "lambda_constant": "347161993060000/358513508918589"
+        },
+        {
+          "facet": 4,
+          "start_indices": [
+            2,
+            0
+          ],
+          "end_indices": [
+            2,
+            1
+          ],
+          "axis": 0,
+          "lambda_coefficient": "-5426051/5420125",
+          "lambda_constant": "70534239856096/72752127548025"
+        },
+        {
+          "facet": 5,
+          "start_indices": [
+            2,
+            1
+          ],
+          "end_indices": [
+            0,
+            1
+          ],
+          "axis": 0,
+          "lambda_coefficient": "-22370987/21681408",
+          "lambda_constant": "-1584205494235/50419039525632"
+        }
+      ]
+    }
+  ]
+}

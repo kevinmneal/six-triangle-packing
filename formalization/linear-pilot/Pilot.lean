@@ -1,4 +1,5 @@
-import Pilot.SelectedGeometry
+import Pilot.CoreSeparation
+import Pilot.Boundary
 
 -- These reports expose every axiom used by the key compiled theorems.
 #print axioms SixTrianglePilot.linear_le_boxSupport
@@ -15,3 +16,30 @@ import Pilot.SelectedGeometry
 #print axioms SixTrianglePilot.Geometry.retained_1_of_full
 #print axioms SixTrianglePilot.Geometry.retained_2_of_full
 #print axioms SixTrianglePilot.Geometry.polygonTerminalInfeasible
+#print axioms SixTrianglePilot.Triangle.zero_mem_interior_core0
+#print axioms SixTrianglePilot.Triangle.zero_mem_interior_core2
+#print axioms SixTrianglePilot.Triangle.core0_subset_rotated
+#print axioms SixTrianglePilot.Triangle.core2_subset_rotated
+#print axioms SixTrianglePilot.Triangle.translated_core_subset_unitTriangle
+#print axioms SixTrianglePilot.Triangle.interior_translated_core_subset
+#print axioms SixTrianglePilot.Triangle.unitTriangle_edges_squared
+#print axioms SixTrianglePilot.Triangle.cartesianHomeomorph
+#print axioms SixTrianglePilot.Triangle.cartesian_interior_image
+#print axioms SixTrianglePilot.Triangle.cartesian_rotate
+#print axioms SixTrianglePilot.Triangle.cartesian_rotation_determinant_pos
+#print axioms SixTrianglePilot.CoreSeparation.weak_separation_of_interior_disjoint
+#print axioms SixTrianglePilot.CoreSeparation.certificate00
+#print axioms SixTrianglePilot.CoreSeparation.certificate02
+#print axioms SixTrianglePilot.CoreSeparation.feature0_iff
+#print axioms SixTrianglePilot.CoreSeparation.feature1_iff
+#print axioms SixTrianglePilot.CoreSeparation.feature2_iff
+#print axioms SixTrianglePilot.CoreSeparation.fullSeparation_of_core_nonoverlap
+#print axioms SixTrianglePilot.CoreSeparation.coreTerminalInfeasible
+#print axioms SixTrianglePilot.CoreSeparation.unitTriangleTerminalInfeasible
+#print axioms SixTrianglePilot.CoreSeparation.cartesianTriangleTerminalInfeasible
+#print axioms SixTrianglePilot.HalfSpace.interiors_disjoint_of_weak_separator
+#print axioms SixTrianglePilot.Boundary.actual_boundary_contact
+#print axioms SixTrianglePilot.Boundary.contact_feature_equality
+#print axioms SixTrianglePilot.Boundary.correct_endpoint_contact
+#print axioms SixTrianglePilot.Boundary.enlarged_interval_vertex_outside
+#print axioms SixTrianglePilot.Boundary.facet_witness_valid
