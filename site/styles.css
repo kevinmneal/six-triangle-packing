@@ -87,6 +87,8 @@ h1 em { color: var(--cyan); font-weight: 400; }
 .slider-label output { font: 11px var(--mono); }
 input[type="range"] { width: 100%; accent-color: var(--gold); height: 27px; margin: 12px 0 7px; cursor: ew-resize; }
 #rattler-help { color: var(--muted); font-size: 11px; line-height: 1.7; margin: 0; }
+.motion-button { border: 1px solid var(--line); background: transparent; color: var(--paper); font-size: 12px; padding: 7px 13px; min-height: 36px; margin: 0 0 12px; }
+.motion-button:hover, .motion-button[aria-pressed="true"] { border-color: var(--gold); background: var(--surface); }
 .inset-wrap { min-width: 0; }
 #rattler-inset { width: 100%; display: block; background: var(--surface); }
 .inset-wall { stroke: var(--muted); stroke-width: 1; }
@@ -102,6 +104,11 @@ h3 { color: var(--paper); font-size: 20px; font-weight: 500; line-height: 1.4; l
 .body-copy p { margin-bottom: 20px; }
 .body-copy p:last-child { margin-bottom: 0; }
 .body-copy a { text-decoration-color: var(--cyan); }
+.bound-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0; border-block: 1px solid var(--line); padding-block: 22px; }
+.bound-comparison dt { font: 10px/1.7 var(--mono); color: var(--muted); }
+.bound-comparison dd { margin: 9px 0 0; font-size: 13px; }
+.bound-comparison dd span { display: block; }
+.bound-comparison .bound-formula { font: 28px/1.4 Georgia, "Times New Roman", serif; color: var(--paper); margin-bottom: 8px; }
 .proof-section { scroll-margin-top: 35px; }
 .proof-section > h2 { margin-bottom: 48px; }
 .proof-step { display: grid; grid-template-columns: 40px 1fr 1.42fr; gap: 24px; padding: 28px 0 33px; border-top: 1px solid var(--line); }
@@ -220,6 +227,7 @@ footer a { text-decoration: none; }
   .mode-controls button { font-size: 10px; }
   .rattler-controls { grid-template-columns: 1fr; }
   .inset-wrap { width: 170px; }
+  .bound-comparison { grid-template-columns: 1fr; gap: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

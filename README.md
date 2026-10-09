@@ -18,6 +18,8 @@ The construction is credited to **Maurizio Morandi, August 2008**, in [Erich Fri
 
 This is an exact **computer-assisted proof**, not a Lean formalization or a claim of external human peer-review acceptance. Its mathematical arguments are in the preprint. The finite computations are checked using exact rational and radical arithmetic. [Verification scope](docs/VERIFICATION.md) · [Prior work](docs/PRIOR_ART.md) · [AI use and attribution](ACKNOWLEDGEMENTS.md)
 
+Morandi's construction establishes that side `T` is achievable. The contribution claimed here is the matching lower bound: every arrangement, with arbitrary independent rotations, requires side at least `T`. For readers who want to inspect that argument, the [review guide](docs/REVIEW_GUIDE.md) identifies eight useful checks and separates analytic review from certificate replay.
+
 ## Reproduce
 
 Python 3.10 or newer, using only its standard library:

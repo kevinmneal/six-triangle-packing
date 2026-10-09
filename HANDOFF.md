@@ -2,7 +2,7 @@
 
 ## Canonical public package
 
-This repository is the curated source for the preprint, completed certificate, exact verification programs, optional discovery tools, and interactive explanation. The intended public repository is `kevinmneal/six-triangle-packing`; the website is its GitHub Pages project site. The exploratory archive remains separate.
+This repository is the curated source for the preprint, completed certificate, exact verification programs, optional discovery tools, and interactive explanation. The public repository is `kevinmneal/six-triangle-packing`; the website is its GitHub Pages project site. The exploratory archive remains separate.
 
 Start with `README.md`, `paper/preprint.pdf`, and `docs/VERIFICATION.md`. `PROCESS.md` records the main research steps and discarded approaches. `PROVENANCE.md` links the machine-readable source lineage.
 
@@ -22,6 +22,10 @@ Version 1.0.0 is the initial public release. The author approved its public comm
 
 ## Next work
 
-After release, request external mathematical review and use versioned corrections if needed. A formalization project should begin from `docs/FORMALIZATION.md`, with its own acceptance and execution requirements. A DOI or preprint-server submission needs a separate recorded publication step; no such identifier has been assigned here.
+The public explanation now foregrounds Morandi's construction and distinguishes its upper bound from the preprint's matching lower-bound claim. The demo offers a user-started, six-second motion cycle along the same exactly checked translation segment; it does not map all permitted motion. The copyable README citations continue to identify the archived v1.0.0 paper.
+
+The work is being shared publicly for interested readers to inspect. `docs/REVIEW_GUIDE.md` gives a short map of the analytic obligations and exact replay routes. No individual reviewer outreach is planned or has been sent, and no completed external review is claimed. Use versioned corrections if mathematical issues emerge.
+
+A possible later research direction is to improve a best-known packing in a different case, then certify the construction exactly. No new search, improved packing, or additional optimality result is claimed here. A formalization project should begin from `docs/FORMALIZATION.md`, with its own acceptance and execution requirements. A DOI or preprint-server submission needs a separate recorded publication step; no such identifier has been assigned here.
 
 Preserve the accepted packet and reviewed source bytes. Do not replace them silently after a prose edit, numerical search, or failed test. Any mathematical change needs new exact verification and updated versioned evidence.

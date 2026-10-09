@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#002b36">
-  <meta name="description" content="A computer-assisted proof of the minimum side length of an equilateral triangle that contains six unit equilateral triangles, with an interactive diagram and exact verification code.">
+  <meta name="description" content="Morandi found this six-triangle packing in 2008. This preprint presents a computer-assisted proof that no smaller equilateral container works. Explore the construction and check the evidence.">
   <title>Packing six equilateral triangles — Kevin M. Neal</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.mjs"></script>
@@ -26,15 +26,15 @@
         <div class="hero-copy">
           <p class="eyebrow">Geometry · October 2026</p>
           <h1 id="title">Packing six<br><em>equilateral triangles</em></h1>
-          <p class="hero-deck">The smallest equilateral triangle that contains six equilateral triangles of side 1 has side length</p>
-          <div class="equation" aria-label="The minimum side length T equals 13 plus 3 times the square root of 13, divided by 8.">
+          <p class="hero-deck">Six equilateral triangles of side 1 fit inside an equilateral container of side length</p>
+          <div class="equation" aria-label="The construction's container side T equals 13 plus 3 times the square root of 13, divided by 8.">
             <span class="math-italic">T</span><span class="equals">=</span>
             <span class="fraction"><span>13 + 3√13</span><span>8</span></span>
           </div>
           <p class="decimal">2.977081728299… <span>for pieces of side 1</span></p>
-          <p class="hero-summary">This computer-assisted proof shows that a known construction has the smallest possible container. The preprint and code provide the argument and the exact checks.</p>
+          <p class="hero-summary"><strong>Maurizio Morandi found this packing in 2008.</strong> This preprint presents a computer-assisted proof that no arrangement fits in a smaller container, even when the pieces can move and rotate freely.</p>
           <a class="primary-link" href="preprint.pdf">Preprint PDF <span aria-hidden="true">↗</span></a>
-          <p class="publication-status">The preprint has not been peer reviewed.</p>
+          <p class="publication-status">Preprint · Not peer reviewed · Not formalized in Lean</p>
         </div>
 
         <figure class="construction-figure" aria-labelledby="figure-heading">
@@ -58,19 +58,20 @@
             <button type="button" data-mode="packing" aria-pressed="true">Packing</button>
             <button type="button" data-mode="corners" aria-pressed="false">Corner reduction</button>
             <button type="button" data-mode="core" aria-pressed="false">Rigid core</button>
-            <button type="button" data-mode="rattler" aria-pressed="false">The rattler</button>
+            <button type="button" data-mode="rattler" aria-pressed="false">Move a piece</button>
           </div>
           <figcaption id="mode-caption" aria-live="polite">The six pieces have side length 1 and fit in a container of side T without overlapping interiors. Contact between pieces is allowed.</figcaption>
           <div id="rattler-controls" class="rattler-controls" hidden>
             <div class="slider-block">
-              <div class="slider-label"><label for="rattler">Move triangle B</label><output id="rattler-value" for="rattler">0%</output></div>
+              <div class="slider-label"><label for="rattler">Move triangle B</label><output id="rattler-value" for="rattler" aria-live="off">0%</output></div>
               <input id="rattler" type="range" min="0" max="100" step="1" value="0" aria-describedby="rattler-help">
-              <p id="rattler-help">Triangle B moves inward while all other pieces stay fixed. Exact checks at both endpoints, with a common set of separating edges, verify the full path.</p>
+              <button id="play-motion" class="motion-button" type="button" aria-pressed="false">Play motion</button>
+              <p id="rattler-help">Drag the slider or play one short cycle. Triangle B moves along an exactly checked path while the other five pieces and the container stay fixed.</p>
             </div>
             <div class="inset-wrap">
               <svg id="rattler-inset" viewBox="0 0 190 110" role="img" aria-label="Magnified detail of the lower-left vertex of triangle B moving away from its original position">
                 <path class="inset-wall" d="M5,80 H185"></path>
-                <path class="inset-ghost" d="M140,80 L2140,80 L1140,-1652 Z"></path>
+                <path id="inset-ghost" class="inset-ghost" d="M140,80 L2140,80 L1140,-1652.0508075688772 Z"></path>
                 <path id="inset-moving" class="inset-moving" d="M140,80 L2140,80 L1140,-1652 Z"></path>
                 <circle id="inset-dot" cx="140" cy="80" r="3.5"></circle>
               </svg>
@@ -84,10 +85,15 @@
       <section class="context-section section-rule" aria-labelledby="known-title">
         <p class="eyebrow">The question</p>
         <div class="context-grid">
-          <h2 id="known-title">The known construction and the optimality problem</h2>
+          <h2 id="known-title">What the proof adds to the known packing</h2>
           <div class="body-copy">
             <p>The six pieces may move and rotate freely inside the container. A valid arrangement gives an upper bound on the required container size. A proof of optimality must also exclude every arrangement in a smaller container.</p>
-            <p><a href="https://erich-friedman.github.io/packing/triintri/">Erich Friedman’s catalogue</a> credits this construction to <strong>Maurizio Morandi, August 2008</strong>. <a href="https://math.mit.edu/documents/rsi/2015Chou.pdf">Amy Chou’s 2016 manuscript</a> explicitly recorded its optimality as unproved. This work establishes the matching lower bound.</p>
+            <dl class="bound-comparison">
+              <div><dt>Morandi’s construction · 2008</dt><dd><span class="bound-formula">s(6) ≤ T</span><span>Six pieces fit at this size.</span></dd></div>
+              <div><dt>This preprint’s claim</dt><dd><span class="bound-formula">s(6) ≥ T</span><span>No arrangement fits below this size.</span></dd></div>
+            </dl>
+            <p>Here, <strong>s(6)</strong> means the minimum container side. The two matching bounds give <strong>s(6) = T</strong>. The contribution is the lower-bound argument; the arrangement and its side length were already known.</p>
+            <p><a href="https://erich-friedman.github.io/packing/triintri/">Friedman’s catalogue</a> credits the construction to Morandi. <a href="https://math.mit.edu/documents/rsi/2015Chou.pdf">Chou’s 2016 manuscript</a> recorded its optimality as unproved. Our literature search found no later published proof, but may have missed unpublished or unindexed work.</p>
           </div>
         </div>
       </section>
@@ -155,8 +161,9 @@
         </div>
         <div class="body-copy">
           <p>The preprint presents the geometric reductions, the local theorem and the finite certificate that connects them. Separately written verification programs provide an additional check of the computation.</p>
-          <p><strong>This is a preprint and has not been peer reviewed. It is not a Lean formalization or a proof checked by a formal proof kernel.</strong> The exact checkers are executable mathematical evidence; their correctness and the analytic arguments remain part of the proof’s trust boundary.</p>
-          <div class="paper-links"><a class="primary-link" href="preprint.pdf">Preprint PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/kevinmneal/six-triangle-packing">Source code <span aria-hidden="true">↗</span></a></div>
+          <p><strong>This preprint has not been peer reviewed or formalized in Lean.</strong> Exact arithmetic avoids rounding errors in the checks. The geometric arguments and the programs still need to be correct. A successful browser check verifies the construction; it does not establish the lower bound.</p>
+          <p>Readers who want to examine the argument can use the review guide. It identifies the main proof steps, the checks already run, and the claims those checks do not establish.</p>
+          <div class="paper-links"><a class="primary-link" href="preprint.pdf">Preprint PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/kevinmneal/six-triangle-packing">Source code <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/kevinmneal/six-triangle-packing/blob/main/docs/REVIEW_GUIDE.md">Review guide <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
 

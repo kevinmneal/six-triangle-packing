@@ -4,7 +4,9 @@ const $ = id => document.getElementById(id);
 const ns = 'http://www.w3.org/2000/svg';
 const baseline = construction();
 const scale = 510/TARGET.toNumber();
+const insetOrigin=displayPoints(baseline.B)[0], insetScale=2000;
 let mode='packing', turns=0, fraction=0;
+let motionFrame=null;
 function svgElement(tag, attributes) {
   const element=document.createElementNS(ns,tag);
   Object.entries(attributes).forEach(([key,value])=>element.setAttribute(key,String(value)));
@@ -18,7 +20,7 @@ const captions={
   packing:'The six pieces have side length 1 and fit in a container of side T without overlapping interiors. Contact between pieces is allowed.',
   corners:'Any hypothetical smaller packing can be replaced by one with three aligned corner pieces. The remaining three pieces lie in the dashed central hexagon. This is a proof reduction, not an animation of an arbitrary packing.',
   core:'At side T, with corner pieces A and C fixed, the local theorem forces D, E and F into these exact positions within the certified neighbourhood. The marked contacts lie on all three container walls.',
-  rattler:'Triangle B is called a rattler because it can move while the other pieces stay fixed in a container of the same size. The slider moves B along a verified path, and the enlarged detail shows the displacement.'
+  rattler:'Triangle B is called a rattler because it can move while the other pieces stay fixed. Play the motion or use the slider. The container stays the same size, and the enlarged detail makes the small displacement visible.'
 };
 
 function render() {
@@ -44,12 +46,39 @@ function render() {
     const contacts=[baseline.D.find(p=>p[0].eq(0)),baseline.E.find(p=>p[1].eq(0)),baseline.F.find(p=>p[0].add(p[1]).eq(TARGET))];
     for(const [x,y] of screenPoints(contacts)) $('contact-layer').append(svgElement('circle',{cx:x,cy:y,r:4.5,class:'wall-contact'}));
   }
-  const f=fraction/100, dx=-.015*f*scale*15, dy=-Math.sqrt(3)/200*f*scale*15;
-  $('inset-moving').setAttribute('transform',`translate(${dx},${dy})`);
-  $('inset-dot').setAttribute('cx',String(140+dx)); $('inset-dot').setAttribute('cy',String(80+dy));
+  const insetPoints=vertices=>displayPoints(vertices).map(([x,y])=>[140+(x-insetOrigin[0])*insetScale,80-(y-insetOrigin[1])*insetScale]);
+  const path=points=>points.map(([x,y],i)=>`${i?'L':'M'}${x},${y}`).join(' ')+' Z';
+  const detail=insetPoints(pieces.B);
+  $('inset-ghost').setAttribute('d',path(insetPoints(baseline.B)));
+  $('inset-moving').setAttribute('d',path(detail));
+  $('inset-dot').setAttribute('cx',String(detail[0][0])); $('inset-dot').setAttribute('cy',String(detail[0][1]));
   $('rattler-value').textContent=`${fraction}%`;
+  $('rattler').value=String(fraction);
+}
+function stopMotion() {
+  if(motionFrame!==null) cancelAnimationFrame(motionFrame);
+  motionFrame=null;
+  $('play-motion').textContent='Play motion';
+  $('play-motion').setAttribute('aria-pressed','false');
+}
+function playMotion() {
+  if(motionFrame!==null) { stopMotion(); return; }
+  if(mode!=='rattler' || $('play-motion').disabled) return;
+  const started=performance.now();
+  fraction=0; render();
+  $('play-motion').textContent='Pause motion';
+  $('play-motion').setAttribute('aria-pressed','true');
+  function advance(now) {
+    const progress=Math.min(1,Math.max(0,(now-started)/6000));
+    const next=Math.round(50-50*Math.cos(2*Math.PI*progress));
+    if(next!==fraction) { fraction=next; render(); }
+    if(progress===1) stopMotion();
+    else motionFrame=requestAnimationFrame(advance);
+  }
+  motionFrame=requestAnimationFrame(advance);
 }
 function selectMode(next, bringIntoView=false) {
+  stopMotion();
   mode=next;
   document.querySelectorAll('[data-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
   $('mode-caption').textContent=captions[mode];
@@ -65,7 +94,10 @@ function selectMode(next, bringIntoView=false) {
 document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>selectMode(button.dataset.mode)));
 document.querySelectorAll('[data-show]').forEach(button=>button.addEventListener('click',()=>selectMode(button.dataset.show,true)));
 $('rotate').addEventListener('click',()=>{turns=(turns+1)%3;render();});
-$('rattler').addEventListener('input',event=>{fraction=Number(event.target.value);render();});
+$('rattler').addEventListener('input',event=>{stopMotion();fraction=Number(event.target.value);render();});
+$('play-motion').addEventListener('click',playMotion);
+document.addEventListener('visibilitychange',()=>{if(document.hidden) stopMotion();});
+window.addEventListener('pagehide',stopMotion);
 
 const leafDescriptions={
   empty:'In 6,274 cases, containment and separation bounds leave at least one triangle with no possible position, which excludes the case.',
@@ -102,5 +134,5 @@ $('copy-command').addEventListener('click',async()=>{
   setTimeout(()=>{button.textContent='Copy';},2200);
 });
 try { verifyRattlerSegment(); }
-catch(error) { $('rattler').disabled=true;$('rattler-help').textContent=`Path check failed: ${error.message}`; }
+catch(error) { $('rattler').disabled=true;$('play-motion').disabled=true;$('rattler-help').textContent=`Path check failed: ${error.message}`; }
 render();
