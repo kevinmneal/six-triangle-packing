@@ -1,69 +1,84 @@
-# Bounded Lean feasibility pilot
+# Polygon-to-linear Lean bridge, v0.2.0
 
-This pilot formalizes a residual-aware Farkas theorem for **arbitrary real vectors**, then applies it to one complete retained-feature terminal from the frozen six-triangle certificate. It does not formalize the triangle-packing theorem.
+This bounded pilot proves that three points in the **actual Mathlib convex hulls** of the recorded polygon vertices cannot satisfy all three complete weak separation disjunctions for one certificate cell. It proves the coordinate bounds, all 34 base inequalities, and all 12 discarded-feature exclusions before invoking the preserved linear theorem.
 
-The pilot compiled successfully with Lean 4.34.1. The printed axiom set for each key theorem is exactly `propext`, `Classical.choice`, and `Quot.sound`. Both deliberately invalid variants were rejected: one changes a positive certificate weight to a negative weight; the other removes the proof of one retained alternative. See `REPRODUCTION.json` for the measured run and source hashes.
+It does not formalize the triangle-packing theorem. The original paper and certificate retain their own version; `0.2.0` identifies this optional Lean development.
 
-The selected terminal is at outer path `0000000001`, where `0` means the first closed child and `1` the second. Its six coordinates represent three centroid pairs in the source computation. The Lean theorem treats them simply as six arbitrary real numbers.
+## Precise theorem and boundary
 
-## Exactly what the theorem says
+`SixTrianglePilot.Geometry.polygonTerminalInfeasible` concerns three arbitrary points in `Fin 2 → ℝ`. Its hypotheses are:
 
-`SixTrianglePilot.residualAwareFarkas` proves that nonnegative weights cannot combine valid linear inequalities into a right-hand side strictly exceeding the coordinate-box support of the weighted residual vector. The residual need not vanish. This is a generic theorem, independent of the packing certificate.
+1. Each point belongs to `convexHull ℝ (Set.range vertices)` for its respective recorded polygon. The polygons have 8, 8, and 6 listed vertices.
+2. For each of the three pairs, at least one of **all six** displayed feature inequalities holds. Each inequality is weak: `rhs ≤ linear coefficients coordinates`.
 
-`SixTrianglePilot.Selected.selectedTerminalInfeasible` proves that there is no real vector satisfying the displayed coordinate box, all 34 extracted base inequalities, and each of the three retained feature disjunctions:
+The theorem concludes `False`. Coordinate boxes, base inequalities, retained feature lists, and discarded-feature exclusions are **proved conclusions**, not extra hypotheses.
 
-| Pair index | Retained feature indices |
-|---|---|
-| 0 | 1 or 4 |
-| 1 | 2 or 4 |
-| 2 | 2 or 4 |
+The following connections remain outside the formalization:
 
-Its case proof follows all five feature splits and all six Farkas leaves in the selected terminal. Early leaves exclude every continuation of their partial choices. Each leaf uses the original seven positive rational weights; each residual vector is nonzero. Lean checks the coefficient identities, the exact residual contribution over the box, and the strict inequality. No floating-point arithmetic is used in those proofs.
+- An actual triangle arrangement belonging to this computed orientation cell and these contracted polygon domains.
+- Derivation and completeness of the six listed features from triangle or contained-core geometry.
+- Other outer cells, global coverage, corner replacement, target symmetry, local rigidity, and the final optimum.
 
-## Explicit boundary
+The new result closes the polygon-to-linear bridge for this one fixed cell. It does not claim that the complete geometric problem has been formalized.
 
-The following are **not formalized**:
+## How the bridge works
 
-- The connection from a geometric packing to this outer domain and its contracted polygons.
-- The derivation of the base rows and separating features from those polygons.
-- The geometric justification for filtering out other separating alternatives.
-- Coverage of other outer terminals, the local rigidity theorem, corner replacement, symmetry normalization, or the final optimality argument.
+`Pilot/Polygon.lean` proves that a linear bound valid at every listed vertex holds throughout its Mathlib convex hull. It then proves bounds for the linear form on the product of three such hulls. No custom substitute for convex hull is used.
 
-The conditional theorem assumes the three *retained* linear disjunctions. It does not assert that they exhaust all geometric possibilities. The exact Python extraction records all six original features for each pair, including all 12 omitted alternatives, their normals, thresholds, displacement supports, and strict exclusion gaps. Those records preserve the unformalized filtering step for inspection; recording a gap is not a Lean proof of the geometric implication.
+`Pilot/SelectedGeometry.lean` checks the exact rational vertex inequalities inside Lean. Lower bounds establish all 34 original base rows. Twelve of these yield the coordinate bounds. Upper bounds strictly below the feature thresholds exclude all 12 omitted alternatives. The remaining cases feed the existing theorem:
 
-## Source and provenance
+| Pair index | All feature indices examined | Features remaining after proof |
+|---|---|---|
+| 0 | 0–5 | 1 or 4 |
+| 1 | 0–5 | 2 or 4 |
+| 2 | 0–5 | 2 or 4 |
 
-The extractor requires these exact source bytes from the public package:
+The preserved `SixTrianglePilot.Selected.selectedTerminalInfeasible` then covers five feature splits and six Farkas leaves. `SixTrianglePilot.residualAwareFarkas` is the underlying generic theorem for arbitrary real vectors: a nonnegative combination of valid inequalities cannot exceed the coordinate-box support of its possibly nonzero residual. All six supplied residual vectors are nonzero.
 
-| Source | SHA-256 |
+Hull membership includes the polygon boundaries. Feature inequalities remain weak. An omitted feature is rejected only after proving a strictly positive support gap, so equality alone is never an exclusion.
+
+## Exact source and provenance
+
+The selected terminal is at outer path `0000000001`: `0` means the first closed child and `1` the second. The original extractor requires these frozen source files:
+
+| Public source | SHA-256 |
 |---|---|
 | `certificates/optimality_T.json.gz` | `f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be` |
 | `verification/independent_global.py` | `8da01b96db32d0726138650e66132862f241228ca3b9340c7841ef5ec819905a` |
 
-`extract.py` follows the ten original closed splits, reconstructs the terminal with the frozen independent Python consumer, and replays its full joint proof. It exports `data/selected-terminal.json` and generates `Pilot/Selected.lean`. The exported JSON contains the ancestor splits, outer intervals, polygons, base rows, all features, original nested proof, sparse weights, exact residuals, and gaps. The Python consumer and generator are outside the formal proof boundary: the Lean result concerns the explicit constants actually present in the generated source.
+The original `Pilot/Farkas.lean`, `Pilot/Selected.lean`, `extract.py`, and `data/selected-terminal.json` are preserved byte for byte. Their hashes are checked on every verification run.
 
-`Pilot/Farkas.lean` is the handwritten generic argument. `Pilot.lean` imports the complete pilot and prints the axioms of the key theorems.
+`extract.py` reconstructs the selected domain with the frozen Python consumer, replays its complete joint proof, and reproduces the original extracted data and linear Lean source. `generate_geometry.py` reads that unchanged data and generates the new geometry source and `data/polygon-bridge.json`. Both generators support exact, deterministic `--check` mode.
+
+The JSON records retain the ancestor splits, polygons, all original features, original proof, weights, residuals, and support bounds. Python calculations propose constants; Lean proves every inequality used by the bridge. The extraction program and its correspondence to the full packing certificate are not themselves formalized. The Lean theorems concern the explicit constants in their source.
 
 ## Reproduce
 
-The project pins Lean `4.34.1` and Mathlib commit `d13f23b723b8a846827a245b89c10fc7d3f11612`. Its dependency manifest is retained. With that toolchain and the pinned dependencies available, run from this directory:
+Use Lean `4.34.1` and the pinned dependencies in `lake-manifest.json`, including Mathlib commit `d13f23b723b8a846827a245b89c10fc7d3f11612`. From this directory, with those dependencies available:
 
 ```sh
 python3 -B -S -O verify.py --public-root /path/to/six-triangle-packing
 ```
 
-The wrapper verifies exact regeneration, builds the pilot, checks the printed axiom sets, and requires both deliberately broken variants to fail. Each run creates a new directory under `work/` for raw logs and a report. It works after relocation and never writes to the supplied public repository.
+The explicit repository argument makes the check work after relocation. The public package is read only. Every run creates a new `work/verification-*` directory containing logs and a report.
 
-The core positive checks can also be run directly:
+Require `POLYGON_TO_LINEAR_BRIDGE_VERIFIED` and exit status zero. The wrapper checks preserved source hashes, both deterministic generators, the complete Lean build, the key theorem axiom sets, the equality witness, and all three expected-failure mutations. Positive steps must contain no internal failure diagnostics or incomplete-proof axiom. The accepted axiom set is exactly `propext`, `Classical.choice`, and `Quot.sound`.
+
+Core checks can also be run directly:
 
 ```sh
 python3 -B -S -O extract.py --public-root /path/to/six-triangle-packing --check
+python3 -B -S -O generate_geometry.py --check
 lake build Pilot
 lake env lean Pilot.lean
 ```
 
-The first command checks byte-for-byte regeneration without modifying the retained data or Lean source. Omit `--check` to regenerate those two files after an intentional generator change. The public source files are read only.
+The proof uses kernel-checked exact arithmetic and ordinary Lean proof terms. The generated finite checks use explicit expression conversion and numerical normalization, avoiding a global simplifier issue encountered during development. No incomplete proof, custom mathematical axiom, or native-computation acceptance shortcut is used.
 
-The proof uses ordinary kernel-checked tactics. No incomplete proof, custom mathematical axiom, or native-computation acceptance shortcut is part of the pilot. The final `#print axioms` output is the authoritative record of the axioms on which the compiled theorems depend.
+## Mutation checks and measurements
 
-Raw local compilation logs belong in the ignored `work/` directory. The pilot also passed after relocation into this repository layout, with a fresh build of its own modules and cached dependencies. That recorded build took 8.602 seconds; the direct axiom report took 2.291 seconds. The two expected-failure checks took 4.364 and 4.322 seconds. These measurements exclude toolchain and dependency downloads and do not estimate the cost of formalizing the full packing theorem. `REPRODUCTION.json` records the source hashes, outcomes, timings, and axiom sets from this run.
+The two original checks remain: negate a positive Farkas weight, and delete one retained-alternative proof. Both must be rejected.
+
+The new check changes the threshold of omitted feature `(0, 0)` to zero. The first vertices of polygons 0 and 1 coincide, so the changed weak inequality holds at equality for the displayed vertex triple. Lean separately proves that equality witness, then must reject the attempted strict exclusion. This tests a weak linear inequality; it does not assert that the witness is a legal triangle packing.
+
+`REPRODUCTION.json` records the actual verified run, source hashes, printed axiom sets, and individual timings. Timings exclude dependency installation and are not estimates for formalizing the full packing proof. Raw logs, mutation files, compiled modules, caches, and local runtimes are excluded from the source package.

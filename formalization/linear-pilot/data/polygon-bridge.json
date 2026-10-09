@@ -1,0 +1,466 @@
+{
+  "all_feature_counts": [
+    6,
+    6,
+    6
+  ],
+  "base_row_bounds": [
+    {
+      "base_row": 0,
+      "block_minima": [
+        "5590325/8388608",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 1,
+      "block_minima": [
+        "-11311571/16777216",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 2,
+      "block_minima": [
+        "5592405/8388608",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 3,
+      "block_minima": [
+        "-3447193/2097152",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 4,
+      "block_minima": [
+        "5592405/4194304",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 5,
+      "block_minima": [
+        "5592405/8388608",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 6,
+      "block_minima": [
+        "2779477/280611520512",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 7,
+      "block_minima": [
+        "-2649522672267/3965420830720",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 8,
+      "block_minima": [
+        "-11311571/16777216",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 9,
+      "block_minima": [
+        "-6331291577349/4253343023104",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 10,
+      "block_minima": [
+        "-3447193/2097152",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 11,
+      "block_minima": [
+        "5590325/8388608",
+        "0",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 12,
+      "block_minima": [
+        "0",
+        "5590325/8388608",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 13,
+      "block_minima": [
+        "0",
+        "-1445953/2097152",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 14,
+      "block_minima": [
+        "0",
+        "5590325/8388608",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 15,
+      "block_minima": [
+        "0",
+        "-3447193/2097152",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 16,
+      "block_minima": [
+        "0",
+        "5592405/4194304",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 17,
+      "block_minima": [
+        "0",
+        "5590325/8388608",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 18,
+      "block_minima": [
+        "0",
+        "-1396482876159/2102168387584",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 19,
+      "block_minima": [
+        "0",
+        "-43939609069431/66134292299776",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 20,
+      "block_minima": [
+        "0",
+        "-1445953/2097152",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 21,
+      "block_minima": [
+        "0",
+        "-14679034826353/6352743170048",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 22,
+      "block_minima": [
+        "0",
+        "-3447193/2097152",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 23,
+      "block_minima": [
+        "0",
+        "5590325/8388608",
+        "0"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 24,
+      "block_minima": [
+        "0",
+        "0",
+        "11167915/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 25,
+      "block_minima": [
+        "0",
+        "0",
+        "-27315465/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 26,
+      "block_minima": [
+        "0",
+        "0",
+        "11167915/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 27,
+      "block_minima": [
+        "0",
+        "0",
+        "-27315465/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 28,
+      "block_minima": [
+        "0",
+        "0",
+        "132063182702837/89762920660992"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 29,
+      "block_minima": [
+        "0",
+        "0",
+        "11167915/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 30,
+      "block_minima": [
+        "0",
+        "0",
+        "-27315465/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 31,
+      "block_minima": [
+        "0",
+        "0",
+        "-38779251/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 32,
+      "block_minima": [
+        "0",
+        "0",
+        "-27315465/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    },
+    {
+      "base_row": 33,
+      "block_minima": [
+        "0",
+        "0",
+        "11167915/16777216"
+      ],
+      "minimum_minus_rhs": "0"
+    }
+  ],
+  "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+  "format": "six-triangle-polygon-bridge-v1",
+  "input_sha256": {
+    "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
+    "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff"
+  },
+  "mutation": {
+    "changed_rhs": "0",
+    "linear_value_at_witness": "0",
+    "reason": "The first vertices of polygons 0 and 1 coincide, so equality satisfies the mutated weak inequality. A strict exclusion would be false.",
+    "row": "omitted_0_0",
+    "vertex_indices": [
+      0,
+      0,
+      0
+    ]
+  },
+  "omitted_feature_bounds": [
+    {
+      "block_maxima": [
+        "16023757839/22905094144",
+        "-15502148025/22905094144",
+        "0"
+      ],
+      "feature": 0,
+      "pair": 0,
+      "rhs_minus_maximum": "242533990229469767/256204781664600064"
+    },
+    {
+      "block_maxima": [
+        "73653260647/45097156608",
+        "-19714998805/30064771072",
+        "0"
+      ],
+      "feature": 2,
+      "pair": 0,
+      "rhs_minus_maximum": "4895766779912745/672578602809688064"
+    },
+    {
+      "block_maxima": [
+        "-15502148025/22905094144",
+        "65482700569/91620376576",
+        "0"
+      ],
+      "feature": 3,
+      "pair": 0,
+      "rhs_minus_maximum": "1909228391911434905/2049638253316800512"
+    },
+    {
+      "block_maxima": [
+        "-59178829625/90194313216",
+        "73653260647/45097156608",
+        "0"
+      ],
+      "feature": 5,
+      "pair": 0,
+      "rhs_minus_maximum": "15444182640816505/2017735808429064192"
+    },
+    {
+      "block_maxima": [
+        "2059659101/2747269120",
+        "0",
+        "-203533659109/274726912000"
+      ],
+      "feature": 0,
+      "pair": 1,
+      "rhs_minus_maximum": "94630229688951823339836979/100044098740176166060032000"
+    },
+    {
+      "block_maxima": [
+        "26341313965/11452547072",
+        "0",
+        "-163873662151/91620376576"
+      ],
+      "feature": 1,
+      "pair": 1,
+      "rhs_minus_maximum": "354994025143177596912727/775914536794038051274752"
+    },
+    {
+      "block_maxima": [
+        "-15502148025/22905094144",
+        "0",
+        "150144176175/91620376576"
+      ],
+      "feature": 3,
+      "pair": 1,
+      "rhs_minus_maximum": "232747268573918034785695/33364325082143636204814336"
+    },
+    {
+      "block_maxima": [
+        "-59178829625/90194313216",
+        "0",
+        "145898667065/90194313216"
+      ],
+      "feature": 5,
+      "pair": 1,
+      "rhs_minus_maximum": "2923059476507632727905/128300828918699205328896"
+    },
+    {
+      "block_maxima": [
+        "0",
+        "210063802787/274726912000",
+        "-203533659109/274726912000"
+      ],
+      "feature": 0,
+      "pair": 2,
+      "rhs_minus_maximum": "46568973926536147137514211/50022049370088083030016000"
+    },
+    {
+      "block_maxima": [
+        "0",
+        "26344109485/11452547072",
+        "-163873662151/91620376576"
+      ],
+      "feature": 1,
+      "pair": 2,
+      "rhs_minus_maximum": "15256598985570977049721501/33364325082143636204814336"
+    },
+    {
+      "block_maxima": [
+        "0",
+        "-15502148025/22905094144",
+        "150144176175/91620376576"
+      ],
+      "feature": 3,
+      "pair": 2,
+      "rhs_minus_maximum": "232747268573918034785695/33364325082143636204814336"
+    },
+    {
+      "block_maxima": [
+        "0",
+        "-19714998805/30064771072",
+        "145898667065/90194313216"
+      ],
+      "feature": 5,
+      "pair": 2,
+      "rhs_minus_maximum": "367991290043004917154185/16422506101593498282098688"
+    }
+  ],
+  "outer_path": "0000000001",
+  "polygon_vertex_counts": [
+    8,
+    8,
+    6
+  ],
+  "retained_feature_counts": [
+    2,
+    2,
+    2
+  ],
+  "scope": "Actual Mathlib convex hulls and all six listed weak features per pair imply contradiction for one fixed cell. The triangle-to-features and global/local arguments remain unformalized."
+}

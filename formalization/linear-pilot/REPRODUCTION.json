@@ -1,5 +1,61 @@
 {
+  "all_features_per_pair": 6,
   "axioms": {
+    "SixTrianglePilot.Geometry.baseRows_from_hulls": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.coordinateBounds_from_hulls": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.omitted_0_0_impossible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.polygonTerminalInfeasible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.retained_0_of_full": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.retained_1_of_full": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Geometry.retained_2_of_full": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Polygon.linear_ge_of_mem_convexHull": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Polygon.linear_ge_on_product_hulls": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Polygon.linear_le_of_mem_convexHull": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SixTrianglePilot.Polygon.linear_le_on_product_hulls": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
     "SixTrianglePilot.Selected.selectedTerminalInfeasible": [
       "Classical.choice",
       "Quot.sound",
@@ -16,72 +72,115 @@
       "propext"
     ]
   },
+  "base_rows_proved": 34,
   "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
   "farkas_leaves": 6,
   "feature_splits": 5,
   "lean_version": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
   "notes": "Timings exclude toolchain/dependency downloads. Build timing can include cached local modules. Mutation files and raw logs are kept only in the run directory.",
+  "omitted_features_proved": 12,
   "outer_path": "0000000001",
+  "pilot_version": "0.2.0",
   "platform": {
     "machine": "arm64",
     "system": "Darwin"
   },
+  "polygon_vertex_counts": [
+    8,
+    8,
+    6
+  ],
+  "preserved_linear_pilot_sha256": {
+    "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
+    "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
+    "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
+    "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3"
+  },
+  "reproduction_context": {
+    "dependencies": "Reused the existing pinned Lean and Mathlib dependency cache.",
+    "pilot_modules": "Fresh source copy, with no pre-existing compiled pilot modules."
+  },
   "runs": [
     {
-      "elapsed_seconds": 0.124,
+      "elapsed_seconds": 0.125,
       "exit_code": 0,
       "expected_success": true,
       "log_sha256": "263db0e9753fac39c2c4136d741701c548d749b5243d64d16b399eb6c8944eb4",
       "step": "extraction"
     },
     {
-      "elapsed_seconds": 1.904,
+      "elapsed_seconds": 0.056,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "f50f977d61499786f8113ba75514dd8911e2044548372c5af52451007429cec3",
+      "step": "geometry-generation"
+    },
+    {
+      "elapsed_seconds": 5.253,
       "exit_code": 0,
       "expected_success": true,
       "log_sha256": "20f42f897511ec814f7616bd9a193ae7504aa2f52fb05299eb752936eb77ca6e",
       "step": "lean-version"
     },
     {
-      "elapsed_seconds": 8.602,
+      "elapsed_seconds": 17.459,
       "exit_code": 0,
       "expected_success": true,
-      "log_sha256": "28d5279b4586726e4e88475483a826661a681b5615b5e2e514d39481058bcc37",
+      "log_sha256": "498b0105e236ac0776155cdb3bfe7a90c661e4516751076de3d4c82ca94a1b09",
       "step": "build"
     },
     {
-      "elapsed_seconds": 2.291,
+      "elapsed_seconds": 2.622,
       "exit_code": 0,
       "expected_success": true,
-      "log_sha256": "6b6962cdb3319da90e097b1ffac9311fab45a44c27d220c4e3bb40351abdc8c4",
+      "log_sha256": "6ca5d3679d6a49a090ed08b5593bca40dcf0249800d72c3659eed75b7e9227da",
       "step": "axioms"
     },
     {
-      "elapsed_seconds": 4.364,
+      "elapsed_seconds": 4.234,
       "exit_code": 1,
       "expected_success": false,
-      "log_sha256": "523cfa0c5135a6dab26e0725f1d2345af1bc0b94d2abbe7c3feeae458352a17c",
+      "log_sha256": "d55a9db481a74d2099d9178571fcc2afa95c43eee6459134656895353370f153",
       "step": "negative-weight"
     },
     {
-      "elapsed_seconds": 4.322,
+      "elapsed_seconds": 4.162,
       "exit_code": 1,
       "expected_success": false,
-      "log_sha256": "aa1eebeaad741d62bb50554c7dabd5f46481f751ade7c09e00379b2c3a4cdad5",
+      "log_sha256": "e17cb654d4f8c336d03690360eba5991731790da0d0c213f697c2d75bf35898a",
       "step": "missing-alternative"
+    },
+    {
+      "elapsed_seconds": 3.229,
+      "exit_code": 0,
+      "expected_success": true,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "step": "equality-witness"
+    },
+    {
+      "elapsed_seconds": 5.624,
+      "exit_code": 1,
+      "expected_success": false,
+      "log_sha256": "3da01a6d1c7264fa3c923000ba38443782dddfd6514b52930c10ce318619b613",
+      "step": "invalid-omitted-feature"
     }
   ],
-  "scope": "Generic real residual-aware Farkas theorem and one complete retained-feature terminal; geometric extraction/filtering, global coverage, and local rigidity are not formalized.",
+  "scope": "Actual Mathlib convex-hull membership and all six listed weak features per pair imply contradiction for one fixed cell. Coordinate bounds, all 34 base rows, and all 12 discarded alternatives are proved. Triangle-to-domain/features, global coverage, and local rigidity are not formalized.",
   "source_sha256": {
-    "Pilot.lean": "c22f1d7ace3ca7c15155204ead22207a9c2f0d43d8af64f282a973aff613bdf7",
+    "Pilot.lean": "fac62e814f6baa61f40e2ed0e6a9dcdaa2a02b7a8c6f5a1c5de1a2e28ea8f320",
     "Pilot/Farkas.lean": "b4b8d160d626322db5ae3f21a7cbb8503549f44af2766f4227d95f0d5f7fb3af",
+    "Pilot/Polygon.lean": "074599d6a5d3c8ebaeead05f45afd6abff55db35485f47a1884d695b83ec8e9c",
     "Pilot/Selected.lean": "01d89c301075e7d22f4e7e5559e1784ebd339b7224ead2fdd86c69795c39e8ce",
+    "Pilot/SelectedGeometry.lean": "9fbf197ee0d9882dbddcb0b91c89e81aed87ff9a4718749d6aa4fc19c8070947",
+    "data/polygon-bridge.json": "027ec4b4bde90400e6fd44475b7cf883aa7b587f6f9623e21ed8500a188dabcb",
     "data/selected-terminal.json": "ead5365209d5cc2e91123b15b1be251293ad9a1cdc240b39cad73d8a775a00ff",
     "extract.py": "93f9535a9eaa9e83b55835d4721f034fccc5b3e6b2c5bde98c698f63198c94b3",
+    "generate_geometry.py": "05bce0eff58c6a0cbe744de6ad506fa7eec8d0a30c86e315ffa9b8da524617b2",
     "lake-manifest.json": "5c0e2d275028937c5f1c4d2d92c98eb77ce226366f979b352206955b9acfe0ff",
-    "lakefile.toml": "6dd46d0927feae3d181da4a859df2ecff65bdfa5d4e33224de3216991966aea2",
+    "lakefile.toml": "3985a7eedcb14bab883174b8ee5bfe22d1ae116da17c3f184a51e210349b9cdd",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
-    "verify.py": "8e21cf6b0f0023b5cf4e1154d0f80f31d130862b10f40b10ec996066047bab18"
+    "verify.py": "f59d46cf087e830c4dccaeb12b9c5a068571b966bada2076aea79c8424e219ad"
   },
-  "status": "CONDITIONAL_LINEAR_PILOT_VERIFIED"
+  "status": "POLYGON_TO_LINEAR_BRIDGE_VERIFIED"
 }
