@@ -14,7 +14,9 @@ Both included exact checking routes accepted the full final packet in this packa
 
 The 23-page manuscript compiles from one standalone LaTeX source. Its pages were rendered and visually inspected. The website was exercised in a desktop browser and at a 390-by-844 mobile viewport: packing modes, rotation, rattler motion, certificate details, and exact construction checking worked. These checks are distinct from the mathematical verification.
 
-The proof is computer-assisted and has not been formalized in Lean. The manuscript and AI-assisted implementation reviews have not received external human peer review. Morandi receives credit for the input construction. GPT-6 Astra in Codex and ChatGPT Pro are disclosed in the research-process statement.
+The proof is computer-assisted; its development was AI-assisted. Short credits use GPT-6 Astra, with Codex as the coding-agent harness and Pro mode in ChatGPT disclosed in `ACKNOWLEDGEMENTS.md`. The manuscript and AI-assisted implementation reviews have not received external human peer review. Morandi receives credit for the input construction.
+
+The complete packing theorem has not been formalized in Lean. The optional `formalization/linear-pilot/` proves a general real residual-aware Farkas theorem and one selected conditional linear terminal, covering five splits and six contradictions. Exact regeneration, compilation, axiom auditing, and two expected-failure mutations passed. Its geometric assumptions and filtering step, the remaining cover, local rigidity, and final composition are not formalized. The pilot pins Lean and Mathlib; toolchain downloads and compiled dependencies are not included in the repository. It does not modify the frozen v1.0.0 paper, certificate, or verification programs.
 
 ## Release state
 
@@ -26,6 +28,6 @@ The public explanation now foregrounds Morandi's construction and distinguishes 
 
 The work is being shared publicly for interested readers to inspect. `docs/REVIEW_GUIDE.md` gives a short map of the analytic obligations and exact replay routes. No individual reviewer outreach is planned or has been sent, and no completed external review is claimed. Use versioned corrections if mathematical issues emerge.
 
-A possible later research direction is to improve a best-known packing in a different case, then certify the construction exactly. No new search, improved packing, or additional optimality result is claimed here. A formalization project should begin from `docs/FORMALIZATION.md`, with its own acceptance and execution requirements. A DOI or preprint-server submission needs a separate recorded publication step; no such identifier has been assigned here.
+A possible later research direction is to improve a best-known packing in a different case, then certify the construction exactly. No new search, improved packing, or additional optimality result is claimed here. Any continuation of formalization should begin from `docs/FORMALIZATION.md`, with its own acceptance and execution requirements. The bounded pilot does not authorize a full formalization project. A DOI or preprint-server submission needs a separate recorded publication step; no such identifier has been assigned here.
 
 Preserve the accepted packet and reviewed source bytes. Do not replace them silently after a prose edit, numerical search, or failed test. Any mathematical change needs new exact verification and updated versioned evidence.

@@ -30,4 +30,8 @@ The site draws rounded geometry. Its exact browser check concerns the explicit u
 
 ## Lean status
 
-No Lean theorem or other proof-kernel formalization is included. [FORMALIZATION.md](FORMALIZATION.md) describes a possible future development. Neither a Python PASS nor the absence of a counterexample is a Lean proof.
+The complete packing theorem has not been formalized in Lean. The optional [linear pilot](../formalization/linear-pilot/) proves a residual-aware Farkas theorem for arbitrary real vectors and applies it to one selected certificate terminal, covering its five feature splits and six exact contradictions. Its theorem assumes the extracted box, 34 base inequalities, and three retained linear disjunctions.
+
+The geometric derivation of those assumptions, the omission of other geometric alternatives, the remaining global cover, and the local rigidity argument are outside the pilot. The compiled theorems use only `propext`, `Classical.choice`, and `Quot.sound`; there are no incomplete proofs or native-computation acceptance shortcuts. Reproduction includes exact source regeneration, compilation, an axiom audit, and rejection of a negative weight and a missing branch. The pilot is a separate optional check; `tools/verify.py` and the publication workflow continue to run the original exact Python verification.
+
+[FORMALIZATION.md](FORMALIZATION.md) records the completed scope and the remaining work. Neither a Python PASS nor the absence of a counterexample is a Lean proof.

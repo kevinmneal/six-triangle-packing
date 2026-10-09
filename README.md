@@ -4,6 +4,8 @@
 
 Kevin M. Neal · Preprint v1.0.0 · October 2026
 
+Developed with **GPT-6 Astra**. [AI-use disclosure](ACKNOWLEDGEMENTS.md)
+
 Six unit equilateral triangles, with independently chosen rotations and legal boundary contact, fit in an equilateral container of minimum side
 
 \[
@@ -16,7 +18,7 @@ s(6)=\frac{13+3\sqrt{13}}8=2.9770817282989959849\ldots.
 
 The construction is credited to **Maurizio Morandi, August 2008**, in [Erich Friedman's catalogue](https://erich-friedman.github.io/packing/triintri/). This work contributes the unrestricted optimality argument and exact finite certificate. A literature search did not locate an earlier published proof; it cannot establish the absence of all unpublished or unindexed work.
 
-This is an exact **computer-assisted proof**, not a Lean formalization or a claim of external human peer-review acceptance. Its mathematical arguments are in the preprint. The finite computations are checked using exact rational and radical arithmetic. [Verification scope](docs/VERIFICATION.md) · [Prior work](docs/PRIOR_ART.md) · [AI use and attribution](ACKNOWLEDGEMENTS.md)
+This preprint presents an exact **computer-assisted proof**. Its mathematical arguments are in the manuscript, and the finite computations are checked using exact rational and radical arithmetic. A separate [bounded Lean pilot](formalization/linear-pilot/) formalizes a general linear-inequality theorem and one conditional branch of the certificate. The complete packing theorem has not been formalized in Lean or accepted through external human peer review. [Verification scope](docs/VERIFICATION.md) · [Prior work](docs/PRIOR_ART.md) · [AI use and attribution](ACKNOWLEDGEMENTS.md)
 
 Morandi's construction establishes that side `T` is achievable. The contribution claimed here is the matching lower bound: every arrangement, with arbitrary independent rotations, requires side at least `T`. For readers who want to inspect that argument, the [review guide](docs/REVIEW_GUIDE.md) identifies eight useful checks and separates analytic review from certificate replay.
 
@@ -104,6 +106,7 @@ Open `http://localhost:8000`. Its browser check verifies the explicit constructi
 | `discovery/` | Optional numerical producer and original production consumer |
 | `tests/` | Reviewed geometry and corruption tests, plus packaging regressions |
 | `site/` | Interactive explanation and browser construction check |
+| `formalization/linear-pilot/` | Optional, bounded Lean development with explicit assumptions and reproduction instructions |
 | `docs/` | Verification scope, literature audit, and formalization roadmap |
 | `PROCESS.md` | Concise research history, including unsuccessful approaches |
 | `PROVENANCE.md` | Source lineage and scope of the curated release |

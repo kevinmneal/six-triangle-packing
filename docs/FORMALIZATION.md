@@ -1,6 +1,16 @@
-# Possible Lean formalization
+# Lean formalization status
 
-The present release is **not formalized in Lean**. Its result is an exact computer-assisted proof with explicit analytic arguments and separately implemented exact consumers.
+The complete packing theorem is **not formalized in Lean**. The v1.0.0 preprint presents an exact computer-assisted proof with explicit analytic arguments and separately implemented exact consumers. An optional, bounded Lean pilot has since been added without changing that manuscript, its certificate, or either exact checking route.
+
+## Completed pilot
+
+The source and reproduction instructions are in [`formalization/linear-pilot/`](../formalization/linear-pilot/). Lean checks a general residual-aware Farkas theorem over arbitrary real vectors, then all five feature splits and six rational contradictions in one selected terminal of the frozen certificate. The terminal theorem assumes an explicit coordinate box, 34 base inequalities, and three retained linear disjunctions. It does not assume a Python PASS as an axiom.
+
+This establishes that the extracted linear system is infeasible. The connection from geometric packability to that system, including the filtering of omitted alternatives, remains unformalized. The other outer domains, local rigidity, corner replacement, and final composition also remain outside the pilot. The exported data retains the omitted alternatives and their exact exclusion gaps for inspection.
+
+The project pins Lean 4.34.1 and a specific Mathlib revision. Its three principal theorems compile with only `propext`, `Classical.choice`, and `Quot.sound`. Exact regeneration, a fresh local build, an axiom audit, and two deliberately invalid proof variants were checked. See the pilot's `REPRODUCTION.json` for the recorded run and hashes. The public Python-only replay remains available without installing Lean.
+
+## Remaining work
 
 A Lean development would need to connect a formally stated geometric packing problem to sound finite checking. Merely translating the JSON checker or proving the displayed algebraic identity would not formalize the entire theorem.
 
@@ -10,6 +20,6 @@ A Lean development would need to connect a formally stated geometric packing pro
 4. Define the finite cover and nested linear certificates. Prove their acceptance implies exclusion or capture, including nonzero residual bounds and empty exhaustive disjunctions.
 5. Formalize the local derivative bounds, Taylor estimate, signed dual contraction, and corresponding-anchor capture. Compose them with the inverse target-side wall contradiction and exact upper witness.
 
-The existing 305,914-byte certificate is a candidate input to verified checking; its performance in Lean would have to be measured. Kernel reduction and accelerated native evaluation have different execution assumptions. Any formal release should list its actual axioms, unresolved admissions, and native-computation boundary rather than merely report a successful build.
+The existing 305,914-byte certificate is a candidate input to verified checking. The small pilot does not establish the performance or feasibility of checking the entire packet in Lean. Kernel reduction and accelerated native evaluation have different execution assumptions. Any formal release should list its actual axioms, unresolved admissions, and native-computation boundary rather than merely report a successful build.
 
 As an adjacent reference, [11SquaresFormalized at revision cdc746ed](https://github.com/Queuingtheorydotcom/11SquaresFormalized/tree/cdc746ed907d258057c283aeb6d077cb2c27e349) reports complete Lean verification using its kernel and native compiler for selected numerical certificates. That reported result was not independently replayed here, and it does not formalize this triangle theorem.
