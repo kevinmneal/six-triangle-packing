@@ -110,6 +110,24 @@ The full exploratory archive remains separate. Nothing outside this public repos
 
 ## Citation and reuse
 
-Use [CITATION.cff](CITATION.cff) or cite the preprint title, author, version, and repository. Versioned releases identify a stable paper and certificate. No DOI or arXiv identifier is asserted unless one is actually assigned.
+Copy this citation for the current preprint:
+
+```text
+Neal, K. M. (2026). A computer-assisted proof of the optimal packing of six equilateral triangles (Version 1.0.0) [Preprint]. https://github.com/kevinmneal/six-triangle-packing/releases/tag/v1.0.0
+```
+
+Or use BibTeX:
+
+```bibtex
+@misc{neal2026sixtriangles,
+  author = {Neal, Kevin M.},
+  title  = {A computer-assisted proof of the optimal packing of six equilateral triangles},
+  year   = {2026},
+  note   = {Preprint, version 1.0.0},
+  url    = {https://github.com/kevinmneal/six-triangle-packing/releases/tag/v1.0.0}
+}
+```
+
+[CITATION.cff](CITATION.cff) provides the same citation in a machine-readable format. These citations identify the archived v1.0.0 paper and certificate; routine documentation or demo changes do not change that version. Update both examples and `CITATION.cff` when a new preprint version is released. No DOI or arXiv identifier is asserted unless one is actually assigned.
 
 Code is provided under MIT; original manuscript text, figures, and proof data under CC BY 4.0. See [LICENSE.md](LICENSE.md). Prior constructions and cited external works retain their own attribution and rights.
