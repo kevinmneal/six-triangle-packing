@@ -1,0 +1,90 @@
+{
+  "format": "six-triangle-public-package-reproduction-v1",
+  "date_utc": "2026-10-09",
+  "python_version": "3.13.5",
+  "verification": {
+    "command": "python3 tools/verify.py",
+    "status": "COMPOSED_EXACT_REVIEW_PASSED",
+    "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+    "global_counts": {
+      "outer_nodes": 22329,
+      "split_nodes": 11164,
+      "empty_leaves": 6274,
+      "linear_nodes": 10895,
+      "feature_split_nodes": 3384,
+      "farkas_leaves": 7511,
+      "nonzero_residual_farkas_leaves": 7511,
+      "joint_leaves": 527,
+      "pair_leaves": 4036,
+      "pair_overlap": 1914,
+      "pair_distance": 2085,
+      "pair_inner_hexagon": 37,
+      "vacuous_impossible_pair_nodes": 3,
+      "capture_leaves": 328
+    },
+    "global_elapsed_seconds": 98.213,
+    "local_counts": {
+      "branches": 8,
+      "unavailable_features": 22,
+      "exact_duals": 128
+    },
+    "regression_tests": 28,
+    "acceptance_process_flags": [
+      "-B",
+      "-S",
+      "-O"
+    ],
+    "scope": "Arithmetic, geometric predicates, closed cover replay, captures, and local duals passed. The analytic reductions remain mathematical premises supplied in the manuscript; this is not Lean formalization.",
+    "regression_test_note": "The full independent replay ran the original 27 tests. After adding the production entry point, all 28 current tests passed again under -B -S -O; the exact consumers and final certificate remained unchanged."
+  },
+  "discovery": {
+    "numerical_versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "local_duals_regenerated_byte_for_byte": true,
+    "local_duals_sha256": "e6827928e4416f8052fb23ed2f1d0cf5c70a8b4cbb3de89c7f541df96a320917",
+    "regenerated_duals_independent_replay": "PASS",
+    "one_node_cover_status": "UNKNOWN",
+    "one_node_cover_nodes": 3,
+    "one_node_cover_unresolved": 2,
+    "one_node_resume_status": "UNKNOWN",
+    "resumed_cover_nodes": 5,
+    "resumed_cover_unresolved": 3,
+    "full_cover_rediscovered_in_public_package": false,
+    "limitation": "Packaging validation regenerated the local duals and exercised bounded global discovery plus resume. It replayed the entire supplied final cover, but did not rediscover that full cover from scratch."
+  },
+  "production_verification": {
+    "command": "python3 -S -O tools/discover.py verify-production",
+    "status": "OPTIMALITY_PROVED",
+    "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+    "report": {
+      "claim": "target-optimality",
+      "side": "2977083/1000000",
+      "local_radius": "1/50",
+      "cover": "ordered angles, nonpositive median, first centroid in the closed C3 sector",
+      "nodes": 22329,
+      "pair": 4036,
+      "empty": 6274,
+      "linear_nodes": 10895,
+      "farkas_leaves": 7511,
+      "joint": 527,
+      "captures": 328
+    },
+    "acceptance_process_flags": [
+      "-B",
+      "-S",
+      "-O"
+    ],
+    "third_party_packages_required": false,
+    "incomplete_cover_regression": "A deliberately unresolved cover returned UNKNOWN and a nonzero process status; no success report was written."
+  },
+  "manuscript_finite_table_checks": {
+    "exact_reference_hessian_rows": 21,
+    "nonzero_hessian_rows": 9,
+    "excluded_feature_margins": 5,
+    "pair_separation_witnesses": 15,
+    "rational_envelope_identity": "PASS",
+    "minimum_Farkas_gap": "PASS"
+  }
+}

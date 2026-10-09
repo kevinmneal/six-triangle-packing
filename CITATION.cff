@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "Please cite the preprint and identify the version used."
+type: software
+title: "A computer-assisted proof of the optimal packing of six equilateral triangles"
+authors:
+  - family-names: Neal
+    given-names: Kevin M.
+    orcid: "https://orcid.org/0000-0003-4360-8027"
+version: 1.0.0
+date-released: 2026-10-08
+url: "https://kevinmneal.github.io/six-triangle-packing/"
+repository-code: "https://github.com/kevinmneal/six-triangle-packing"
+license: CC-BY-4.0
+abstract: >-
+  An exact computer-assisted proof that the smallest equilateral triangle
+  containing six unit equilateral triangles with pairwise disjoint interiors
+  has side length (13+3 sqrt(13))/8, allowing independent rotations and legal
+  boundary contact. The proof combines analytic reductions with a complete
+  exact finite certificate. The construction is attributed to Maurizio
+  Morandi through Erich Friedman's catalogue. This preprint has not been
+  peer reviewed and is not a proof-kernel formalization.
+keywords:
+  - geometric packing
+  - equilateral triangles
+  - computer-assisted proof
+  - exact certificates
+preferred-citation:
+  type: article
+  title: "A computer-assisted proof of the optimal packing of six equilateral triangles"
+  authors:
+    - family-names: Neal
+      given-names: Kevin M.
+      orcid: "https://orcid.org/0000-0003-4360-8027"
+  year: 2026
+  month: 10
+  version: 1.0.0
+  url: "https://github.com/kevinmneal/six-triangle-packing/releases/tag/v1.0.0"

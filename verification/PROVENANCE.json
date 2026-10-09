@@ -1,0 +1,58 @@
+{
+  "format": "six-triangle-public-verification-provenance-v1",
+  "source_proof_revision": "09c5ed57fc0d6dbec6ca421decb1b7d5f466e7d2",
+  "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+  "independence_scope": "The global consumer was separately implemented after review of the mathematical specification and production source. The local consumer is explicitly reused from the preceding independent response. Neither is a clean-room proof or a proof-kernel formalization.",
+  "files": [
+    {
+      "path": "certificates/optimality_T.json.gz",
+      "source_package": "six-triangles",
+      "source_path": "certificates/optimality_T.json.gz",
+      "source_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+      "packaged_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+      "bytes": 305914,
+      "relationship": "byte-for-byte copy",
+      "purpose": "completed proof certificate"
+    },
+    {
+      "path": "verification/independent_global.py",
+      "source_package": "six-triangle-independent-review",
+      "source_path": "independent_global.py",
+      "source_sha256": "8da01b96db32d0726138650e66132862f241228ca3b9340c7841ef5ec819905a",
+      "packaged_sha256": "8da01b96db32d0726138650e66132862f241228ca3b9340c7841ef5ec819905a",
+      "bytes": 34759,
+      "relationship": "byte-for-byte copy",
+      "purpose": "reviewed independent global consumer"
+    },
+    {
+      "path": "verification/local/audit_reduced.py",
+      "source_package": "six-triangle-independent-review",
+      "source_path": "shared_local/audit_reduced.py",
+      "source_sha256": "177cf71e5070e3edbccc6bdc4c26c5b724cddd8c0fb45a6972a5f2dc76b57b36",
+      "packaged_sha256": "177cf71e5070e3edbccc6bdc4c26c5b724cddd8c0fb45a6972a5f2dc76b57b36",
+      "bytes": 7029,
+      "relationship": "byte-for-byte copy",
+      "purpose": "explicitly reused prior independent local consumer"
+    },
+    {
+      "path": "verification/local/radical.py",
+      "source_package": "six-triangle-independent-review",
+      "source_path": "shared_local/radical.py",
+      "source_sha256": "9c570aee3f530a6689f0860bfb8f0fc14c6f806706c2b334fd9fe5925a4a8ef6",
+      "packaged_sha256": "9c570aee3f530a6689f0860bfb8f0fc14c6f806706c2b334fd9fe5925a4a8ef6",
+      "bytes": 4125,
+      "relationship": "byte-for-byte copy",
+      "purpose": "reused prior independent exact arithmetic"
+    },
+    {
+      "path": "tests/test_independent.py",
+      "source_package": "six-triangle-independent-review",
+      "source_path": "test_independent.py",
+      "source_sha256": "cbd283b32418765cff1cd9ac91cd9b9146cbf76a8c20a665209ec77ee1dec8e1",
+      "packaged_sha256": "cbd283b32418765cff1cd9ac91cd9b9146cbf76a8c20a665209ec77ee1dec8e1",
+      "bytes": 10836,
+      "relationship": "byte-for-byte copy",
+      "purpose": "19 reviewed independent regression tests"
+    }
+  ]
+}

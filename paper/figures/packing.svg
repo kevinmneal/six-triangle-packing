@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="485" viewBox="0 0 1000 485" role="img" aria-labelledby="title desc">
+<title id="title">Exact six-triangle construction and the remaining hexagon</title>
+<desc id="desc">Three aligned corner pieces and three rotated survivors. Coordinates are rounded for display only.</desc>
+<rect width="1000" height="485" fill="#ffffff"/>
+<polygon points="55.00000,406.00000 185.00000,406.00000 120.00000,293.41670" fill="#6d8c9b" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="120.00000" y="373.47223" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">A</text>
+<polygon points="312.02062,406.00000 442.02062,406.00000 377.02062,293.41670" fill="#b58900" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="377.02062" y="373.47223" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">B</text>
+<polygon points="183.51031,183.41361 313.51031,183.41361 248.51031,70.83031" fill="#6d8c9b" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="248.51031" y="150.88584" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">C</text>
+<polygon points="173.67010,313.04065 290.85052,256.74900 183.51031,183.41361" fill="#2a9188" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="216.01031" y="256.06775" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">D</text>
+<polygon points="185.00000,406.00000 313.51031,386.37604 232.26031,284.89483" fill="#cb6640" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="243.59021" y="364.09029" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">E</text>
+<polygon points="232.26031,284.89483 313.51031,386.37604 360.77062,265.27087" fill="#7b77ad" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="302.18042" y="317.18058" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">F</text>
+<text x="248" y="452" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#182e36">(a) Attaining construction</text>
+<polygon points="550.00000,406.00000 680.00000,406.00000 615.00000,293.41670" fill="#6d8c9b" fill-opacity="0.09" stroke="#40525a" stroke-width="1"/>
+<text x="615.00000" y="373.47223" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">A</text>
+<polygon points="807.02062,406.00000 937.02062,406.00000 872.02062,293.41670" fill="#b58900" fill-opacity="0.09" stroke="#40525a" stroke-width="1"/>
+<text x="872.02062" y="373.47223" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">B</text>
+<polygon points="678.51031,183.41361 808.51031,183.41361 743.51031,70.83031" fill="#6d8c9b" fill-opacity="0.09" stroke="#40525a" stroke-width="1"/>
+<text x="743.51031" y="150.88584" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">C</text>
+<polygon points="668.67010,313.04065 785.85052,256.74900 678.51031,183.41361" fill="#2a9188" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="711.01031" y="256.06775" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">D</text>
+<polygon points="680.00000,406.00000 808.51031,386.37604 727.26031,284.89483" fill="#cb6640" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="738.59021" y="364.09029" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">E</text>
+<polygon points="727.26031,284.89483 808.51031,386.37604 855.77062,265.27087" fill="#7b77ad" fill-opacity="0.52" stroke="#40525a" stroke-width="1"/>
+<text x="797.18042" y="317.18058" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#182e36">F</text>
+<polygon points="680.00000,406.00000 807.02062,406.00000 872.02062,293.41670 808.51031,183.41361 678.51031,183.41361 615.00000,293.41670" fill="none" stroke="#182e36" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="743" y="452" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#182e36">(b) The remaining hexagon H(T)</text>
+</svg>

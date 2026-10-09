@@ -1,0 +1,54 @@
+{
+  "format": "six-triangle-publication-checks-v1",
+  "version": "1.0.0",
+  "preparation_date": "2026-10-08",
+  "paper": {
+    "source": "paper/main.tex",
+    "pdf": "paper/preprint.pdf",
+    "pages": 23,
+    "compiler": "Tectonic 0.17.0",
+    "standalone_source_compilation": "PASS",
+    "all_pages_rendered_and_visually_inspected": true,
+    "separate_mathematical_prose_and_table_review": "PASS",
+    "author_line": "Kevin M. Neal and ORCID; no affiliation or degree"
+  },
+  "reproduction": {
+    "evidence": "verification/REPRODUCTION.json",
+    "independent_composed_status": "COMPOSED_EXACT_REVIEW_PASSED",
+    "production_status": "OPTIMALITY_PROVED",
+    "python_regression_tests": 28,
+    "reviewed_certificate_and_consumer_bytes_preserved": true,
+    "full_numerical_global_rediscovery_in_curated_package": false,
+    "fresh_project_location_replay": "COMPOSED_EXACT_REVIEW_PASSED",
+    "fresh_project_global_elapsed_seconds": 99.346
+  },
+  "website": {
+    "automated_geometry_tests": "PASS",
+    "browser_construction_check": "PASS",
+    "browser_controls_exercised": [
+      "packing",
+      "corner reduction",
+      "rigid core",
+      "rattler",
+      "120-degree rotation",
+      "rattler slider",
+      "certificate detail selection"
+    ],
+    "visual_inspection": [
+      "native desktop viewport",
+      "390 by 844 mobile viewport"
+    ],
+    "horizontal_overflow_at_mobile_viewport": false,
+    "console_errors_during_checked_interactions": 0,
+    "proof_scope": "The browser check verifies the attaining construction and the full displayed rattler path, not the global lower bound."
+  },
+  "citation_metadata": {
+    "cff_schema": "1.2.0",
+    "cffconvert_validation": "PASS"
+  },
+  "publication": {
+    "remote_release_and_deployment": "Remote run status is recorded by GitHub Actions; this file records local preparation checks.",
+    "external_human_peer_review": false,
+    "proof_kernel_formalization": false
+  }
+}

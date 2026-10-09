@@ -1,0 +1,184 @@
+{
+  "format": "six-triangle-public-discovery-provenance-v1",
+  "source_proof_revision": "09c5ed57fc0d6dbec6ca421decb1b7d5f466e7d2",
+  "files": [
+    {
+      "path": "discovery/search/__init__.py",
+      "source_path": "search/__init__.py",
+      "source_sha256": "d585b4ab3156eeae9bec61706cad7a00c057ba24bf7337e3ec3ac281c372ccf4",
+      "packaged_sha256": "d585b4ab3156eeae9bec61706cad7a00c057ba24bf7337e3ec3ac281c372ccf4",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/__init__.py",
+      "source_path": "exact/__init__.py",
+      "source_sha256": "6f537709f1658ddf32dc9f6a24ad0d989ffc84b9b07ad241083e49ec9ba3adb7",
+      "packaged_sha256": "6f537709f1658ddf32dc9f6a24ad0d989ffc84b9b07ad241083e49ec9ba3adb7",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/hexagon_discover.py",
+      "source_path": "search/hexagon_discover.py",
+      "source_sha256": "f4b68aafd94cc0901ace5c068f76a2f271bb28b47b227e13c62ecb08a916e14d",
+      "packaged_sha256": "f499533a89997f5730c9b1c1ee724660d1a4e9c64b8c8682c8fb6d83cf434c14",
+      "changes": [
+        "Command-line radius restricted to the published 1/50 route; the unused 1/100 certificate is not packaged."
+      ]
+    },
+    {
+      "path": "discovery/search/joint_discover.py",
+      "source_path": "search/joint_discover.py",
+      "source_sha256": "ac5a101ec7c8a97ba98e536e0722e87fc6f046ff5fd4769a7d1a07e54af6f4b4",
+      "packaged_sha256": "ac5a101ec7c8a97ba98e536e0722e87fc6f046ff5fd4769a7d1a07e54af6f4b4",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/heuristics.py",
+      "source_path": "search/heuristics.py",
+      "source_sha256": "c8262e53aa3254dc5759f7286a4fbfeb69fff8511e494a80f8019d2fe875918e",
+      "packaged_sha256": "c8262e53aa3254dc5759f7286a4fbfeb69fff8511e494a80f8019d2fe875918e",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/bounds.py",
+      "source_path": "search/bounds.py",
+      "source_sha256": "8699c10408fdd875e944299bb3ba34561f77f88834b1be1ba29f529b849772ca",
+      "packaged_sha256": "8699c10408fdd875e944299bb3ba34561f77f88834b1be1ba29f529b849772ca",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/check_certificate.py",
+      "source_path": "search/check_certificate.py",
+      "source_sha256": "f034975f3055e6f819963ccb20cfbfb3573d69dda2187f74041f9d33413c9360",
+      "packaged_sha256": "f034975f3055e6f819963ccb20cfbfb3573d69dda2187f74041f9d33413c9360",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/domains.py",
+      "source_path": "search/domains.py",
+      "source_sha256": "f071b2b2abe61b442789671b58fee31b73a0c8f0e1c3c951e630c028bd34ae42",
+      "packaged_sha256": "f071b2b2abe61b442789671b58fee31b73a0c8f0e1c3c951e630c028bd34ae42",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/hexagon.py",
+      "source_path": "search/hexagon.py",
+      "source_sha256": "485f76877614b7cabea52a4a77a4b7f328b02ec1e80b6cb5358387a22555dbb5",
+      "packaged_sha256": "485f76877614b7cabea52a4a77a4b7f328b02ec1e80b6cb5358387a22555dbb5",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/hexagon_check.py",
+      "source_path": "search/hexagon_check.py",
+      "source_sha256": "e3c611c87086d39f58b550548b55110ccb1943fac5b86718196a4f2c7ed97af9",
+      "packaged_sha256": "e3c611c87086d39f58b550548b55110ccb1943fac5b86718196a4f2c7ed97af9",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/joint.py",
+      "source_path": "search/joint.py",
+      "source_sha256": "cceccaa3fb487a6828e5d67aa371fc3ab55eb88cf99a8e70f7c7a0ba28fc6305",
+      "packaged_sha256": "cceccaa3fb487a6828e5d67aa371fc3ab55eb88cf99a8e70f7c7a0ba28fc6305",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/contract.py",
+      "source_path": "search/contract.py",
+      "source_sha256": "30d15a877fbceb90ded35f9cd9cb53956e19140f5568d1324377e099a9d4396e",
+      "packaged_sha256": "30d15a877fbceb90ded35f9cd9cb53956e19140f5568d1324377e099a9d4396e",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/inner.py",
+      "source_path": "search/inner.py",
+      "source_sha256": "d458a923d133a423caebf173c8956f6f17d1c472f69ce5f871f812924a6e4157",
+      "packaged_sha256": "d458a923d133a423caebf173c8956f6f17d1c472f69ce5f871f812924a6e4157",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/intervals.py",
+      "source_path": "search/intervals.py",
+      "source_sha256": "24348d7f67875538a547d3bd70dc21494024c5f9b7c3655d41685077add9ec17",
+      "packaged_sha256": "24348d7f67875538a547d3bd70dc21494024c5f9b7c3655d41685077add9ec17",
+      "changes": []
+    },
+    {
+      "path": "discovery/search/capture.py",
+      "source_path": "search/capture.py",
+      "source_sha256": "573a1982bd00adae13733cef0fa141b7bc5a00a67496810b801ded02531268db",
+      "packaged_sha256": "573a1982bd00adae13733cef0fa141b7bc5a00a67496810b801ded02531268db",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/check.py",
+      "source_path": "exact/check.py",
+      "source_sha256": "6123298731186d271a1abc0e1cdf1ad8ac6106eb0736fe8efb535ecdd2d9bdbd",
+      "packaged_sha256": "05f6030e87a9554c023e343a29ee31c1d4cf8e9def63eea0f3d9b0ad2bc2dbbf",
+      "changes": [
+        "Default geometry input relocated to the packaged discovery/certificates/reference_local.json."
+      ]
+    },
+    {
+      "path": "discovery/exact/field.py",
+      "source_path": "exact/field.py",
+      "source_sha256": "766092cae7f512eaeebcd85aa02f0f5e05b463071ed6e63acaa87d7fb560045d",
+      "packaged_sha256": "766092cae7f512eaeebcd85aa02f0f5e05b463071ed6e63acaa87d7fb560045d",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/geometry.py",
+      "source_path": "exact/geometry.py",
+      "source_sha256": "626c8343e8142fb0cb238792a0553aa2d210f0066e2405163cb607b28f7a4989",
+      "packaged_sha256": "626c8343e8142fb0cb238792a0553aa2d210f0066e2405163cb607b28f7a4989",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/jet.py",
+      "source_path": "exact/jet.py",
+      "source_sha256": "25dbac2c285c37ef529a8cdaa109c381abfea1bb465eef97847a99ddda111fbc",
+      "packaged_sha256": "25dbac2c285c37ef529a8cdaa109c381abfea1bb465eef97847a99ddda111fbc",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/optimized_basin.py",
+      "source_path": "exact/optimized_basin.py",
+      "source_sha256": "11739ba07cf9fd7d10bbfbb7c75adf6c8432f45b2c464df6791b8f3d0fd8beee",
+      "packaged_sha256": "11739ba07cf9fd7d10bbfbb7c75adf6c8432f45b2c464df6791b8f3d0fd8beee",
+      "changes": []
+    },
+    {
+      "path": "discovery/exact/reduced_basin.py",
+      "source_path": "exact/reduced_basin.py",
+      "source_sha256": "3f456451367aa167891a029e5195e5a147ef6a2099769b11da2a578eecf53272",
+      "packaged_sha256": "3f456451367aa167891a029e5195e5a147ef6a2099769b11da2a578eecf53272",
+      "changes": []
+    },
+    {
+      "path": "discovery/scripts/certify_reduced_basin.py",
+      "source_path": "scripts/certify_reduced_basin.py",
+      "source_sha256": "1d01b4c29987e61be6fa601dbca4a1ab27c06160f83053b5bb2ec0a10e85b54f",
+      "packaged_sha256": "1d01b4c29987e61be6fa601dbca4a1ab27c06160f83053b5bb2ec0a10e85b54f",
+      "changes": []
+    },
+    {
+      "path": "discovery/certificates/reference_local.json",
+      "source_path": "certificates/optimality_T.json.gz",
+      "source_member": "local_certificate.packet",
+      "source_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+      "packaged_sha256": "8c81e89278e187fe9063d3029e27e0f4d96d29a4ddd9393c06f6cd5462c28596",
+      "changes": [
+        "Exact JSON member extracted and indented; rational literals are preserved."
+      ]
+    },
+    {
+      "path": "discovery/certificates/reduced_basin_duals.json",
+      "source_path": "certificates/optimality_T.json.gz",
+      "source_member": "local_certificate.basin",
+      "source_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
+      "packaged_sha256": "e6827928e4416f8052fb23ed2f1d0cf5c70a8b4cbb3de89c7f541df96a320917",
+      "changes": [
+        "Exact JSON member extracted and indented; rational literals are preserved."
+      ]
+    }
+  ]
+}

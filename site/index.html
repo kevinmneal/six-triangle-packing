@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#002b36">
+  <meta name="description" content="A computer-assisted proof of the minimum side length of an equilateral triangle that contains six unit equilateral triangles, with an interactive diagram and exact verification code.">
+  <title>Packing six equilateral triangles — Kevin M. Neal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="masthead">
+      <a class="author-link" href="https://kevinmneal.com">Kevin M. Neal <span aria-hidden="true">↗</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#proof">The proof</a>
+        <a href="preprint.pdf">Preprint <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/kevinmneal/six-triangle-packing">Code <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="title">
+        <div class="hero-copy">
+          <p class="eyebrow">Geometry · October 2026</p>
+          <h1 id="title">Packing six<br><em>equilateral triangles</em></h1>
+          <p class="hero-deck">The smallest equilateral triangle that contains six equilateral triangles of side 1 has side length</p>
+          <div class="equation" aria-label="The minimum side length T equals 13 plus 3 times the square root of 13, divided by 8.">
+            <span class="math-italic">T</span><span class="equals">=</span>
+            <span class="fraction"><span>13 + 3√13</span><span>8</span></span>
+          </div>
+          <p class="decimal">2.977081728299… <span>for pieces of side 1</span></p>
+          <p class="hero-summary">This computer-assisted proof shows that a known construction has the smallest possible container. The preprint and code provide the argument and the exact checks.</p>
+          <a class="primary-link" href="preprint.pdf">Preprint PDF <span aria-hidden="true">↗</span></a>
+          <p class="publication-status">The preprint has not been peer reviewed.</p>
+        </div>
+
+        <figure class="construction-figure" aria-labelledby="figure-heading">
+          <div class="figure-topline">
+            <span id="figure-heading" class="eyebrow">01 / Construction</span>
+            <button id="rotate" class="quiet-button" type="button" aria-label="Rotate the displayed packing by 120 degrees"><span aria-hidden="true">↻</span> 120°</button>
+          </div>
+          <svg id="packing" viewBox="0 0 600 520" role="img" aria-labelledby="packing-title packing-description">
+            <title id="packing-title">Six unit equilateral triangles in an equilateral container</title>
+            <desc id="packing-description">This construction is attributed to Maurizio Morandi. Three triangles occupy the corners and three rotated triangles occupy the middle. The controls below show the parts used in the proof.</desc>
+            <g id="region-layer"></g>
+            <g id="ghost-layer"></g>
+            <g id="piece-layer"></g>
+            <path class="container-outline" d="M45,475 L555,475 L300,33.32704406993628 Z"></path>
+            <g id="contact-layer"></g>
+            <g id="label-layer"></g>
+            <text class="dimension-label" x="300" y="508" text-anchor="middle">side length T</text>
+          </svg>
+          <noscript><p class="noscript-note">Enable JavaScript to draw and explore the exact construction. The complete proof and diagram are available in the preprint.</p></noscript>
+          <div class="mode-controls" role="group" aria-label="Construction view">
+            <button type="button" data-mode="packing" aria-pressed="true">Packing</button>
+            <button type="button" data-mode="corners" aria-pressed="false">Corner reduction</button>
+            <button type="button" data-mode="core" aria-pressed="false">Rigid core</button>
+            <button type="button" data-mode="rattler" aria-pressed="false">The rattler</button>
+          </div>
+          <figcaption id="mode-caption" aria-live="polite">The six pieces have side length 1 and fit in a container of side T without overlapping interiors. Contact between pieces is allowed.</figcaption>
+          <div id="rattler-controls" class="rattler-controls" hidden>
+            <div class="slider-block">
+              <div class="slider-label"><label for="rattler">Move triangle B</label><output id="rattler-value" for="rattler">0%</output></div>
+              <input id="rattler" type="range" min="0" max="100" step="1" value="0" aria-describedby="rattler-help">
+              <p id="rattler-help">Triangle B moves inward while all other pieces stay fixed. Exact checks at both endpoints, with a common set of separating edges, verify the full path.</p>
+            </div>
+            <div class="inset-wrap">
+              <svg id="rattler-inset" viewBox="0 0 190 110" role="img" aria-label="Magnified detail of the lower-left vertex of triangle B moving away from its original position">
+                <path class="inset-wall" d="M5,80 H185"></path>
+                <path class="inset-ghost" d="M140,80 L2140,80 L1140,-1652 Z"></path>
+                <path id="inset-moving" class="inset-moving" d="M140,80 L2140,80 L1140,-1652 Z"></path>
+                <circle id="inset-dot" cx="140" cy="80" r="3.5"></circle>
+              </svg>
+              <span class="inset-caption">Magnified detail · original orientation</span>
+            </div>
+          </div>
+          <p class="drawing-note">Display coordinates are rounded. Exact arithmetic is used in the construction check below.</p>
+        </figure>
+      </section>
+
+      <section class="context-section section-rule" aria-labelledby="known-title">
+        <p class="eyebrow">The question</p>
+        <div class="context-grid">
+          <h2 id="known-title">The known construction and the optimality problem</h2>
+          <div class="body-copy">
+            <p>The six pieces may move and rotate freely inside the container. A valid arrangement gives an upper bound on the required container size. A proof of optimality must also exclude every arrangement in a smaller container.</p>
+            <p><a href="https://erich-friedman.github.io/packing/triintri/">Erich Friedman’s catalogue</a> credits this construction to <strong>Maurizio Morandi, August 2008</strong>. <a href="https://math.mit.edu/documents/rsi/2015Chou.pdf">Amy Chou’s 2016 manuscript</a> explicitly recorded its optimality as unproved. This work establishes the matching lower bound.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" class="proof-section section-rule" aria-labelledby="proof-title">
+        <p class="eyebrow">Proof method</p>
+        <h2 id="proof-title">How the proof covers all possible packings</h2>
+        <div class="proof-step">
+          <span class="step-number">01</span>
+          <h3>Reduction to three fixed corner pieces</h3>
+          <div class="body-copy"><p>A geometric replacement argument shows that any hypothetical smaller packing can be converted into one with three aligned corner pieces. The other three triangles then lie in a central hexagon.</p><button class="text-button show-mode" data-show="corners" type="button">Show the corner reduction <span aria-hidden="true">↑</span></button></div>
+        </div>
+        <div class="proof-step">
+          <span class="step-number">02</span>
+          <h3>Coverage of the remaining positions and orientations</h3>
+          <div class="body-copy"><p>Each of the three remaining triangles has two position coordinates and one orientation, giving <strong>nine continuous variables</strong>. The certificate splits orientation intervals and encloses positions in polygons. Each branch includes its boundary, so the cases cover all configurations.</p><p>Exact geometric tests and rational linear certificates exclude impossible cases. The verifier checks each accepted calculation without repeating the numerical search that found it.</p></div>
+        </div>
+        <div class="proof-step">
+          <span class="step-number">03</span>
+          <h3>Local rigidity of the three inner pieces</h3>
+          <div class="body-copy"><p>The remaining cases lie near the reference construction. For a feasible packing at side T, a local theorem identifies the three inner pieces as a rotated or reflected copy of the reference triple. Together they touch all three container walls, which excludes a smaller container.</p><p>Corner piece B can move a short distance while the other pieces stay fixed. This motion does not allow a smaller container.</p><button class="text-button show-mode" data-show="core" type="button">Show the rigid core <span aria-hidden="true">↑</span></button></div>
+        </div>
+
+        <div class="certificate-summary">
+          <div class="summary-heading"><h3>Certificate results</h3><p>The verifier resolves all 11,165 terminal cases.</p></div>
+          <div class="terminal-bar" role="img" aria-label="11,165 terminal cases: 6,274 empty domains, 4,036 pair exclusions, 527 joint exclusions, and 328 local captures.">
+            <span data-leaf="empty" style="flex:6274"></span><span data-leaf="pair" style="flex:4036"></span><span data-leaf="joint" style="flex:527"></span><span data-leaf="capture" style="flex:328"></span>
+          </div>
+          <div class="terminal-legend" role="group" aria-label="Terminal case types">
+            <button type="button" data-leaf="empty" aria-pressed="false"><span class="legend-dot"></span><span>Empty domains</span><strong>6,274</strong></button>
+            <button type="button" data-leaf="pair" aria-pressed="false"><span class="legend-dot"></span><span>Pair exclusions</span><strong>4,036</strong></button>
+            <button type="button" data-leaf="joint" aria-pressed="false"><span class="legend-dot"></span><span>Joint exclusions</span><strong>527</strong></button>
+            <button type="button" data-leaf="capture" aria-pressed="false"><span class="legend-dot"></span><span>Local captures</span><strong>328</strong></button>
+          </div>
+          <p id="leaf-detail" class="leaf-detail" aria-live="polite">Select a case type to see how it is resolved. Bar widths show counts of terminal cases, not geometric volume or probability.</p>
+          <dl class="proof-stats"><div><dt>Nodes in the closed cover</dt><dd>22,329</dd></div><div><dt>Exact Farkas leaves</dt><dd>7,511</dd></div><div><dt>Unresolved cases</dt><dd>0</dd></div></dl>
+        </div>
+      </section>
+
+      <section id="verify" class="verification-section section-rule" aria-labelledby="verify-title">
+        <p class="eyebrow">Reproducibility</p>
+        <h2 id="verify-title">Checking the construction and the full proof</h2>
+        <div class="verification-grid">
+          <div class="verification-column">
+            <h3>Construction check in the browser</h3>
+            <p>The browser checker uses integer arithmetic in ℚ(√13). It checks 18 unit edges, 54 containment inequalities and separation of all 15 pairs of triangles, allowing contact.</p>
+            <p>It also verifies the rattler’s translation path. <strong>This certifies the construction, not the global lower bound.</strong></p>
+            <button id="verify-construction" class="outline-button" type="button">Run exact construction check <span aria-hidden="true">→</span></button>
+            <output id="verification-result" class="verification-result" aria-live="polite">The check runs in your browser and sends no data to a server.</output>
+          </div>
+          <div class="verification-column">
+            <h3>Full certificate verification</h3>
+            <p>Download or clone the repository, then run the verifier from its root. It uses Python 3.10 or newer and the standard library. No numerical solver is needed.</p>
+            <div class="command"><code>python3 tools/verify.py</code><button id="copy-command" class="quiet-button" type="button" aria-label="Copy the full verification command">Copy</button></div>
+            <p class="small-copy">The full replay takes roughly 100 seconds on the reference system; other machines will vary. The repository includes the certificate, proof source, verification instructions and a separately implemented review route.</p>
+            <a class="text-link" href="https://github.com/kevinmneal/six-triangle-packing">Repository and verification instructions <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section section-rule" aria-labelledby="paper-title">
+        <div>
+          <p class="eyebrow">Supporting material</p>
+          <h2 id="paper-title">Preprint and supporting files</h2>
+        </div>
+        <div class="body-copy">
+          <p>The preprint presents the geometric reductions, the local theorem and the finite certificate that connects them. Separately written verification programs provide an additional check of the computation.</p>
+          <p><strong>This is a preprint and has not been peer reviewed. It is not a Lean formalization or a proof checked by a formal proof kernel.</strong> The exact checkers are executable mathematical evidence; their correctness and the analytic arguments remain part of the proof’s trust boundary.</p>
+          <div class="paper-links"><a class="primary-link" href="preprint.pdf">Preprint PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/kevinmneal/six-triangle-packing">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+
+      <section class="credits-section section-rule" aria-labelledby="credits-title">
+        <h2 id="credits-title">Development and credits</h2>
+        <div class="credits-grid">
+          <p>The construction is credited to Maurizio Morandi in <a href="https://erich-friedman.github.io/packing/triintri/">Friedman’s catalogue</a>. The exploratory presentation is inspired by <a href="https://yoheinakajima.github.io/soft-to-rigid-packing/">Yohei Nakajima’s soft-to-rigid packing project</a>.</p>
+          <p>Kevin M. Neal developed this work with <strong>GPT-6 Astra in OpenAI Codex</strong> and <strong>ChatGPT Pro</strong>. These tools helped develop the arguments, write the code and manuscript, and review the calculations. The author is responsible for the claims and evidence. The AI reviews are not external peer review.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Kevin M. Neal · October 2026</span>
+      <div><a href="https://kevinmneal.com">Website <span aria-hidden="true">↗</span></a><a href="https://orcid.org/0000-0003-4360-8027">ORCID <span aria-hidden="true">↗</span></a><a href="https://github.com/kevinmneal/six-triangle-packing">GitHub <span aria-hidden="true">↗</span></a></div>
+    </footer>
+  </div>
+</body>
+</html>
