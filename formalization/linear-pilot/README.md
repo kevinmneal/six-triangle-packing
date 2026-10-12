@@ -1,8 +1,8 @@
-# Geometric Lean reduction, v0.5.0
+# Geometric Lean reduction and normalization, v0.6.0
 
-This development now proves unrestricted chart coverage, corner capacity and simultaneous corner replacement preserving three original triangles, and exclusion of all side lengths at most two. It retains the exact six-triangle upper-bound construction and the direct exclusion of one selected orientation cell from actual containment in the clipped hexagon.
+This development now normalizes an arbitrary original six-piece packing with side at most T into the closed root domain of the accepted certificate. It proves unrestricted chart coverage, corner capacity and simultaneous corner replacement preserving three original triangles, and exclusion of all side lengths at most two. It retains the exact six-triangle upper-bound construction and the direct exclusion of one selected orientation cell from actual containment in the clipped hexagon.
 
-**The complete six-triangle optimality theorem is still not formalized.** Target-side symmetry and permutation normalization, the remaining global cover and captures, local rigidity, and the final lower-bound composition remain open. The original paper and certificate retain their own version; `0.5.0` identifies this optional Lean development.
+**The complete six-triangle optimality theorem is still not formalized.** Contractor preservation, the remaining global cover and captures, corresponding local anchors, local rigidity, and the final lower-bound composition remain open. The original paper and certificate retain their own version; `0.6.0` identifies this optional Lean development.
 
 ## Exact upper bound
 
@@ -38,6 +38,20 @@ Each corner can exclude at most one original piece. The three exclusions may ref
 
 This does not exclude sides between two and the target. Pro's additional `LowerBoundReduction` lemmas remain explicitly conditional: they reduce the final lower bound to a supplied theorem for sides at least two. That premise has not been proved.
 
+## Target-side symmetry and the closed root domain
+
+`RootNormalization.normalize_original_to_target` starts with six arbitrary original unit triples, their physical containment and interior disjointness, and `S <= T`. Its `NormalizedOriginal` witness records an injection into the original labels and one common symmetry
+
+`g = F_T^k ∘ swap^ε`, where `F_T(u,v) = (v,T-u-v)`.
+
+The normalized centers are definitionally `g(centroid(v(f i)))`. Each full normalized chart triangle equals the image of the corresponding original filled hull. Original containment in H(S), transformed containment in H(T), physical interior disjointness, and the stronger first-center sector at T are retained. `inverse_hull` recovers the literal original hull using the same symmetry's inverse. The Cartesian action is a conjugate through the proved coordinate homeomorphism; `TargetSymmetry.physicalSymmetry_squared_distance` proves preservation of the actual Euclidean squared distance.
+
+The construction chooses the original charts once, sorts them by a permutation, and, if the median is positive, reflects all pieces and reverses their order. It then chooses a common cyclic frame to place the first center in the closed sector. Exact vertex relabelings prove that cyclic frames preserve the chosen parameter and reflection negates it. No later chart choice can alter an endpoint or break the established order. Ties, median zero, and both seam endpoints remain legal.
+
+`NormalizationBasics.target_lt_envelope` proves `T < U`, using the existing `Direct.side = 2977083/1000000`. `ClosedRootDomain` describes the actual consumer's interleaved coordinates `(u0,v0,t0,u1,v1,t1,u2,v2,t2)`: all six center coordinates lie in `[0,U]`, the first two parameters in `[-1/3,0]`, and the third in `[-1/3,1/3]`. It also records weak parameter order, nonpositive median, and the first-center sector at U. These bounds match `verification/independent_global.py:initial_box`; they do not formalize later propagation, subdivision, contractors, or captures.
+
+`packable6_has_closed_root` is a simpler existence interface. `target_closed_root_nonempty` applies it to the exact accepted upper-bound witness, so the normalization is nonvacuous and includes attainment at T. This root domain is not asserted to be infeasible. Correspondence to the certificate's local reference anchors and the final inverse-symmetry wall contradiction remain separate work.
+
 ## Direct selected-cell exclusion
 
 `SixTrianglePilot.Direct.cartesianSelectedCellInfeasible` takes three centers `p`, `q`, `r` and three independent real orientation parameters `t0`, `t1`, `t2`. Its hypotheses are:
@@ -49,7 +63,7 @@ This does not exclude sides between two and the target. Pro's additional `LowerB
 
 It concludes `False`. Lean derives 18 centroid bounds from actual vertex containment and adds the two sector rows. The preserved fixed-core geometry gives three complete six-feature separating disjunctions. Nine alternatives are excluded; every one of the remaining `4*2*3 = 24` combinations yields a checked rational linear contradiction. No contracted hull, coordinate box, filtering result, or Farkas certificate is a premise of this theorem.
 
-The points use oblique coordinates `(u,v)`, embedded as `(u+v/2, sqrt(3)*v/2)`. The previously proved homeomorphism ensures that these are ordinary planar interiors. Unit edge lengths and orientation-preserving rotations are already proved. The first-center sector and orientation intervals are assumptions of this one-cell theorem, not a proof of global normalization or coverage.
+The points use oblique coordinates `(u,v)`, embedded as `(u+v/2, sqrt(3)*v/2)`. The previously proved homeomorphism ensures that these are ordinary planar interiors. Unit edge lengths and orientation-preserving rotations are already proved. The first-center sector and selected orientation intervals remain assumptions of this one-cell theorem. The separate root-normalization theorem does not place every packing in this selected cell.
 
 ## Preserved proof components and provenance
 
@@ -62,7 +76,7 @@ The selected cell corresponds to outer path `0000000001`: `0` denotes the first 
 | `certificates/optimality_T.json.gz` | `f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be` |
 | `verification/independent_global.py` | `8da01b96db32d0726138650e66132862f241228ca3b9340c7841ef5ec819905a` |
 
-All 29 inherited mathematical proof, generator, and data files, including the complete v0.4 extension, are preserved byte for byte and checked on each run. The manuscript, certificate, Python consumers, and website are unchanged.
+All 39 inherited proof, audit, generator, and data files, including the complete v0.5 development, are preserved byte for byte and checked on each run. The manuscript, certificate, Python consumers, and website are unchanged.
 
 Five deterministic generators reproduce the fixed-data components:
 
@@ -88,9 +102,9 @@ Use Lean `4.34.1` and the pinned dependencies in `lake-manifest.json`, including
 python3 -B -S -O verify.py --public-root /path/to/six-triangle-packing
 ```
 
-The explicit repository argument supports relocation. The public package is read only; each run creates a new `work/verification-*` directory containing logs and a report. Require `GEOMETRIC_REDUCTION_VERIFIED` and exit status zero.
+The explicit repository argument supports relocation. The public package is read only; each run creates a new `work/verification-*` directory containing logs and a report. Require `TARGET_ROOT_NORMALIZATION_VERIFIED` and exit status zero.
 
-The wrapper checks preserved hashes, all five generators, the complete Lean build, 166 key declaration axiom reports, positive witnesses, and fifteen expected-failure mutations. Every audited declaration uses exactly `propext`, `Classical.choice`, and `Quot.sound`. There are no incomplete proofs, custom mathematical axioms, or native-computation acceptance shortcuts. Positive steps must contain no internal failure diagnostic or incomplete-proof axiom.
+The wrapper checks preserved hashes, all five generators, the complete Lean build, 205 key declaration axiom reports, positive witnesses, and twenty expected-failure mutations. Every audited declaration uses exactly `propext`, `Classical.choice`, and `Quot.sound`. There are no incomplete proofs, custom mathematical axioms, or native-computation acceptance shortcuts. Positive steps must contain no internal failure diagnostic or incomplete-proof axiom.
 
 Individual checks include:
 
@@ -128,6 +142,8 @@ Five further invalid variants exercise the v0.5 reduction:
 | Weaken corner-support insertion range to `S >= 3/2` | All corners fit at `3/2`, but `(2/3,1/6)` is strictly inside two of them; their physical interiors overlap. |
 
 `CoverageBoundary.endpoint_seam` separately proves that the two chart endpoints describe the same filled triangle at the same center. Removing only one endpoint from an existential chart statement is therefore not used as a supposedly false mutation. Mutation rejection is checked for mathematical diagnostics, with internal failures and import errors excluded as acceptance evidence.
+
+Five normalization variants are also rejected: making the median strict; making either of the two sector comparisons strict; negating an ordered endpoint tuple without reversing its labels; and applying an envelope-side frame followed by a target-side inverse. `NormalizationBoundary` supplies exact counterexamples. All-zero parameters remain zero under every permitted relabeling and reflection; the barycentric center is fixed by every target symmetry and makes both sector comparisons equalities; and the wrong-side inverse leaves the nonzero displacement `(T-U,0)`. The median and sector fixtures concern the normalization lemmas themselves, not an asserted six-piece packing at every possible parameter tuple.
 
 `DirectBoundary.unit_boundary_contact` separately verifies legal boundary contact between full unit triangles. Counterexamples refute the stated altered claim; they do not refute the accepted theorem or every possible stronger result. Mutation rejection is supporting evidence, while the compiled Lean theorems provide the proofs.
 

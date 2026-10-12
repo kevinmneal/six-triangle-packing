@@ -186,6 +186,45 @@ KEY_THEOREMS = (
     'SixTrianglePilot.CoverageBoundary.three_halves_overlap_witness',
     'SixTrianglePilot.CoverageBoundary.three_halves_corners_contained',
     'SixTrianglePilot.CoverageBoundary.corners_overlap_at_three_halves',
+    'SixTrianglePilot.NormalizationBasics.target_lt_envelope',
+    'SixTrianglePilot.NormalizationBasics.hexagon_mono',
+    'SixTrianglePilot.NormalizationBasics.unit_centroid_mem_closed',
+    'SixTrianglePilot.NormalizationBasics.closed_root_of_bounds',
+    'SixTrianglePilot.OrientationOrder.exists_sorted_perm',
+    'SixTrianglePilot.OrientationOrder.normalized_mem_chart',
+    'SixTrianglePilot.OrientationOrder.exists_sorted_reflected',
+    'SixTrianglePilot.OrientationOrder.first_two_mem_nonpos_chart',
+    'SixTrianglePilot.TargetSymmetry.swap_chart_vertex',
+    'SixTrianglePilot.TargetSymmetry.frame_chart_vertex',
+    'SixTrianglePilot.TargetSymmetry.symmetry_image_unitTriangle',
+    'SixTrianglePilot.TargetSymmetry.symmetry_image_hexagon',
+    'SixTrianglePilot.TargetSymmetry.exists_sector_frame',
+    'SixTrianglePilot.TargetSymmetry.symmetry_squared_distance',
+    'SixTrianglePilot.TargetSymmetry.symmetry_unit',
+    'SixTrianglePilot.TargetSymmetry.symmetry_hull',
+    'SixTrianglePilot.TargetSymmetry.symmetry_interiors_disjoint_iff',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry_squared_distance',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry_hull',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry_image_unitTriangle',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry_image_hexagon',
+    'SixTrianglePilot.TargetSymmetry.physicalSymmetry_interiors_disjoint_iff',
+    'SixTrianglePilot.RootNormalization.inverse_hull',
+    'SixTrianglePilot.RootNormalization.normalize_original',
+    'SixTrianglePilot.RootNormalization.normalize_original_to_target',
+    'SixTrianglePilot.RootNormalization.packable6_has_closed_root',
+    'SixTrianglePilot.RootNormalization.target_closed_root_nonempty',
+    'SixTrianglePilot.NormalizationBoundary.normalized_zero',
+    'SixTrianglePilot.NormalizationBoundary.zero_median_not_strict',
+    'SixTrianglePilot.NormalizationBoundary.symmetry_fixes_barycentricCenter',
+    'SixTrianglePilot.NormalizationBoundary.center_sector_equalities',
+    'SixTrianglePilot.NormalizationBoundary.center_no_strict_sector',
+    'SixTrianglePilot.NormalizationBoundary.endpointParameters_closed',
+    'SixTrianglePilot.NormalizationBoundary.endpointParameters_ordered',
+    'SixTrianglePilot.NormalizationBoundary.negation_without_reversal_breaks_order',
+    'SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin',
+    'SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin_ne_zero',
+    'SixTrianglePilot.NormalizationBoundary.envelope_frame_origin_ne_zero',
 )
 STANDARD_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 PRESERVED_PRIOR_SOURCES = {
@@ -218,6 +257,16 @@ PRESERVED_PRIOR_SOURCES = {
     'generate_core_data.py': '6de3afc460dca1fdad8b29862a9a87b7e80e6e259f89017c435fedc4a8603270',
     'generate_core_facets.py': '10c60559cce32608425b22f308bd9bde9c418645417a94c2eb061f9efad4bd26',
     'generate_geometry.py': '05bce0eff58c6a0cbe744de6ad506fa7eec8d0a30c86e315ffa9b8da524617b2',
+    'Pilot/ChartCoverage.lean': 'a073a3e683f8c0837b7ae1bd06c8b91d4e56372dfbd37a128596dcf870c7ba3a',
+    'Pilot/CornerFrames.lean': '65497498883f3dcfb56ef1b5426fbcdf291eb99dd9dd88e4027f4b4e6f3be262',
+    'Pilot/CornerInsertion.lean': '871e49e43456b6b13739ced14c96481617db57663e7c8e30cc2fab96625cec6d',
+    'Pilot/CornerReplacement.lean': 'db8f76c2b3f78aa7b0e184cbd6201c1ae840592c180f3e9b05200d0df6604c17',
+    'Pilot/CoverageBoundary.lean': '3e245dedb146efacb7651fb7f66e00d1147c1cb74e7943fdbbfb1edbe18a1de6',
+    'Pilot/LowerBoundReduction.lean': '00485ad212c7a5295e48ccf5858d0c623cc9084d3eb1d19abd5fced51aa23f6e',
+    'Pilot/SmallSides.lean': '8d9a350c82912a653a06dbc9c8038246509d360db20136c0e088ca10bfcb2667',
+    'Pilot/SurvivorSelection.lean': '4c1d642a8bf009b0067c9af74a1b8990e557db3b3e8fff163533712d0d89de6e',
+    'Pilot/UnrestrictedCorner.lean': 'eb89c2ffd5130e08794df656c4b86541f85fe8f23998d13ee6272bf623050f24',
+    'ContributionAudit.lean': '93334a99e138504894a82a8203b47a442ee267807433c698eae3ca0aa963a7cd',
 }
 
 
@@ -512,6 +561,43 @@ def main():
     rejected = run("corners-below-two", ["lake", "env", "lean", str(insertion_bad)], expected_success=False)
     require("linarith failed" in rejected, "corner range mutation failed for an unexpected reason")
 
+    # Exact normalization boundary counterexamples. Each altered conclusion
+    # is false, with a separately compiled positive witness in the module.
+    normalization_mutations = {
+        "strict-normalization-median": [
+            "example : normalized false (Equiv.refl (Fin 3)) (fun _ => 0) 1 < 0 := by",
+            "  rw [normalized_zero]", "  norm_num"],
+        "strict-normalization-sector-uv": [
+            "example : barycentricCenter UpperBound.T 0 < barycentricCenter UpperBound.T 1 := by",
+            "  rw [(center_sector_equalities UpperBound.T).1]", "  simp"],
+        "strict-normalization-sector-sum": [
+            "example : 2 * barycentricCenter UpperBound.T 0 + barycentricCenter UpperBound.T 1 < UpperBound.T := by",
+            "  rw [(center_sector_equalities UpperBound.T).2]", "  simp"],
+        "reflection-without-reversal": [
+            "example : normalized true (Equiv.refl (Fin 3)) endpointParameters 0 ≤ normalized true (Equiv.refl (Fin 3)) endpointParameters 1 := by",
+            "  change -(-(1/3 : ℝ)) ≤ -(0 : ℝ)", "  norm_num"],
+        "envelope-frame-target-inverse": [
+            "example : inverseFrame UpperBound.T (frame envelope (0 : Point)) = 0 := by",
+            "  rw [wrong_side_frame_origin]", "  ext i", "  fin_cases i",
+            "  · change UpperBound.T - envelope = 0",
+            "    have h := target_lt_envelope", "    linarith only [h]",
+            "  · rfl"],
+    }
+    for name, body in normalization_mutations.items():
+        mutant = output / (name.replace("-", "_") + ".lean")
+        mutant.write_text("\n".join([
+            "import Pilot.NormalizationBoundary",
+            "open SixTrianglePilot SixTrianglePilot.Triangle SixTrianglePilot.CornerFrames",
+            "open SixTrianglePilot.OrientationOrder SixTrianglePilot.TargetSymmetry",
+            "open SixTrianglePilot.NormalizationBasics SixTrianglePilot.NormalizationBoundary",
+            *body, ""]))
+        rejected = run(name, ["lake", "env", "lean", str(mutant)], expected_success=False)
+        require(re.search(r"unsolved goals|linarith failed", rejected) is not None,
+                "normalization mutation failed for an unexpected reason: " + name)
+        require(re.search(r"Unknown (?:constant|identifier)|unknown module|object file|unexpected token",
+                          rejected, re.I) is None,
+                "normalization mutation has an import or elaboration failure: " + name)
+
     tracked = ["Pilot.lean", "Pilot/Farkas.lean", "Pilot/Selected.lean", "Pilot/Polygon.lean",
                "Pilot/SelectedGeometry.lean", "extract.py", "generate_geometry.py", "verify.py",
                "data/selected-terminal.json", "data/polygon-bridge.json",
@@ -525,16 +611,17 @@ def main():
                 "Pilot/Packing.lean", "Pilot/UpperBound.lean",
                 "Pilot/Corner.lean", "Pilot/CornerBoundary.lean"]
     tracked += ['Pilot/ChartCoverage.lean', 'Pilot/UnrestrictedCorner.lean', 'Pilot/SurvivorSelection.lean', 'Pilot/CornerFrames.lean', 'Pilot/LowerBoundReduction.lean', 'Pilot/CornerInsertion.lean', 'Pilot/SmallSides.lean', 'Pilot/CornerReplacement.lean', 'Pilot/CoverageBoundary.lean', 'ContributionAudit.lean', 'provenance/pro-return-review.json', 'provenance/six-triangle-lean-return-2026-10-12.zip']
+    tracked += ['Pilot/NormalizationBasics.lean', 'Pilot/OrientationOrder.lean', 'Pilot/TargetSymmetry.lean', 'Pilot/RootNormalization.lean', 'Pilot/NormalizationBoundary.lean']
     report = {
-        "status": "GEOMETRIC_REDUCTION_VERIFIED",
-        "pilot_version": "0.5.0",
-        "scope": "Arbitrary unit vertex triples are covered by the closed orientation chart at their original centroid. Unrestricted corner capacity and all-side extraction select three unchanged original triples in H(S). Any six-piece packing forces S>2, without an area or global-lower-bound premise. Simultaneous corner replacement and Packable6 S iff S>2 and three physical unit triangles fit in H(S) are proved. The inherited exact upper bound and selected closed orientation-cell exclusion are retained unchanged. Target-side symmetry/permutation normalization, remaining global cover and captures, local rigidity and the full optimality theorem remain unformalized.",
+        "status": "TARGET_ROOT_NORMALIZATION_VERIFIED",
+        "pilot_version": "0.6.0",
+        "scope": "Arbitrary unit vertex triples are covered by the closed orientation chart at their original centroid. Unrestricted corner capacity and all-side extraction select three unchanged original triples in H(S). Any six-piece packing forces S>2, without an area or global-lower-bound premise. Simultaneous corner replacement and Packable6 S iff S>2 and three physical unit triangles fit in H(S) are proved. The inherited exact upper bound and selected closed orientation-cell exclusion are retained unchanged. For every original packing with S<=T, three literal original survivors are normalized by one common target-side isometry and a bijective relabeling into the exact closed interleaved root domain at rational envelope U. Original H(S) containment, exact transformed hulls, physical disjointness, the stronger sector at T, and inverse recovery are retained. Contractor preservation, remaining global cover and captures, corresponding local anchors, local rigidity and the full optimality theorem remain unformalized.",
         "certificate_sha256": "f8b2306312064ae083d91a97bd01d1669970685d1e3c0b71b3628f2ecfc773be",
         "outer_path": "0000000001", "feature_splits": 5, "farkas_leaves": 6,
         "polygon_vertex_counts": [8, 8, 6], "base_rows_proved": 34, "omitted_features_proved": 12,
         "all_features_per_pair": 6,
         "orientation_intervals": [["-1/3", "-31/96"], ["-1/3", "-31/96"], ["-31/96", "-5/16"]],
-        "core_pair_certificates": 2, "negative_mutations": 15,
+        "core_pair_certificates": 2, "negative_mutations": 20,
         "upper_bound": {"side": "(13 + 3 * sqrt(13)) / 8", "pieces": 6,
                         "unit_edges": 18, "pair_separations": 15,
                         "theorem": "SixTrianglePilot.UpperBound.packable6_T"},
@@ -560,12 +647,18 @@ def main():
                                           'CoverageBoundary.three_halves_overlap_witness',
                                           'CoverageBoundary.three_halves_corners_contained',
                                           'CoverageBoundary.corners_overlap_at_three_halves',
+                                          'NormalizationBoundary.zero_median_not_strict',
+                                          'NormalizationBoundary.center_no_strict_sector',
+                                          'NormalizationBoundary.negation_without_reversal_breaks_order',
+                                          'NormalizationBoundary.envelope_frame_origin_ne_zero',
+                                          'RootNormalization.target_closed_root_nonempty',
                                          ],
         "lean_version": version, "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
         "platform": {"system": platform.system(), "machine": platform.machine()},
         "axioms": axioms, "runs": runs,
         "pro_return": {"archive_sha256": return_archive_hash, "integrity_entries": len(return_files), "original_theorem_statements_preserved": 47},
         "new_reduction": {"chart_coverage": "SixTrianglePilot.ChartCoverage.chart_coverage", "original_survivors": "SixTrianglePilot.CornerFrames.original_survivors", "replacement": "SixTrianglePilot.CornerReplacement.replace_original", "equivalence": "SixTrianglePilot.CornerReplacement.unrestricted_packable6_iff", "small_sides": "SixTrianglePilot.SmallSides.two_lt_of_packable6", "original_frame_preserved": True, "boundary_contact": "legal"},
+        "target_normalization": {'theorem': 'SixTrianglePilot.RootNormalization.normalize_original_to_target', 'input': 'six arbitrary original unit triples, physical packing, S <= T', 'spatial_side': '(13 + 3 * sqrt(13)) / 8', 'envelope_side': '2977083/1000000', 'root_coordinate_order': ['u0', 'v0', 't0', 'u1', 'v1', 't1', 'u2', 'v2', 't2'], 'root_lower': ['0', '0', '-1/3', '0', '0', '-1/3', '0', '0', '-1/3'], 'root_upper': ['U', 'U', '0', 'U', 'U', '0', 'U', 'U', '1/3'], 'source_root': 'verification/independent_global.py:initial_box', 'comparison_convention': 'all root, order, median and sector inequalities are closed', 'same_original_pieces_retained': True, 'common_cartesian_isometry_proved': True, 'inverse_hull_recovery_proved': True, 'corresponding_local_anchors_proved': False, 'positive_target_witness': 'SixTrianglePilot.RootNormalization.target_closed_root_nonempty'},
         "source_sha256": {name: digest(ROOT / name) for name in tracked},
         "preserved_prior_pilot_sha256": PRESERVED_PRIOR_SOURCES,
         "notes": "Timings exclude toolchain/dependency downloads. Build timing can include cached local modules. Mutation files and raw logs are kept only in the run directory.",

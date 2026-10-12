@@ -7,6 +7,8 @@ import Pilot.CornerBoundary
 import Pilot.CornerReplacement
 import Pilot.LowerBoundReduction
 import Pilot.CoverageBoundary
+import Pilot.RootNormalization
+import Pilot.NormalizationBoundary
 
 -- These reports expose every axiom used by the key compiled theorems.
 #print axioms SixTrianglePilot.linear_le_boxSupport
@@ -177,3 +179,44 @@ import Pilot.CoverageBoundary
 #print axioms SixTrianglePilot.CoverageBoundary.three_halves_overlap_witness
 #print axioms SixTrianglePilot.CoverageBoundary.three_halves_corners_contained
 #print axioms SixTrianglePilot.CoverageBoundary.corners_overlap_at_three_halves
+
+-- Target-side closed root normalization, v0.6.0.
+#print axioms SixTrianglePilot.NormalizationBasics.target_lt_envelope
+#print axioms SixTrianglePilot.NormalizationBasics.hexagon_mono
+#print axioms SixTrianglePilot.NormalizationBasics.unit_centroid_mem_closed
+#print axioms SixTrianglePilot.NormalizationBasics.closed_root_of_bounds
+#print axioms SixTrianglePilot.OrientationOrder.exists_sorted_perm
+#print axioms SixTrianglePilot.OrientationOrder.normalized_mem_chart
+#print axioms SixTrianglePilot.OrientationOrder.exists_sorted_reflected
+#print axioms SixTrianglePilot.OrientationOrder.first_two_mem_nonpos_chart
+#print axioms SixTrianglePilot.TargetSymmetry.swap_chart_vertex
+#print axioms SixTrianglePilot.TargetSymmetry.frame_chart_vertex
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_image_unitTriangle
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_image_hexagon
+#print axioms SixTrianglePilot.TargetSymmetry.exists_sector_frame
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_squared_distance
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_unit
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_hull
+#print axioms SixTrianglePilot.TargetSymmetry.symmetry_interiors_disjoint_iff
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry_squared_distance
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry_hull
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry_image_unitTriangle
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry_image_hexagon
+#print axioms SixTrianglePilot.TargetSymmetry.physicalSymmetry_interiors_disjoint_iff
+#print axioms SixTrianglePilot.RootNormalization.inverse_hull
+#print axioms SixTrianglePilot.RootNormalization.normalize_original
+#print axioms SixTrianglePilot.RootNormalization.normalize_original_to_target
+#print axioms SixTrianglePilot.RootNormalization.packable6_has_closed_root
+#print axioms SixTrianglePilot.RootNormalization.target_closed_root_nonempty
+#print axioms SixTrianglePilot.NormalizationBoundary.normalized_zero
+#print axioms SixTrianglePilot.NormalizationBoundary.zero_median_not_strict
+#print axioms SixTrianglePilot.NormalizationBoundary.symmetry_fixes_barycentricCenter
+#print axioms SixTrianglePilot.NormalizationBoundary.center_sector_equalities
+#print axioms SixTrianglePilot.NormalizationBoundary.center_no_strict_sector
+#print axioms SixTrianglePilot.NormalizationBoundary.endpointParameters_closed
+#print axioms SixTrianglePilot.NormalizationBoundary.endpointParameters_ordered
+#print axioms SixTrianglePilot.NormalizationBoundary.negation_without_reversal_breaks_order
+#print axioms SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin
+#print axioms SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin_ne_zero
+#print axioms SixTrianglePilot.NormalizationBoundary.envelope_frame_origin_ne_zero
