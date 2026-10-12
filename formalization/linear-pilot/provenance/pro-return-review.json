@@ -1,0 +1,249 @@
+{
+  "date": "2026-10-12",
+  "formal_status": "The integrated result requires the independently generated REPRODUCTION.json. Full global optimality remains unformalized.",
+  "independent_return_checks": {
+    "boundaries_and_frames": {
+      "all_side_frame_checks": 21,
+      "all_side_parameters": [
+        "-1",
+        "0",
+        "1/2",
+        "1",
+        "3/2",
+        "2",
+        "3"
+      ],
+      "closed_contact_fixture": "J,K of supplied CornerBoundary.lean",
+      "corner_sides": [
+        "2",
+        "201/100",
+        "5/2",
+        "3"
+      ],
+      "depths": [
+        "1",
+        "1"
+      ],
+      "frame_point_checks": 16,
+      "insertion_below_two_counterexample": {
+        "S": "3/2",
+        "point": [
+          "2/3",
+          "1/6"
+        ]
+      },
+      "weak_separators_only": true
+    },
+    "elapsed_seconds": 0.898,
+    "invalid_variants": {
+      "count": 5,
+      "kind": "exact Python counterexample tests, NOT Lean mutation runs",
+      "tests": [
+        "inverse t=b rejected by exact vertex-range mismatch",
+        "omitted handedness correction rejected",
+        "strict-only parameter acceptance rejects a legal endpoint fixture",
+        "strict cut u+v>1 rejected by legal J boundary vertices",
+        "capacity-two premise fails survivor conclusion"
+      ]
+    },
+    "polynomial_identities": {
+      "count": 26,
+      "normal_forms": {
+        "cyclic_edge_1_preserves_Q": "0",
+        "cyclic_edge_2_preserves_Q": "0",
+        "frame1_cubed_u": "0",
+        "frame1_cubed_v": "0",
+        "frame1_cut": "0",
+        "frame1_preserves_Q_differences": "0",
+        "frame2_cut": "0",
+        "frame2_preserves_Q_differences": "0",
+        "inverse_chart_cosine_numerator": "0",
+        "inverse_chart_denominator_numerator": "0",
+        "lagrange": "0",
+        "negative_completion_Q": "0",
+        "ordered_chart_vertex_0_0": "0",
+        "ordered_chart_vertex_0_1": "0",
+        "ordered_chart_vertex_1_0": "0",
+        "ordered_chart_vertex_1_1": "0",
+        "ordered_chart_vertex_2_0": "0",
+        "ordered_chart_vertex_2_1": "0",
+        "physical_horizontal_cosine": "0",
+        "positive_center_cycle_u": "0",
+        "positive_center_cycle_v": "0",
+        "positive_completion_Q": "0",
+        "reconstruct_w": "0",
+        "reconstruct_z": "0",
+        "sector_lower_bound_identity": "0",
+        "twice_inner_product": "0"
+      }
+    },
+    "python": "3.13.5",
+    "rational_chart": {
+      "all_six_label_permutations": true,
+      "includes_stereographic_pole": true,
+      "input_parameters": 539,
+      "route_counts": {
+        "reverse=False,cycle=0": 1623,
+        "reverse=False,cycle=1": 1617,
+        "reverse=False,cycle=2": 1611,
+        "reverse=True,cycle=0": 1623,
+        "reverse=True,cycle=1": 1617,
+        "reverse=True,cycle=2": 1611
+      },
+      "translations": 3,
+      "triples_checked": 9720
+    },
+    "scope": "Polynomial identities and exact finite regression tests; no Lean compilation",
+    "script_sha256": "ed6a87f0c9a188522c8f70f21218104084e6e42e127912edf000acbe6d9bc154",
+    "status": "EXACT_CONTRIBUTION_CHECKS_PASSED",
+    "survivor_selection": {
+      "all_admissible_relations_checked": 343,
+      "deleted_cardinality_histogram": {
+        "0": 1,
+        "1": 42,
+        "2": 180,
+        "3": 120
+      }
+    }
+  },
+  "new_local_results": [
+    "CornerInsertion.insert_three_corners",
+    "CornerReplacement.replace_original",
+    "CornerReplacement.unrestricted_packable6_iff",
+    "SmallSides.two_lt_of_packable6"
+  ],
+  "original_return_manifest": {
+    "files": {
+      "HANDOFF.md": {
+        "bytes": 29487,
+        "sha256": "ca3af69395d76860ad5ce6f1773cffbca4a93d5a800a1a688d1a29dd4163f51e"
+      },
+      "VERIFY_RETURN.py": {
+        "bytes": 1322,
+        "sha256": "6b961ceffb03c2b0b82738e41753fea376bd47525082a772d9f5ff9d1d5c673d"
+      },
+      "checks/baseline_replay/embedded_basin.json": {
+        "bytes": 92659,
+        "sha256": "e6827928e4416f8052fb23ed2f1d0cf5c70a8b4cbb3de89c7f541df96a320917"
+      },
+      "checks/baseline_replay/global.json": {
+        "bytes": 553902,
+        "sha256": "91b860c432f843ecb5dc5d32015fb49d21bb13ed019a7ae383cbffe5901b45e7"
+      },
+      "checks/baseline_replay/global.log": {
+        "bytes": 2802,
+        "sha256": "d6196ce8332e49aa9a9de4d33d5d3c48c37647beb86478a59b23f3c7e9a8282d"
+      },
+      "checks/baseline_replay/local.json": {
+        "bytes": 489,
+        "sha256": "349515804b70f7414d4f21df27dc70cc6e83ac560ed3c1852506f937c823c164"
+      },
+      "checks/baseline_replay/local.log": {
+        "bytes": 489,
+        "sha256": "349515804b70f7414d4f21df27dc70cc6e83ac560ed3c1852506f937c823c164"
+      },
+      "checks/baseline_replay/regression_tests.log": {
+        "bytes": 3694,
+        "sha256": "024c4dbfd0ac0ab25a30c8f5333168290a441e24db0a43ac6969cb0101536353"
+      },
+      "checks/baseline_replay/result.json": {
+        "bytes": 1472,
+        "sha256": "d118ae9eaa7475334f43afa193461fdf3dd8bb84516de5c206110e9d355afd84"
+      },
+      "checks/check_contribution.py": {
+        "bytes": 14980,
+        "sha256": "ed6a87f0c9a188522c8f70f21218104084e6e42e127912edf000acbe6d9bc154"
+      },
+      "checks/contribution_results.json": {
+        "bytes": 2929,
+        "sha256": "241250c1ecc4e03ce2155dba00a4a8eb1b8080d0f691260725df2d775b3f9143"
+      },
+      "checks/environment.json": {
+        "bytes": 872,
+        "sha256": "ae9dc56da5ab90fe678711623a75209af7efb635e286f487ef1c2f50668acb7a"
+      },
+      "checks/static_text_checks.json": {
+        "bytes": 4798,
+        "sha256": "27bb39a14a2b4af8b4bc0da494129f7067566f5e3ad834be3e561e3cfe243767"
+      },
+      "lean/ContributionAudit.lean": {
+        "bytes": 3245,
+        "sha256": "14bd8b908afa73b11f246170c48d44959ed35eaa24872a12efbf4838b62cfa05"
+      },
+      "lean/Pilot/ChartCoverage.lean": {
+        "bytes": 14658,
+        "sha256": "823146211d96625d12e8b42ff8060dddebcd441d39c92a24c40244427507efa5"
+      },
+      "lean/Pilot/CornerFrames.lean": {
+        "bytes": 11074,
+        "sha256": "4e480f88b1bcd1c86b85f6576865526289360c6f7bbe10c69b6016e5f9b76290"
+      },
+      "lean/Pilot/LowerBoundReduction.lean": {
+        "bytes": 2151,
+        "sha256": "a21d6aeff813fb12db8745c93a9170f94f62f8af295f31ee59eee7ad91e63440"
+      },
+      "lean/Pilot/SurvivorSelection.lean": {
+        "bytes": 4401,
+        "sha256": "c0fb2e45aaa59775066a091915b5d294fb54e64e90e6c6f9bef7f4979ea5cc98"
+      },
+      "lean/Pilot/UnrestrictedCorner.lean": {
+        "bytes": 5566,
+        "sha256": "c452aa759e356989adb2f129c9ee10176787d36f24f24acf94944ef56023e716"
+      },
+      "logs/baseline_packet_integrity.log": {
+        "bytes": 143,
+        "sha256": "5ec253ac0302428dfde1ac0a4cc3174540de145d6db87ace0989fda522d22725"
+      },
+      "logs/contribution_checks.log": {
+        "bytes": 2929,
+        "sha256": "241250c1ecc4e03ce2155dba00a4a8eb1b8080d0f691260725df2d775b3f9143"
+      },
+      "logs/exact_replay_driver.log": {
+        "bytes": 1592,
+        "sha256": "bced9bb0b05300b26ab6f956e617543d5c98883bcb2d6e8659f9867c6b2e6712"
+      }
+    },
+    "format": "six-triangle-lean-return-manifest-v1",
+    "new_lean_compilation_status": "NOT RUN",
+    "scope": "Integrity of returned files only; not mathematical verification."
+  },
+  "preservation": "The canonical working tree matched all 105 sent source hashes, including its uncommitted v0.4 changes. All 29 inherited mathematical proof, generator and data files are retained byte-for-byte.",
+  "return_archive": {
+    "bytes": 77409,
+    "path": "provenance/six-triangle-lean-return-2026-10-12.zip",
+    "sha256": "79bc0aedd3b01560eea0bb6b5da9427b581c5a86cc6d61ef5a6c2c62715b882d"
+  },
+  "return_scope": "Pro supplied five uncompiled mathematical Lean modules and an uncompiled axiom-audit driver. Its Python checks were finite exact regressions and polynomial identities, not Lean verification.",
+  "returned_theorem_statement_comparison": {
+    "ChartCoverage": {
+      "all_statements_unchanged": true,
+      "count": 19,
+      "integrated_sha256": "a073a3e683f8c0837b7ae1bd06c8b91d4e56372dfbd37a128596dcf870c7ba3a",
+      "original_sha256": "823146211d96625d12e8b42ff8060dddebcd441d39c92a24c40244427507efa5"
+    },
+    "CornerFrames": {
+      "all_statements_unchanged": true,
+      "count": 15,
+      "integrated_sha256": "65497498883f3dcfb56ef1b5426fbcdf291eb99dd9dd88e4027f4b4e6f3be262",
+      "original_sha256": "4e480f88b1bcd1c86b85f6576865526289360c6f7bbe10c69b6016e5f9b76290"
+    },
+    "LowerBoundReduction": {
+      "all_statements_unchanged": true,
+      "count": 4,
+      "integrated_sha256": "00485ad212c7a5295e48ccf5858d0c623cc9084d3eb1d19abd5fced51aa23f6e",
+      "original_sha256": "a21d6aeff813fb12db8745c93a9170f94f62f8af295f31ee59eee7ad91e63440"
+    },
+    "SurvivorSelection": {
+      "all_statements_unchanged": true,
+      "count": 2,
+      "integrated_sha256": "4c1d642a8bf009b0067c9af74a1b8990e557db3b3e8fff163533712d0d89de6e",
+      "original_sha256": "c0fb2e45aaa59775066a091915b5d294fb54e64e90e6c6f9bef7f4979ea5cc98"
+    },
+    "UnrestrictedCorner": {
+      "all_statements_unchanged": true,
+      "count": 7,
+      "integrated_sha256": "eb89c2ffd5130e08794df656c4b86541f85fe8f23998d13ee6272bf623050f24",
+      "original_sha256": "c452aa759e356989adb2f129c9ee10176787d36f24f24acf94944ef56023e716"
+    }
+  }
+}

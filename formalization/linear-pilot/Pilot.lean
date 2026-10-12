@@ -1,5 +1,12 @@
 import Pilot.CoreSeparation
 import Pilot.Boundary
+import Pilot.Direct
+import Pilot.DirectBoundary
+import Pilot.UpperBound
+import Pilot.CornerBoundary
+import Pilot.CornerReplacement
+import Pilot.LowerBoundReduction
+import Pilot.CoverageBoundary
 
 -- These reports expose every axiom used by the key compiled theorems.
 #print axioms SixTrianglePilot.linear_le_boxSupport
@@ -43,3 +50,130 @@ import Pilot.Boundary
 #print axioms SixTrianglePilot.Boundary.correct_endpoint_contact
 #print axioms SixTrianglePilot.Boundary.enlarged_interval_vertex_outside
 #print axioms SixTrianglePilot.Boundary.facet_witness_valid
+#print axioms SixTrianglePilot.Container.centroid_bounds_of_containment
+#print axioms SixTrianglePilot.Container.selected_rotation_bounds
+#print axioms SixTrianglePilot.Container.selected_centroid_bounds
+#print axioms SixTrianglePilot.Container.cartesian_image_subset_iff
+#print axioms SixTrianglePilot.Container.selected_centroid_bounds_cartesian
+#print axioms SixTrianglePilot.Direct.omitted_0_0
+#print axioms SixTrianglePilot.Direct.omitted_2_5
+#print axioms SixTrianglePilot.Direct.initialRowsInfeasible
+#print axioms SixTrianglePilot.Direct.initialRows_of_containment
+#print axioms SixTrianglePilot.Direct.fullSeparation_of_unit_nonoverlap
+#print axioms SixTrianglePilot.Direct.selectedCellInfeasible
+#print axioms SixTrianglePilot.Direct.cartesianSelectedCellInfeasible
+#print axioms SixTrianglePilot.DirectBoundary.larger_container_feasible
+#print axioms SixTrianglePilot.DirectBoundary.cosine_endpoint
+#print axioms SixTrianglePilot.DirectBoundary.unit_boundary_contact
+#print axioms SixTrianglePilot.Packing.squared_distance_eq_oblique
+#print axioms SixTrianglePilot.Packing.physicalTriangle_subset_of_vertices
+#print axioms SixTrianglePilot.Packing.physical_interiors_disjoint_of_vertex_separator
+#print axioms SixTrianglePilot.UpperBound.witness_unit
+#print axioms SixTrianglePilot.UpperBound.witness_physical_containment
+#print axioms SixTrianglePilot.UpperBound.later_support
+#print axioms SixTrianglePilot.UpperBound.witness_interiors_disjoint
+#print axioms SixTrianglePilot.UpperBound.packable6_T
+#print axioms SixTrianglePilot.Corner.Wedged.support_upper
+#print axioms SixTrianglePilot.Corner.Wedged.support_lower
+#print axioms SixTrianglePilot.Corner.separating_functional_of_disjoint_interiors
+#print axioms SixTrianglePilot.Corner.Wedged.capacity_of_depth
+#print axioms SixTrianglePilot.Corner.chart_parameters
+#print axioms SixTrianglePilot.Corner.unitTriangle_eq_wedged
+#print axioms SixTrianglePilot.Corner.corner_capacity
+#print axioms SixTrianglePilot.Corner.cartesian_corner_capacity
+#print axioms SixTrianglePilot.CornerBoundary.boundary_configuration
+#print axioms SixTrianglePilot.CornerBoundary.J_interior_nonempty
+#print axioms SixTrianglePilot.CornerBoundary.K_interior_nonempty
+#print axioms SixTrianglePilot.CornerBoundary.physical_closed_corner_contact
+#print axioms SixTrianglePilot.CornerBoundary.no_physical_corner_intrusion
+#print axioms SixTrianglePilot.CornerBoundary.weak_depth_capacity_false
+
+-- Unrestricted reduction and exact boundary fixtures, v0.5.0.
+#print axioms SixTrianglePilot.ChartCoverage.lagrange
+#print axioms SixTrianglePilot.ChartCoverage.determinant_sq
+#print axioms SixTrianglePilot.ChartCoverage.equilateral_completion
+#print axioms SixTrianglePilot.ChartCoverage.sector_cover
+#print axioms SixTrianglePilot.ChartCoverage.sector_cosine_bound
+#print axioms SixTrianglePilot.ChartCoverage.half_angle_inverse
+#print axioms SixTrianglePilot.ChartCoverage.hull_cycle
+#print axioms SixTrianglePilot.ChartCoverage.hull_reverse
+#print axioms SixTrianglePilot.ChartCoverage.unit_edge_constraints
+#print axioms SixTrianglePilot.ChartCoverage.unit_determinant_sq
+#print axioms SixTrianglePilot.ChartCoverage.unit_as_positive
+#print axioms SixTrianglePilot.ChartCoverage.positive_in_chart
+#print axioms SixTrianglePilot.ChartCoverage.positive_cycle
+#print axioms SixTrianglePilot.ChartCoverage.positive_cycle_center
+#print axioms SixTrianglePilot.ChartCoverage.positive_chart_coverage
+#print axioms SixTrianglePilot.ChartCoverage.chart_coverage
+#print axioms SixTrianglePilot.ChartCoverage.physical_chart_coverage
+#print axioms SixTrianglePilot.ChartCoverage.centroid_mem_interior
+#print axioms SixTrianglePilot.ChartCoverage.unit_interior_nonempty
+#print axioms SixTrianglePilot.UnrestrictedCorner.corner_capacity
+#print axioms SixTrianglePilot.UnrestrictedCorner.cartesian_corner_capacity
+#print axioms SixTrianglePilot.UnrestrictedCorner.positive_coordinates_of_interior
+#print axioms SixTrianglePilot.UnrestrictedCorner.mem_corner_interior
+#print axioms SixTrianglePilot.UnrestrictedCorner.no_intrusion_implies_cut
+#print axioms SixTrianglePilot.UnrestrictedCorner.cut_implies_no_intrusion
+#print axioms SixTrianglePilot.UnrestrictedCorner.unit_no_intrusion_iff_cut
+#print axioms SixTrianglePilot.SurvivorSelection.select_three
+#print axioms SixTrianglePilot.SurvivorSelection.original_survivors_of_capacity_and_cuts
+#print axioms SixTrianglePilot.CornerFrames.frame_twice
+#print axioms SixTrianglePilot.CornerFrames.frame_eq_rotate
+#print axioms SixTrianglePilot.CornerFrames.frame_hull
+#print axioms SixTrianglePilot.CornerFrames.frame_unit
+#print axioms SixTrianglePilot.CornerFrames.frame_mem_container
+#print axioms SixTrianglePilot.CornerFrames.framed_unit
+#print axioms SixTrianglePilot.CornerFrames.framed_hull
+#print axioms SixTrianglePilot.CornerFrames.frames_mem_container
+#print axioms SixTrianglePilot.CornerFrames.framed_subset_wedge
+#print axioms SixTrianglePilot.CornerFrames.interior_disjoint_image_iff
+#print axioms SixTrianglePilot.CornerFrames.corner_image
+#print axioms SixTrianglePilot.CornerFrames.framed_intrusion
+#print axioms SixTrianglePilot.CornerFrames.capacity_at_corner
+#print axioms SixTrianglePilot.CornerFrames.no_corner_intrusion_implies_hexagon
+#print axioms SixTrianglePilot.CornerFrames.original_survivors
+#print axioms SixTrianglePilot.CornerFrames.frameHomeomorph
+#print axioms SixTrianglePilot.LowerBoundReduction.packable6_mono
+#print axioms SixTrianglePilot.LowerBoundReduction.two_lt_T
+#print axioms SixTrianglePilot.LowerBoundReduction.unrestricted_lower_bound_of_from_two
+#print axioms SixTrianglePilot.LowerBoundReduction.unrestricted_lower_bound_of_no_smaller_from_two
+#print axioms SixTrianglePilot.CornerInsertion.corner_unit
+#print axioms SixTrianglePilot.CornerInsertion.corner_containment
+#print axioms SixTrianglePilot.CornerInsertion.normal_nonzero
+#print axioms SixTrianglePilot.CornerInsertion.corner_support
+#print axioms SixTrianglePilot.CornerInsertion.later_corner_support
+#print axioms SixTrianglePilot.CornerInsertion.corners_disjoint
+#print axioms SixTrianglePilot.CornerInsertion.hexagon_support
+#print axioms SixTrianglePilot.CornerInsertion.corner_survivor_disjoint
+#print axioms SixTrianglePilot.CornerInsertion.replacement_preserves
+#print axioms SixTrianglePilot.CornerInsertion.replacement_unit
+#print axioms SixTrianglePilot.CornerInsertion.replacement_containment
+#print axioms SixTrianglePilot.CornerInsertion.replacement_disjoint
+#print axioms SixTrianglePilot.CornerInsertion.insert_three_corners
+#print axioms SixTrianglePilot.SmallSides.halfTurn_involution
+#print axioms SixTrianglePilot.SmallSides.halfTurn_eq_neg
+#print axioms SixTrianglePilot.SmallSides.halfTurn_hull
+#print axioms SixTrianglePilot.SmallSides.halfTurn_unit
+#print axioms SixTrianglePilot.SmallSides.halfTurn_mem_corner_of_mem_hexagon
+#print axioms SixTrianglePilot.SmallSides.no_two_units_in_hexagon_of_le_two
+#print axioms SixTrianglePilot.SmallSides.two_lt_of_packable6
+#print axioms SixTrianglePilot.SmallSides.not_packable6_of_le_two
+#print axioms SixTrianglePilot.CornerReplacement.replacement_corners
+#print axioms SixTrianglePilot.CornerReplacement.replace_original_from_two
+#print axioms SixTrianglePilot.CornerReplacement.packable6_iff_hexagon_three
+#print axioms SixTrianglePilot.CornerReplacement.unrestricted_packable6_iff
+#print axioms SixTrianglePilot.CornerReplacement.replace_original
+#print axioms SixTrianglePilot.CoverageBoundary.positive_endpoint_inverse
+#print axioms SixTrianglePilot.CoverageBoundary.negative_endpoint_inverse
+#print axioms SixTrianglePilot.CoverageBoundary.unscaled_inverse_false
+#print axioms SixTrianglePilot.CoverageBoundary.positive_endpoint_triangle
+#print axioms SixTrianglePilot.CoverageBoundary.negative_endpoint_triangle
+#print axioms SixTrianglePilot.CoverageBoundary.endpoint_seam
+#print axioms SixTrianglePilot.CoverageBoundary.reversed_vertices_unit
+#print axioms SixTrianglePilot.CoverageBoundary.reversed_vertices_negative_determinant
+#print axioms SixTrianglePilot.CoverageBoundary.reversed_vertices_coverage
+#print axioms SixTrianglePilot.CoverageBoundary.J_cut_vertex
+#print axioms SixTrianglePilot.CoverageBoundary.J_cut_retains_equality
+#print axioms SixTrianglePilot.CoverageBoundary.three_halves_overlap_witness
+#print axioms SixTrianglePilot.CoverageBoundary.three_halves_corners_contained
+#print axioms SixTrianglePilot.CoverageBoundary.corners_overlap_at_three_halves
