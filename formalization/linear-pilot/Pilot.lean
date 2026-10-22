@@ -9,6 +9,23 @@ import Pilot.LowerBoundReduction
 import Pilot.CoverageBoundary
 import Pilot.RootNormalization
 import Pilot.NormalizationBoundary
+import Pilot.BoxCoverBoundary
+import Pilot.AcceptedCertificate
+import Pilot.CertificateBoundary
+import Pilot.TerminalBoundary
+
+import Pilot.SupportRecords
+import Pilot.SupportBoundary
+
+import Pilot.ClipRecords
+import Pilot.ClipBoundary
+
+import Pilot.PairExclusionRecords
+import Pilot.PairBoundary
+
+import Pilot.EmptyFamilyRecords
+import Pilot.EmptyFamilyPrototype
+import Pilot.ContractionBoundary
 
 -- These reports expose every axiom used by the key compiled theorems.
 #print axioms SixTrianglePilot.linear_le_boxSupport
@@ -220,3 +237,358 @@ import Pilot.NormalizationBoundary
 #print axioms SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin
 #print axioms SixTrianglePilot.NormalizationBoundary.wrong_side_frame_origin_ne_zero
 #print axioms SixTrianglePilot.NormalizationBoundary.envelope_frame_origin_ne_zero
+
+-- Exact rational propagation and finite closed-box coverage, v0.7.0.
+#print axioms SixTrianglePilot.ClosedBox.envelopeRat_cast
+#print axioms SixTrianglePilot.ClosedBox.root_lower_cast
+#print axioms SixTrianglePilot.ClosedBox.root_upper_cast
+#print axioms SixTrianglePilot.ClosedBox.in_root_box_iff
+#print axioms SixTrianglePilot.ClosedBox.root_order_median
+#print axioms SixTrianglePilot.ClosedBox.in_envelope_root
+#print axioms SixTrianglePilot.ClosedBox.interval_nonempty_of_member
+#print axioms SixTrianglePilot.OrderPropagation.tightened_other
+#print axioms SixTrianglePilot.OrderPropagation.tightened_endpoints
+#print axioms SixTrianglePilot.OrderPropagation.in_tightened_of_inBox_order
+#print axioms SixTrianglePilot.OrderPropagation.inBox_of_in_tightened
+#print axioms SixTrianglePilot.OrderPropagation.propagate_some_of_member
+#print axioms SixTrianglePilot.OrderPropagation.propagate_none_excludes
+#print axioms SixTrianglePilot.OrderPropagation.propagate_some_eq
+#print axioms SixTrianglePilot.OrderPropagation.inBox_of_propagate_some
+#print axioms SixTrianglePilot.OrderPropagation.in_propagate_of_member
+#print axioms SixTrianglePilot.OrderPropagation.propagate_none_iff
+#print axioms SixTrianglePilot.OrderPropagation.propagate_some_iff
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed_of_valid
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed_some_iff
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed_none_iff
+#print axioms SixTrianglePilot.ClosedSplit.in_leftChild_iff
+#print axioms SixTrianglePilot.ClosedSplit.in_rightChild_iff
+#print axioms SixTrianglePilot.ClosedSplit.inBox_of_leftChild
+#print axioms SixTrianglePilot.ClosedSplit.inBox_of_rightChild
+#print axioms SixTrianglePilot.ClosedSplit.parent_covered
+#print axioms SixTrianglePilot.ClosedSplit.inBox_split_iff
+#print axioms SixTrianglePilot.ClosedSplit.parent_eq_union_children
+#print axioms SixTrianglePilot.ClosedSplit.inBox_of_success_iff
+#print axioms SixTrianglePilot.ClosedSplit.split_plane_both
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed_at_lower_none
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed_at_upper_none
+#print axioms SixTrianglePilot.BoxCover.reached_in_parent
+#print axioms SixTrianglePilot.BoxCover.structurallyValid_covers
+#print axioms SixTrianglePilot.BoxCover.normalized_original_reaches_terminal
+#print axioms SixTrianglePilot.BoxCover.original_packing_reaches_terminal
+#print axioms SixTrianglePilot.BoxCoverBoundary.zero_member_ordered
+#print axioms SixTrianglePilot.BoxCoverBoundary.zero_tightened
+#print axioms SixTrianglePilot.BoxCoverBoundary.zero_propagates
+#print axioms SixTrianglePilot.BoxCoverBoundary.chain_tightened
+#print axioms SixTrianglePilot.BoxCoverBoundary.chain_propagates
+#print axioms SixTrianglePilot.BoxCoverBoundary.chain_member_survives
+#print axioms SixTrianglePilot.BoxCoverBoundary.inverted_coordinate_tightened
+#print axioms SixTrianglePilot.BoxCoverBoundary.inverted_coordinate_propagates
+#print axioms SixTrianglePilot.BoxCoverBoundary.inverted_coordinate_no_member
+#print axioms SixTrianglePilot.BoxCoverBoundary.incompatible_intervals_nonempty
+#print axioms SixTrianglePilot.BoxCoverBoundary.incompatible_propagates_none
+#print axioms SixTrianglePilot.BoxCoverBoundary.incompatible_no_ordered_member
+#print axioms SixTrianglePilot.BoxCoverBoundary.unit_zero_member_ordered
+#print axioms SixTrianglePilot.BoxCoverBoundary.unit_zero_split_valid
+#print axioms SixTrianglePilot.BoxCoverBoundary.zero_on_both_children
+#print axioms SixTrianglePilot.BoxCoverBoundary.discarded_right_counterexample
+#print axioms SixTrianglePilot.BoxCoverBoundary.unit_endpoint_cuts_rejected
+#print axioms SixTrianglePilot.BoxCoverBoundary.zero_tree_validation
+#print axioms SixTrianglePilot.BoxCoverBoundary.incompatible_tree_validation
+#print axioms SixTrianglePilot.BoxCoverBoundary.sample_tree_valid
+#print axioms SixTrianglePilot.BoxCoverBoundary.sample_tree_reaches_terminal
+#print axioms SixTrianglePilot.OrderPropagation.propagate
+#print axioms SixTrianglePilot.ClosedSplit.splitClosed
+#print axioms SixTrianglePilot.BoxCover.structurallyValid
+
+-- Accepted outer-tree coverage with pending terminal records, v0.8.0.
+#print axioms SixTrianglePilot.CertificateTree.Checked.to_structurallyValid
+#print axioms SixTrianglePilot.CertificateTree.Checked.hasLeafAt
+#print axioms SixTrianglePilot.CertificateTree.Checked.reaches_record
+#print axioms SixTrianglePilot.CertificateTree.Checked.covers
+#print axioms SixTrianglePilot.CertificateTree.normalized_original_reaches_record
+#print axioms SixTrianglePilot.CertificateTree.original_packing_reaches_record
+#print axioms SixTrianglePilot.AcceptedCertificate.checked
+#print axioms SixTrianglePilot.AcceptedCertificate.structurally_valid
+#print axioms SixTrianglePilot.AcceptedCertificate.reached_record
+#print axioms SixTrianglePilot.AcceptedCertificate.covers
+#print axioms SixTrianglePilot.AcceptedCertificate.normalized_original_reaches_record
+#print axioms SixTrianglePilot.AcceptedCertificate.original_packing_reaches_record
+#print axioms SixTrianglePilot.AcceptedCertificate.target_witness_reaches_record
+#print axioms SixTrianglePilot.CertificateBoundary.actual_leaf_bounds
+#print axioms SixTrianglePilot.CertificateBoundary.actual_post_ne_input
+#print axioms SixTrianglePilot.CertificateBoundary.actual_leaf_propagates
+#print axioms SixTrianglePilot.CertificateBoundary.actual_leaf_path
+#print axioms SixTrianglePilot.CertificateBoundary.actual_sibling_path_distinct
+#print axioms SixTrianglePilot.CertificateBoundary.actual_leaf_reaches
+#print axioms SixTrianglePilot.CertificateBoundary.actual_leaf_reached_record
+#print axioms SixTrianglePilot.CertificateBoundary.actual_input_not_reached
+#print axioms SixTrianglePilot.CertificateBoundary.incompatible_orderReject_checked
+#print axioms SixTrianglePilot.CertificateBoundary.zero_orderReject_not_checked
+#print axioms SixTrianglePilot.CertificateBoundary.seam_checked
+#print axioms SixTrianglePilot.CertificateBoundary.seam_records_same_label
+#print axioms SixTrianglePilot.CertificateBoundary.seam_records_distinct
+#print axioms SixTrianglePilot.CertificateBoundary.seam_two_records_same_point
+#print axioms SixTrianglePilot.CertificateBoundary.seam_not_unique_record
+
+-- Geometric terminal semantics and first actual exclusion, v0.9.0.
+#print axioms SixTrianglePilot.TerminalSemantics.normalized_original_geometry
+#print axioms SixTrianglePilot.TerminalSemantics.normalized_original_feasible
+#print axioms SixTrianglePilot.TerminalSemantics.normalized_original_avoids_excluded
+#print axioms SixTrianglePilot.TerminalSemantics.selected_bounds_not_feasible
+#print axioms SixTrianglePilot.TerminalSemantics.selected_bounds_excluded
+#print axioms SixTrianglePilot.TerminalSemantics.checked_leaf_reaches
+#print axioms SixTrianglePilot.TerminalSemantics.normalized_original_reaches_remaining
+#print axioms SixTrianglePilot.TerminalSemantics.target_root_feasible
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_identity
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_occurs
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_occurs_at
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_reaches
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_bounds
+#print axioms SixTrianglePilot.AcceptedExclusions.selected_record_excluded
+#print axioms SixTrianglePilot.AcceptedExclusions.normalized_original_avoids_selected
+#print axioms SixTrianglePilot.AcceptedExclusions.resolved_sound
+#print axioms SixTrianglePilot.AcceptedExclusions.normalized_original_reaches_remaining
+#print axioms SixTrianglePilot.AcceptedExclusions.original_packing_reaches_remaining
+#print axioms SixTrianglePilot.AcceptedExclusions.target_witness_reaches_remaining
+#print axioms SixTrianglePilot.TerminalBoundary.seam_in_selected
+#print axioms SixTrianglePilot.TerminalBoundary.seam_in_neighbor
+#print axioms SixTrianglePilot.TerminalBoundary.seam_ordered
+#print axioms SixTrianglePilot.TerminalBoundary.seam_endpoint
+#print axioms SixTrianglePilot.TerminalBoundary.selected_numeric_domain_nonempty
+#print axioms SixTrianglePilot.TerminalBoundary.neighbor_bounds_not_selected
+#print axioms SixTrianglePilot.TerminalBoundary.neighbor_not_resolved
+#print axioms SixTrianglePilot.TerminalBoundary.enlarged_bounds_not_selected
+#print axioms SixTrianglePilot.TerminalBoundary.enlarged_point_member
+#print axioms SixTrianglePilot.TerminalBoundary.enlarged_point_ordered
+#print axioms SixTrianglePilot.TerminalBoundary.enlarged_point_above_selected
+#print axioms SixTrianglePilot.TerminalBoundary.root_impostor_same_metadata
+#print axioms SixTrianglePilot.TerminalBoundary.root_impostor_feasible
+#print axioms SixTrianglePilot.TerminalBoundary.root_impostor_not_excluded
+#print axioms SixTrianglePilot.TerminalBoundary.root_impostor_not_resolved
+#print axioms SixTrianglePilot.TerminalBoundary.root_not_selected
+#print axioms SixTrianglePilot.TerminalBoundary.not_every_record_excluded
+#print axioms SixTrianglePilot.TerminalBoundary.not_all_actual_records_excluded
+
+-- General initial support halfplanes and actual-record preservation, v0.10.0.
+#print axioms SixTrianglePilot.SupportIntervals.cosine_abs
+#print axioms SixTrianglePilot.SupportIntervals.sineCoefficient_abs
+#print axioms SixTrianglePilot.SupportIntervals.supportM_eq_positive_abs
+#print axioms SixTrianglePilot.SupportIntervals.positiveSupport_eq
+#print axioms SixTrianglePilot.SupportIntervals.cosine_le_of_sq_le
+#print axioms SixTrianglePilot.SupportIntervals.minimumCos_le
+#print axioms SixTrianglePilot.SupportIntervals.nearestZero_nonneg
+#print axioms SixTrianglePilot.SupportIntervals.nearestZero_le_abs
+#print axioms SixTrianglePilot.SupportIntervals.positiveSupport_mono
+#print axioms SixTrianglePilot.SupportIntervals.minimumM_le
+#print axioms SixTrianglePilot.SupportIntervals.one_le_minimumM
+#print axioms SixTrianglePilot.SupportGeometry.centroid_bounds
+#print axioms SixTrianglePilot.SupportGeometry.interval_centroid_bounds
+#print axioms SixTrianglePilot.SupportGeometry.cosineQ_cast
+#print axioms SixTrianglePilot.SupportGeometry.sineQ_cast
+#print axioms SixTrianglePilot.SupportGeometry.minimumCosQ_cast
+#print axioms SixTrianglePilot.SupportGeometry.nearestZeroQ_cast
+#print axioms SixTrianglePilot.SupportGeometry.minimumMQ_cast
+#print axioms SixTrianglePilot.SupportGeometry.inSupport_iff
+#print axioms SixTrianglePilot.SupportGeometry.inSupport_of_containment
+#print axioms SixTrianglePilot.SupportGeometry.initial_triangle_of_inSupport
+#print axioms SixTrianglePilot.ReachedBounds.Within.refl
+#print axioms SixTrianglePilot.ReachedBounds.Within.trans
+#print axioms SixTrianglePilot.ReachedBounds.propagate_within
+#print axioms SixTrianglePilot.ReachedBounds.leftChild_within
+#print axioms SixTrianglePilot.ReachedBounds.rightChild_within
+#print axioms SixTrianglePilot.ReachedBounds.splitClosed_within
+#print axioms SixTrianglePilot.ReachedBounds.reaches_within
+#print axioms SixTrianglePilot.ReachedBounds.reaches_orientation_nonempty
+#print axioms SixTrianglePilot.ReachedBounds.accepted_record_within
+#print axioms SixTrianglePilot.ReachedBounds.accepted_record_orientation_nonempty
+#print axioms SixTrianglePilot.ReachedBounds.accepted_record_chart_bounds
+#print axioms SixTrianglePilot.ReachedBounds.accepted_record_chart_interval
+#print axioms SixTrianglePilot.SupportRecords.coordinate_projections
+#print axioms SixTrianglePilot.SupportRecords.record_supports
+#print axioms SixTrianglePilot.SupportRecords.record_initial_triangles
+#print axioms SixTrianglePilot.SupportRecords.normalized_original_supports
+#print axioms SixTrianglePilot.SupportRecords.normalized_original_reaches_supported
+#print axioms SixTrianglePilot.SupportRecords.original_packing_reaches_supported
+#print axioms SixTrianglePilot.SupportRecords.target_witness_reaches_supported
+#print axioms SixTrianglePilot.SupportBoundary.crossing_cosine
+#print axioms SixTrianglePilot.SupportBoundary.crossing_support
+#print axioms SixTrianglePilot.SupportBoundary.seam_singletons
+#print axioms SixTrianglePilot.SupportBoundary.signed_intervals
+#print axioms SixTrianglePilot.SupportBoundary.endpoints_fail_crossing
+#print axioms SixTrianglePilot.SupportBoundary.chart_restriction_necessary
+#print axioms SixTrianglePilot.SupportBoundary.cosine_maximum_unsafe
+#print axioms SixTrianglePilot.SupportBoundary.signed_support_mismatch
+#print axioms SixTrianglePilot.SupportBoundary.boundary_vertices
+#print axioms SixTrianglePilot.SupportBoundary.boundary_contained
+#print axioms SixTrianglePilot.SupportBoundary.boundary_inSupport
+#print axioms SixTrianglePilot.SupportBoundary.boundary_rows_tight
+#print axioms SixTrianglePilot.SupportBoundary.strict_rows_false
+
+-- Initial clipping outputs and complete actual-record bindings, v0.11.0.
+#print axioms SixTrianglePilot.ClipWeights.blend_zero_left
+#print axioms SixTrianglePilot.ClipWeights.blend_combination
+#print axioms SixTrianglePilot.ClipWeights.redistributed_mass
+#print axioms SixTrianglePilot.ClipWeights.redistributed_point
+#print axioms SixTrianglePilot.ClipWeights.weighted_mem
+#print axioms SixTrianglePilot.HalfspaceClip.slack_combination
+#print axioms SixTrianglePilot.HalfspaceClip.intersection_mem_segment
+#print axioms SixTrianglePilot.HalfspaceClip.intersection_slack
+#print axioms SixTrianglePilot.HalfspaceClip.candidates_subset
+#print axioms SixTrianglePilot.HalfspaceClip.convex_slack_nonneg
+#print axioms SixTrianglePilot.HalfspaceClip.candidates_hull_subset
+#print axioms SixTrianglePilot.HalfspaceClip.slack_sum
+#print axioms SixTrianglePilot.HalfspaceClip.clipped_hull_subset
+#print axioms SixTrianglePilot.HalfspaceClip.clipped_hull_eq
+#print axioms SixTrianglePilot.ClipCertificate.combinationChecked_mem_hull
+#print axioms SixTrianglePilot.ClipCertificate.slackQ_cast
+#print axioms SixTrianglePilot.ClipCertificate.slack_cast
+#print axioms SixTrianglePilot.ClipCertificate.intersectionQ_cast
+#print axioms SixTrianglePilot.ClipCertificate.checked_candidates_subset
+#print axioms SixTrianglePilot.ClipCertificate.checked_preserves
+#print axioms SixTrianglePilot.ClipSequence.rowNormal_linear
+#print axioms SixTrianglePilot.ClipSequence.holds_iff_row
+#print axioms SixTrianglePilot.ClipSequence.CheckedTrace.preserves
+#print axioms SixTrianglePilot.ClipSequence.mem_seed
+#print axioms SixTrianglePilot.ClipSequence.validEntry_preserves
+#print axioms SixTrianglePilot.ClipCatalog.Checked.lookup_valid
+#print axioms SixTrianglePilot.ClipCatalog.TreeSupported.hasLeaf
+#print axioms SixTrianglePilot.ClipCatalog.LeafSupported.valid_entry
+#print axioms SixTrianglePilot.ClipCatalog.TreeSupported.valid_entry
+#print axioms SixTrianglePilot.ClipBoundary.empty_checked
+#print axioms SixTrianglePilot.ClipBoundary.empty_hull
+#print axioms SixTrianglePilot.ClipBoundary.point_checked
+#print axioms SixTrianglePilot.ClipBoundary.point_survives
+#print axioms SixTrianglePilot.ClipBoundary.point_empty_rejected
+#print axioms SixTrianglePilot.ClipBoundary.segment_checked
+#print axioms SixTrianglePilot.ClipBoundary.segment_boundary_survives
+#print axioms SixTrianglePilot.ClipBoundary.negative_weight_rejected
+#print axioms SixTrianglePilot.ClipBoundary.wrong_mass_rejected
+#print axioms SixTrianglePilot.ClipBoundary.wrong_coordinate_rejected
+#print axioms SixTrianglePilot.ClipBoundary.missing_crossing_rejected
+#print axioms SixTrianglePilot.ClipBoundary.bowtie_required_crossing
+#print axioms SixTrianglePilot.ClipBoundary.bowtie_upper_missing
+#print axioms SixTrianglePilot.ClipBoundary.bowtie_rejected
+#print axioms SixTrianglePilot.ClipRecords.matching_entry_preserves
+#print axioms SixTrianglePilot.ClipRecords.catalog_record_preserves
+#print axioms SixTrianglePilot.ClipRecords.record_initial_polygons
+#print axioms SixTrianglePilot.ClipRecords.normalized_original_initial_polygons
+#print axioms SixTrianglePilot.ClipRecords.normalized_original_reaches_clipped
+#print axioms SixTrianglePilot.ClipRecords.original_packing_reaches_clipped
+#print axioms SixTrianglePilot.ClipRecords.target_witness_reaches_clipped
+#print axioms SixTrianglePilot.ClipRecords.boundary_output_exact
+#print axioms SixTrianglePilot.ClipRecords.boundary_center_survives
+#print axioms SixTrianglePilot.AcceptedClipping.catalog_checked
+#print axioms SixTrianglePilot.AcceptedClipping.tree_supported
+
+-- Eight direct pair exclusions and continued fixed-witness coverage, v0.12.0.
+#print axioms SixTrianglePilot.CoreContainment.checked_interval_valid
+#print axioms SixTrianglePilot.CoreContainment.inverted_interval_rejected
+#print axioms SixTrianglePilot.CoreContainment.quadraticChecked_nonneg
+#print axioms SixTrianglePilot.CoreContainment.checked_vertex_mem
+#print axioms SixTrianglePilot.CoreContainment.checked_containment
+#print axioms SixTrianglePilot.CoreContainment.checked_translated_containment
+#print axioms SixTrianglePilot.CoreContainment.checked_interior_containment
+#print axioms SixTrianglePilot.CoreContainment.checked_cartesian_containment
+#print axioms SixTrianglePilot.CoreContainment.checked_cartesian_interior_containment
+#print axioms SixTrianglePilot.PairOverlap.combinationPointQ_mem_interior
+#print axioms SixTrianglePilot.PairOverlap.difference_mem_of_vertex_pairs
+#print axioms SixTrianglePilot.PairOverlap.overlap_of_interior_difference
+#print axioms SixTrianglePilot.PairOverlap.checked_sound
+#print axioms SixTrianglePilot.PairExclusionCertificate.checked_excludes
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_labels_injective
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_records_injective
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_count
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_sound
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_occurs
+#print axioms SixTrianglePilot.PairExclusionRecords.resolved_reaches
+#print axioms SixTrianglePilot.PairExclusionRecords.normalized_original_reaches_remaining
+#print axioms SixTrianglePilot.PairExclusionRecords.original_packing_reaches_remaining
+#print axioms SixTrianglePilot.PairExclusionRecords.target_witness_reaches_remaining
+#print axioms SixTrianglePilot.PairExclusionRecords.not_all_actual_records_resolved
+#print axioms SixTrianglePilot.PairBoundary.empty_checked
+#print axioms SixTrianglePilot.PairBoundary.point_checked
+#print axioms SixTrianglePilot.PairBoundary.segment_checked
+#print axioms SixTrianglePilot.PairBoundary.weak_contact_weights
+#print axioms SixTrianglePilot.PairBoundary.weak_contact_rejected
+#print axioms SixTrianglePilot.PairBoundary.zero_weight_rejected
+#print axioms SixTrianglePilot.PairBoundary.negative_weight_rejected
+#print axioms SixTrianglePilot.PairBoundary.wrong_mass_rejected
+#print axioms SixTrianglePilot.PairBoundary.wrong_coordinate_rejected
+#print axioms SixTrianglePilot.PairBoundary.missing_pair_rejected
+#print axioms SixTrianglePilot.PairBoundary.degenerate_core_rejected
+#print axioms SixTrianglePilot.PairBoundary.singleton_core_checked
+#print axioms SixTrianglePilot.PairBoundary.enlarged_core_interval_rejected
+#print axioms SixTrianglePilot.PairBoundary.inverted_core_interval_rejected
+#print axioms SixTrianglePilot.PairBoundary.endpoint_only_quadratic_is_negative_inside
+#print axioms SixTrianglePilot.PairBoundary.endpoint_only_quadratic_rejected
+#print axioms SixTrianglePilot.PairBoundary.actual_contact_disjoint
+#print axioms SixTrianglePilot.PairBoundary.actual_closed_contact
+#print axioms SixTrianglePilot.PairBoundary.no_contact_certificate
+#print axioms SixTrianglePilot.PairBoundary.mismatched_record_rejected
+#print axioms SixTrianglePilot.PairBoundary.actual_interval_enlargement_rejected
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_0_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_0_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_0_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_1_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_1_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_1_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_1429_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_1429_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_1429_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_2_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_2818_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2818_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2818_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_2823_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2823_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_2823_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_808_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_808_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_808_excluded
+#print axioms SixTrianglePilot.AcceptedPairExclusions.case_959_checked
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_959_occurs
+#print axioms SixTrianglePilot.AcceptedPairExclusions.leaf_959_excluded
+
+-- Complete empty-domain family and same-witness remaining coverage, v0.13.0.
+#print axioms SixTrianglePilot.FiniteRadial.radialCertificate
+#print axioms SixTrianglePilot.FiniteRadial.checked_sound
+#print axioms SixTrianglePilot.PairProjection.dotQ_cast
+#print axioms SixTrianglePilot.PairProjection.negNormal_linear
+#print axioms SixTrianglePilot.PairProjection.lower_bound
+#print axioms SixTrianglePilot.PairProjection.upper_bound
+#print axioms SixTrianglePilot.PairProjection.checked_preserves
+#print axioms SixTrianglePilot.ContractionTrace.CheckedTrace.preserves
+#print axioms SixTrianglePilot.ContractionTrace.hull_empty_of_size_zero
+#print axioms SixTrianglePilot.ContractionCertificate.checked_excludes
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.CheckedTree.data_for
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.actual_empty_excluded
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.resolved_sound
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.normalized_original_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.original_packing_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.target_witness_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyCoverage.not_all_actual_records_resolved
+#print axioms SixTrianglePilot.ContractionBoundary.radial_checked
+#print axioms SixTrianglePilot.ContractionBoundary.contact_checked
+#print axioms SixTrianglePilot.ContractionBoundary.deleting_viable_contact_rejected
+#print axioms SixTrianglePilot.ContractionBoundary.segment_projection_checked
+#print axioms SixTrianglePilot.ContractionBoundary.contact_trace_checked
+#print axioms SixTrianglePilot.ContractionBoundary.actual_contact_separated
+#print axioms SixTrianglePilot.ContractionBoundary.actual_contact_survives
+#print axioms SixTrianglePilot.ContractionBoundary.no_contact_empty_certificate
+#print axioms SixTrianglePilot.EmptyFamilyRecords.empty_count
+#print axioms SixTrianglePilot.EmptyFamilyRecords.leaf_3_not_empty
+#print axioms SixTrianglePilot.EmptyFamilyRecords.all_actual_empty_excluded
+#print axioms SixTrianglePilot.EmptyFamilyRecords.resolved_sound
+#print axioms SixTrianglePilot.EmptyFamilyRecords.normalized_original_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyRecords.original_packing_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyRecords.target_witness_reaches_remaining
+#print axioms SixTrianglePilot.EmptyFamilyRecords.not_all_actual_records_resolved
+#print axioms SixTrianglePilot.AcceptedEmptyFamily.tree_checked
+#print axioms SixTrianglePilot.AcceptedEmptyFamily.empty_count
+#print axioms SixTrianglePilot.AcceptedEmptyFamily.all_actual_empty_excluded
+#print axioms SixTrianglePilot.AcceptedEmptyFamily.leaf_3_not_empty
+#print axioms SixTrianglePilot.AcceptedEmptyFamilyPrototype.case_9_checked
+#print axioms SixTrianglePilot.AcceptedEmptyFamilyPrototype.prototype_occurs
+#print axioms SixTrianglePilot.AcceptedEmptyFamilyPrototype.prototype_excluded
